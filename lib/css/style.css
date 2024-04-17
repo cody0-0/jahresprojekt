@@ -1,0 +1,262 @@
+:root {
+
+    /* Colors */
+    --color-primary: var(--color-hsred-500);
+    --color-secondary: var(--color-ai-700);
+
+    --color-minf: var(--color-yellow-600);
+    --color-musk: var(--color-lavender-700);
+
+    --color-background: var(--color-neutral-900);
+    --color-text: var(--color-neutral-100);
+
+
+    --color-neutral-000: #000000;
+    --color-neutral-100: #2E2D2C;
+    --color-neutral-300: #6B6967;
+    --color-neutral-400: #83817E;
+    --color-neutral-500: #91908E;
+    --color-neutral-600: #A5A4A2;
+    --color-neutral-700: #C1C0BE;
+    --color-neutral-900: #F3F3F1;
+    --color-neutral-1000: #FFFFFF;
+
+    --color-ai-100: #02241C;
+    --color-ai-300: #1B5D4D;
+    --color-ai-400: #2B6D5D;
+    --color-ai-500: #488878;
+    --color-ai-600: #6BA093;
+    --color-ai-700: #96BEB4;
+    --color-ai-800: #B9D5CE;
+    --color-ai-900: #DBEDE9;
+
+    --color-hsred-100: #2F0009;
+    --color-hsred-300: #9D0924;
+    --color-hsred-400: #CB1636;
+    --color-hsred-500: #F02D50;
+    --color-hsred-600: #F45571;
+    --color-hsred-700: #F8879B;
+    --color-hsred-900: #FADDE2;
+
+    --color-yellow-100: #363001;
+    --color-yellow-300: #887A05;
+    --color-yellow-400: #B8A60F;
+    --color-yellow-500: #D9C51F;
+    --color-yellow-600: #E3D032;
+    --color-yellow-650: #F0E164;
+    --color-yellow-700: #F4E884;
+    --color-yellow-900: #F6F1CA;
+
+    --color-lavender-100: #240427;
+    --color-lavender-300: #5B1D62;
+    --color-lavender-400: #612867;
+    --color-lavender-500: #76427C;
+    --color-lavender-600: #9C68A2;
+    --color-lavender-700: #B58BBA;
+    --color-lavender-900: #E2D0E4;
+
+    /* Typography */
+
+    --font-family: 'Helvetica Neue', 'Arial', sans-serif;
+    --font-size-mobile: 16px;
+    --font-size-large: 20px;
+    --line-height: 1.5;
+
+    --font-size-title: 2.5rem;
+    --font-size-headline1: 2rem;
+    --font-size-headline2: 1.5rem;
+    --font-size-headline3: 1.25rem;
+    --font-size-body: 1rem;
+    --font-size-label: 1rem;
+
+    font-size: var(--font-size-mobile);
+
+
+    /* Spacings & Paddings */
+    
+    --unit: 8px;
+    
+    --padding-mobile: 1rem;
+    --padding-tablet: 2rem;
+    --padding-large: 3rem;
+    
+    --padding: clamp(var(--padding-mobile), 1vw, var(--padding-large));
+
+    --h-spacing-mobile: 24px;
+    --h-spacing-tablet: 32px;
+    --h-spacing-large: 48px;
+
+    --h-spacing: clamp(var(--h-spacing-mobile), 5vw, var(--h-spacing-large));
+    
+    --v-spacing-mobile: 40px;
+    --v-spacing-large: 48px;
+
+    --v-spacing: var(--v-spacing-mobile);
+
+    --v-spacing-previews-mobile: 72px;
+    --v-spacing-previews-large: 80px; 
+
+    --v-spacing-previews: var(--v-spacing-grid-mobile);
+
+    --header-height: 88px;
+
+    --content-wrap: 80ch;
+
+
+
+    --elevation-1: 0px 0px 8px rgba(0, 0, 0, 0.2);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-background: var(--color-neutral-100);
+        --color-text: var(--color-neutral-900);
+    }
+
+}
+
+@media (min-width: 640px) {
+    :root {
+        --font-size: var(--font-size-large);
+        --v-spacing: var(--v-spacing-large);
+        --v-spacing-previews: var(--v-spacing-previews-large);
+        font-size: var(--font-size-large);
+    }
+    
+}
+
+/* Main Layout */
+
+.wrapper {
+    max-width: var(--max-site-width, 1920px);
+    margin: 0;
+}
+
+.content-grid {
+    --padding-inline: var(--padding);
+    --content-max-width: var(--content-wrap);
+    --breakout-max-width: 85ch;
+
+    --breakout-size: calc((var(--breakout-max-width) - var(--content-max-width)) / 2);
+
+    display: grid;
+    grid-template-columns:
+        [full-start] minmax(var(--padding-inline), 1fr) [breakout-start] minmax(0, var(--breakout-size)) [content-start] min(100% - (var(--padding-inline) * 2),
+            var(--content-max-width)) [content-end] minmax(0, var(--breakout-size)) [breakout-end] minmax(var(--padding-inline), 1fr) [full-end];
+    gap: var(--h-spacing) 0px;
+    
+}
+
+.content-grid>* {
+    grid-column: content;
+}
+
+.content-grid>.breakout {
+    grid-column: breakout;
+}
+
+.content-grid>.full {
+    grid-column: full;
+}
+
+/* Responsive Classes */
+
+@media screen and (min-width: 640px) {
+    .small-only {
+        display: none;
+    }
+}
+@media screen and (max-width: 640px) {
+    .not-small {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .not-large {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .large-only {
+        display: none;
+    }
+}
+
+
+/* Style */
+html {
+    font-family: var(--font-family);
+    line-height: var(--line-height);
+    color: var(--color-text);
+    background-color: var(--color-background);
+}
+
+/* Elements */
+header {
+    --_text-color: var(--color-neutral-1000);
+
+    position: fixed;
+    top:0;
+    left:0;
+    padding: var(--padding) var(--padding);
+    text-align: center;
+    display: flex;
+    height: var(--header-height);
+    width: 100%;
+    background: color-mix(in srgb, var(--color-background) 0%);
+    filter: drop-shadow(var(--elevation-1));
+    justify-content: space-between;
+    align-items: center;
+    color: var(--_text-color);
+
+    animation: background-fade-in;
+    animation-timeline: scroll();
+}
+
+header.scrolled {
+    --_text-color: var(--color-text);
+    background: var(--color-background);
+    filter: drop-shadow(var(--elevation-1));
+
+}
+
+#minf-logo, #musk-logo{
+    display: none;
+}
+
+.logo {
+    width: auto;
+    height: 100%;
+}
+
+header > .controls {
+    display: flex;
+    gap: var(--h-spacing);
+}
+
+header nav {
+    display: flex;
+    gap: var(--h-spacing);
+}
+
+.sub-menu-item {
+    display: none;
+}
+
+.sub-menu.item.active {
+    display: block;
+}
+
+
+.hero-trailer {
+    background: rgb(27, 27, 82);
+    width: 100%;
+    height: 60svh;
+}
+
+.previews {
+    height: 100svh;
+}
+

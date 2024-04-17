@@ -45,7 +45,6 @@ h6 {
 }
 
 p {
-    max-width: 75ch;
     text-wrap: pretty;
     /* Compatibility: https://caniuse.com/mdn-css_properties_text-wrap_pretty -> Not necessary, but nice to have */
 }
