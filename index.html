@@ -14,7 +14,7 @@
 </head>
 <body>
     <div class="wrapper">
-        <header>
+        <header style="z-index: 1">
             <a class="logo" id="medien-logo" href="#">
                 <svg width="200" height="48" viewBox="0 0 200 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_314_4585)">
@@ -65,80 +65,78 @@
         </header>
         <main>
             <div class="wrapping-grid">
-                <section class="hero full">
-                    <div class="hero-trailer"></div>
+                <section class="hero full" style="position: relative;">
+                    <div class="wrapping-grid" style="position: absolute; display: flex; width: 100%; height: 100%; padding-block: var(--header-height); justify-content: center; align-items: end;">
+                        <h1 class="website-title">Medien<br/> Hochschule Harz</h1>
+                    </div>
+                    <video class="hero-trailer" muted autoplay loop>
+                        <source src="./resources/videos/SAE-Website-hero-video.mp4" type="video/mp4">
+                    </video>
                 </section>
-                <section class="welcome">
-                    <p class="welcome-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia dignissimos quis veritatis, debitis optio reiciendis quos! At dolorem perspiciatis commodi nulla corrupti laboriosam dicta voluptatibus accusamus, modi, voluptatum aperiam nihil.</p>
-                    <div class="news-block"></div>
+                <section class="welcome content-grid">
+                    <p class="welcome-text"><span>Willkommen</span> bei den Medienstudiengängen der Hochschule Harz! Entdecke Projekte und Inhalte der Studiengänge Medieninformatik B.Sc. (Minf), wo Informatik auf Gestaltung trifft oder Medien- und Spielekonzeption M.A. (MuSK), welcher tief in die Welt der digitalen Unterhaltung eintaucht.</p>
+                    <div class="line not-large"></div>
+                    <div class="news-block">
+                        <h2 class="news-title">Aktuelles</h2>
+                        <div class="news-item">
+                            <h3 class="news-headline">Lorem ipsum dolor sit.</h3>
+                            <p class="news-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.</p>
+                        </div>
+                        <div class="news-item">
+                            <h3 class="news-headline">Lorem ipsum dolor sit.</h3>
+                            <p class="news-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.</p>
+                        </div>
+                    </div>
                 </section>
                 <section class="previews">
+                    <div class="filter-row">
+                        <button class="filter">Studiengänge</button>
+                        <button class="filter">Kategorien</button>
+                        <button class="filter">Zeit</button>
+                    </div>
                     <div class="content-grid">
                         <div class="preview">
-                            <img src="" alt="" class="preview-img" style="aspect-ratio: 16/9">
+                            <img src="https://picsum.photos/800/400" alt="" class="preview-img">
                             <h3 class="preview-title">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt, labore.</h3>
                         </div>
                         <div class="preview">
-                            <img src="" alt="" class="preview-img" style="aspect-ratio: 2/3">
+                            <img src="https://picsum.photos/600/900" alt="" class="preview-img">
                             <h3 class="preview-title">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
                         </div>
                         <div class="preview">
-                            <img src="" alt="" class="preview-img" style="aspect-ratio: 1/1">
+                            <img src="https://picsum.photos/800/" alt="" class="preview-img">
                             <h3 class="preview-title">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium dolorem quidem cumque?</h3>
                         </div>
                         <div class="preview">
-                            <img src="" alt="" class="preview-img" style="aspect-ratio: 3/2">
+                            <img src="https://picsum.photos/800/420" alt="" class="preview-img">
                             <h3 class="preview-title">Lorem ipsum dolor sit amet consectetur.</h3>
                         </div>
                         <div class="preview">
-                            <img src="" alt="" class="preview-img" style="aspect-ratio: 4/5">
+                            <img src="https://picsum.photos/700/400" alt="" class="preview-img">
                             <h3 class="preview-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas error nesciunt sequi dignissimos numquam eaque.</h3>
                         </div>
                         <div class="preview">
-                            <img src="" alt="" class="preview-img" style="aspect-ratio: 3/2">
+                            <img src="https://picsum.photos/1000/400" alt="" class="preview-img" style="aspect-ratio: 3/2">
                             <h3 class="preview-title">Lorem ipsum dolor sit amet consectetur.</h3>
                         </div>
                         <div class="preview">
-                            <img src="" alt="" class="preview-img" style="aspect-ratio: 4/5">
+                            <img src="https://picsum.photos/700/410" alt="" class="preview-img" style="aspect-ratio: 4/5">
                             <h3 class="preview-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas error nesciunt sequi dignissimos numquam eaque.</h3>
                         </div><div class="preview">
-                            <img src="" alt="" class="preview-img" style="aspect-ratio: 3/2">
+                            <img src="https://picsum.photos/450/1000" alt="" class="preview-img" style="aspect-ratio: 3/2">
                             <h3 class="preview-title">Lorem ipsum dolor sit amet consectetur.</h3>
                         </div>
                         <div class="preview">
-                            <img src="" alt="" class="preview-img" style="aspect-ratio: 4/5">
+                            <img src="https://picsum.photos/500/600" alt="" class="preview-img" style="aspect-ratio: 4/5">
                             <h3 class="preview-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas error nesciunt sequi dignissimos numquam eaque.</h3>
                         </div>
                         <div class="preview">
-                            <img src="" alt="" class="preview-img" style="aspect-ratio: 16/9">
+                            <img src="https://picsum.photos/800/500" alt="" class="preview-img" style="aspect-ratio: 16/9">
                             <h3 class="preview-title">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt, labore.</h3>
                         </div>
                         <div class="preview">
-                            <img src="" alt="" class="preview-img" style="aspect-ratio: 2/3">
+                            <img src="https://picsum.photos/700/700" alt="" class="preview-img" style="aspect-ratio: 2/3">
                             <h3 class="preview-title">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
-                        </div>
-                        <div class="preview">
-                            <img src="" alt="" class="preview-img" style="aspect-ratio: 1/1">
-                            <h3 class="preview-title">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium dolorem quidem cumque?</h3>
-                        </div>
-                        <div class="preview">
-                            <img src="" alt="" class="preview-img" style="aspect-ratio: 3/2">
-                            <h3 class="preview-title">Lorem ipsum dolor sit amet consectetur.</h3>
-                        </div>
-                        <div class="preview">
-                            <img src="" alt="" class="preview-img" style="aspect-ratio: 4/5">
-                            <h3 class="preview-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas error nesciunt sequi dignissimos numquam eaque.</h3>
-                        </div>
-                        <div class="preview">
-                            <img src="" alt="" class="preview-img" style="aspect-ratio: 3/2">
-                            <h3 class="preview-title">Lorem ipsum dolor sit amet consectetur.</h3>
-                        </div>
-                        <div class="preview">
-                            <img src="" alt="" class="preview-img" style="aspect-ratio: 4/5">
-                            <h3 class="preview-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas error nesciunt sequi dignissimos numquam eaque.</h3>
-                        </div><div class="preview">
-                            <img src="" alt="" class="preview-img" style="aspect-ratio: 3/2">
-                            <h3 class="preview-title">Lorem ipsum dolor sit amet consectetur.</h3>
                         </div>
                     </div>
                 </section>
