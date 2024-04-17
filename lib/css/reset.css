@@ -1,0 +1,83 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+}
+
+html {
+    color-scheme: light dark;
+    hanging-punctuation: first last;
+    /* only supported in safari/webkit */
+}
+
+@supports not (hanging-punctuation: first last) {
+    blockquote p {
+        text-indent: var(--quote-width, -0.5em);
+    }
+}
+
+body {
+    min-height: 100svh;
+}
+
+img,
+picture,
+svg,
+video {
+    display: block;
+    max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-wrap: balance;
+    /* Compatibility: https://caniuse.com/css-text-wrap-balance -> Not necessary, but nice to have */
+}
+
+p {
+    max-width: 75ch;
+    text-wrap: pretty;
+    /* Compatibility: https://caniuse.com/mdn-css_properties_text-wrap_pretty -> Not necessary, but nice to have */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    word-break: break-all;
+}
+
+a :not(a) {
+    word-break: normal;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    @supports not selector(:has(:target)) {
+
+        /* more compatible than :has(:target) */
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 3rem;
+        }
+    }
+
+    :has(:target) {
+        /* Compatibility: https://caniuse.com/css-has */
+        scroll-behavior: smooth;
+        scroll-padding-top: 3rem;
+    }
+}
+
+ul,
+ol {
+    list-style: none;
+}
