@@ -62,15 +62,19 @@
     --font-size-large: 20px;
     --line-height: 1.5;
 
-    --font-size-title: 2.5rem;
-    --font-size-headline1: 2rem;
-    --font-size-headline2: 1.5rem;
-    --font-size-headline3: 1.25rem;
+    --font-size-title: 2rem;
+    --font-size-headline1: 5rem;
+    --font-size-headline2: 1.25rem;
+    --font-size-headline3: 1.1rem;
+    --font-size-prev-title: 1.1rem;
     --font-size-body: 1rem;
     --font-size-label: 1rem;
 
     font-size: var(--font-size-mobile);
 
+    --fontweight-body: 400;
+    --fontweight-headline: 500;
+    --line-height-headline: 1.2;
 
     /* Spacings & Paddings */
     
@@ -96,7 +100,7 @@
     --v-spacing-previews-mobile: 72px;
     --v-spacing-previews-large: 80px; 
 
-    --v-spacing-previews: var(--v-spacing-grid-mobile);
+    --v-spacing-previews: var(--v-spacing-previews-mobile);
 
     --header-height: 88px;
 
@@ -115,7 +119,7 @@
 
 }
 
-@media (min-width: 640px) {
+@media (min-width: 600px) {
     :root {
         --font-size: var(--font-size-large);
         --v-spacing: var(--v-spacing-large);
@@ -132,7 +136,7 @@
     margin: 0;
 }
 
-.content-grid {
+.wrapping-grid {
     --padding-inline: var(--padding);
     --content-max-width: var(--content-wrap);
     --breakout-max-width: 85ch;
@@ -147,38 +151,57 @@
     
 }
 
-.content-grid>* {
+.wrapping-grid>* {
     grid-column: content;
 }
 
-.content-grid>.breakout {
+.wrapping-grid>.breakout {
     grid-column: breakout;
 }
 
-.content-grid>.full {
+.wrapping-grid>.full {
     grid-column: full;
+}
+
+
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--v-spacing) var(--h-spacing);
+}
+
+@media screen and (min-width: 600px) {
+    .content-grid {
+        grid-template-columns: repeat(8, 1fr)
+    }
+}
+@media screen and (min-width: 930px) {
+    .content-grid {
+        grid-template-columns: repeat(12, 1fr)
+    }
+    
 }
 
 /* Responsive Classes */
 
-@media screen and (min-width: 640px) {
+@media screen and (min-width: 600px) {
     .small-only {
         display: none;
     }
 }
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 600px) {
     .not-small {
         display: none;
     }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 930px) {
     .not-large {
         display: none;
     }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 930px) {
     .large-only {
         display: none;
     }
@@ -211,15 +234,18 @@ header {
     align-items: center;
     color: var(--_text-color);
 
-    animation: background-fade-in;
-    animation-timeline: scroll();
+    transition: all 0.3s;
+}
+
+.no-js header {
+    --_text-color: var(--color-text);
+    background: var(--color-background);
 }
 
 header.scrolled {
     --_text-color: var(--color-text);
     background: var(--color-background);
     filter: drop-shadow(var(--elevation-1));
-
 }
 
 #minf-logo, #musk-logo{
@@ -253,10 +279,41 @@ header nav {
 .hero-trailer {
     background: rgb(27, 27, 82);
     width: 100%;
-    height: 60svh;
+    height: 75svh;
 }
 
-.previews {
-    height: 100svh;
+
+
+
+
+.previews .content-grid {
+    gap: var(--v-spacing-previews) var(--h-spacing);
+    grid-auto-rows: max-content;
 }
 
+.previews .content-grid>.preview-column {
+    display: flex;
+    flex-direction: column;
+    gap: var(--v-spacing-previews);
+    align-content: start;
+    grid-column: span 4;
+    height: auto;
+}
+
+.preview {
+    display: flex;
+    flex-direction: column;
+    gap: var(--unit);
+    align-content: start;
+}
+
+.preview .preview-img {
+    width: 100%;
+    background: rgb(44, 17, 70)
+}
+
+.preview .preview-title {
+    font-size: var(--font-size-prev-title);
+    font-weight: var(--fontweight-headline);
+    line-height: var(--line-height-headline);
+}

@@ -80,3 +80,10 @@ ul,
 ol {
     list-style: none;
 }
+
+button {
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: inherit;
+}
