@@ -63,11 +63,11 @@
     --font-size-large: 20px;
     --line-height: 1.5;
 
-    --font-size-title: 4rem;
-    --font-size-headline1: 2rem;
-    --font-size-headline2: 1.5rem;
-    --font-size-headline3: 1.1rem;
-    --font-size-prev-title: 1rem;
+    --font-size-title: 3.2rem;
+    --font-size-headline1: 2.4rem;
+    --font-size-headline2: 1.8rem;
+    --font-size-headline3: 1.2rem;
+    --font-size-card-title: 1rem;
     --font-size-body: 1rem;
     --font-size-label: 0.8rem;
 
@@ -117,6 +117,7 @@
     :root {
         --color-background: var(--color-neutral-050);
         --color-text: var(--color-neutral-900);
+        --elevation-1: 0px 0px 8px rgba(0, 0, 0, 0.5);
     }
 
 }
@@ -291,7 +292,7 @@ header nav {
     font-weight: var(--fontweight-title);
     line-height: var(--line-height-headline);
     color: white;
-    text-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+    text-shadow: var(--elevation-1);
 }
 
 .welcome-text, .news-block, .line{
@@ -390,7 +391,7 @@ header nav {
 }
 
 .preview .preview-title {
-    font-size: var(--font-size-prev-title);
+    font-size: var(--font-size-card-title);
     font-weight: var(--fontweight-headline);
     line-height: var(--line-height-headline);
 }
