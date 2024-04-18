@@ -69,7 +69,7 @@
     --font-size-headline3: 1.2rem;
     --font-size-card-title: 1rem;
     --font-size-body: 1rem;
-    --font-size-label: 0.8rem;
+    --font-size-label: 1rem;
 
     font-size: var(--font-size-mobile);
 
@@ -127,6 +127,7 @@
         --font-size: var(--font-size-large);
         --v-spacing: var(--v-spacing-large);
         --v-spacing-previews: var(--v-spacing-previews-large);
+        --font-size-label: 0.8rem;
         font-size: var(--font-size-large);
     }
     
@@ -394,4 +395,15 @@ header nav {
     font-size: var(--font-size-card-title);
     font-weight: var(--fontweight-headline);
     line-height: var(--line-height-headline);
+}
+
+
+footer {
+    margin-block-start: var(--v-spacing);
+    padding: var(--padding);
+    background: var(--color-background);
+    color: var(--color-text);
+    text-align: center;
+    filter: drop-shadow(var(--elevation-1));
+    height: var(--header-height);
 }
