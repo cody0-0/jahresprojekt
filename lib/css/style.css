@@ -109,6 +109,8 @@
 
     --content-wrap: 1120px;
 
+    --max-site-width: 1920px;
+
 
 
     --elevation-1: 0px 0px 8px rgba(0, 0, 0, 0.2);
@@ -141,6 +143,11 @@
 }
 
 /* Main Layout */
+
+body {
+    display: flex;
+    justify-content: center;
+}
 
 .wrapper {
     max-width: var(--max-site-width, 1920px);
@@ -251,17 +258,18 @@ header {
 
     position: fixed;
     top:0;
-    left:0;
     padding: var(--padding) var(--padding);
-    text-align: center;
-    display: flex;
     height: var(--header-height);
     width: 100%;
+    max-width: var(--max-site-width, 1920px);
+    display: flex;
+    justify-content: space-between;
+    
+    text-align: center;
     font-size: var(--font-size-label);
     font-weight: var(--fontweight-headline);
     background: color-mix(in srgb, var(--color-background) 0%);
     filter: drop-shadow(var(--elevation-1));
-    justify-content: space-between;
     align-items: center;
     color: var(--_text-color);
 
