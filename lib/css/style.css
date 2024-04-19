@@ -225,8 +225,8 @@
     }
 }
 
-@supports (scroll-margin-top: 0) {
-    * {
+@supports (scroll-margin-top: 0) or (scroll-snap-margin-top: 0) {
+    .anchor {
         --scroll-spacing: var(--v-spacing);
         scroll-margin-top: var(--scroll-spacing);
         scroll-snap-margin-top: var(--scroll-spacing);
