@@ -243,6 +243,14 @@ html {
     background-color: var(--color-background);
 }
 
+html {
+    scroll-snap-type: block proximity;
+}
+
+.up-scroll-snap.active {
+    scroll-snap-align: start;
+}
+
 /* Elements */
 
 /* general */
@@ -323,12 +331,27 @@ footer {
 
 /* startseite */
 
+#hero-section {
+    --_hero-max-height: 100svh;
+    --_hero-height: 70svh;
+    
+    scroll-margin-top: calc(var(--_hero-height) - var(--_hero-max-height));
+}
+
+.hero.up-scroll-snap.active {
+    scroll-margin-top: calc(var(--_hero-height) - var(--_hero-max-height));
+    scroll-snap-stop: always;
+}
 
 .hero-trailer {
     background: rgb(27, 27, 82);
     width: 100%;
-    height: 75svh;
+    height: var(--_hero-max-height);
     object-fit: cover;
+}
+
+.no-js .hero-trailer {
+    height: var(--_hero-height)
 }
 
 .website-title {
