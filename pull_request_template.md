@@ -32,6 +32,6 @@ Describe the tests.
 - [ ] Internet Explorer
 - [ ] Safari
 
-**Related PRs:** #ADD ANY RELATED PULL REQUESTS
+## Related PRs: 
+replace with PR-number + paste link directly onto the text
 
----
