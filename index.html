@@ -14,7 +14,7 @@
 </head>
 <body class="home-page">
     <div class="wrapper">
-        <header style="z-index: 1">
+        <header style="z-index: 1" class="fading-header">
             <a class="logo" id="medien-logo" href="#">
                 <svg height="100%" viewBox="0 0 200 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_314_4585)">
@@ -100,11 +100,11 @@
                     </div>
                     <div class="content-grid">
                         <a href="beitrag.html" class="preview">
-                            <img src="https://picsum.photos/800/400" alt="" class="preview-img">
+                            <img src="./resources/imgs/pexels-mitch-lally-401527143-14894306.jpg" alt="" class="preview-img">
                             <h3 class="preview-title">1 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt, labore.</h3>
                         </a>
                         <a href="#" class="preview">
-                            <img src="https://picsum.photos/600/900" alt="" class="preview-img">
+                            <img src="https://picsum.photos/600/900" data-poi-x="0.9" data-poi-y="0.8" alt="" class="preview-img">
                             <h3 class="preview-title">2 Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
                         </a>
                         <a href="#" class="preview">
@@ -161,5 +161,6 @@
     <script src="./lib/javascript/hero-scroll.js"></script>
     <script src="./lib/javascript/preview-sort.js" onload="initPreviewSort()"></script>
     <script src="./lib/javascript/aspect-ratio-contraint.js" onload="constrain()"></script>
+    <script src="./lib/javascript/point-of-interest-imgs.js" onload="initPIO()"></script>
 </body>
 </html>
