@@ -310,7 +310,8 @@ header > .controls {
     gap: var(--h-spacing);
 }
 
-.controls a:hover, .controls a:focus, .controls button:hover, .controls button:focus {
+.controls a:hover, .controls a:focus, 
+.controls button:hover, .controls button:focus {
     color: var(--color-primary);
 }
 
@@ -348,13 +349,28 @@ footer {
     object-fit: cover;
 }
 
+section.hero {
+    position: relative;
+}
+
+section.hero.wrapping-grid>.content-grid {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
 .website-title {
     display: block;
     font-size: var(--font-size-title);
     font-weight: var(--fontweight-title);
     line-height: var(--line-height-headline);
-    color: white;
-    text-shadow: var(--elevation-1);
+    margin-block: var(--header-height) var(--h-spacing);
+
+    color: var(--color-ai-700);
+    text-shadow: 0 0 24px black;
+
+    grid-column: 2 / -2;
+    align-self: end;
 }
 
 .welcome-text, .news-block, .line{
