@@ -1,6 +1,7 @@
 :root {
 
     /* Colors */
+
     --color-primary: var(--color-hsred-500);
     --color-secondary: var(--color-ai-700);
 
@@ -80,13 +81,13 @@
     --line-height-headline: 1.2;
 
     /* Spacings & Paddings */
-    
+
     --unit: 8px;
-    
+
     --padding-mobile: 1rem;
     --padding-tablet: 2rem;
     --padding-large: 3rem;
-    
+
     --padding: clamp(var(--padding-mobile), 1vw, var(--padding-large));
 
     --h-spacing-mobile: 24px;
@@ -94,14 +95,14 @@
     --h-spacing-large: 48px;
 
     --h-spacing: clamp(var(--h-spacing-mobile), 5vw, var(--h-spacing-large));
-    
+
     --v-spacing-mobile: 40px;
     --v-spacing-large: 48px;
 
     --v-spacing: var(--v-spacing-mobile);
 
     --v-spacing-previews-mobile: 72px;
-    --v-spacing-previews-large: 80px; 
+    --v-spacing-previews-large: 80px;
 
     --v-spacing-previews: var(--v-spacing-previews-mobile);
 
@@ -110,7 +111,6 @@
     --content-wrap: 1120px;
 
     --max-site-width: 1920px;
-
 
 
     --elevation-1: 0px 0px 8px rgba(0, 0, 0, 0.2);
@@ -122,11 +122,12 @@
         --color-text: var(--color-neutral-900);
         --elevation-1: 0px 0px 8px rgba(0, 0, 0, 0.5);
     }
-
 }
+
 .minf {
     --color-secondary: var(--color-minf);
 }
+
 .musk {
     --color-secondary: var(--color-musk);
 }
@@ -139,7 +140,6 @@
         --v-spacing-previews: var(--v-spacing-previews-large);
         --font-size-label: 0.8rem;
     }
-    
 }
 
 /* Main Layout */
@@ -164,27 +164,27 @@ body {
     display: grid;
     grid-template-columns:
         [full-start] minmax(var(--_padding-inline), 1fr) [breakout-start] minmax(0, var(--_breakout-size)) [content-start] min(100% - (var(--_padding-inline) * 2),
-            var(--_content-max-width)) [content-end] minmax(0, var(--_breakout-size)) [breakout-end] minmax(var(--_padding-inline), 1fr) [full-end];
-    gap: var(--h-spacing) 0px;
-    
+        var(--_content-max-width)) [content-end] minmax(0, var(--_breakout-size)) [breakout-end] minmax(var(--_padding-inline), 1fr) [full-end];
+    gap: var(--h-spacing) 0;
 }
 
-.wrapping-grid>* {
+.wrapping-grid > * {
     grid-column: content;
 }
 
-.wrapping-grid>.breakout {
+.wrapping-grid > .breakout {
     grid-column: breakout;
 }
 
-.wrapping-grid>.full {
+.wrapping-grid > .full {
     grid-column: full;
 }
 
-.wrapping-grid>.full-left {
+.wrapping-grid > .full-left {
     grid-column: full-start / content-end;
 }
-.wrapping-grid>.full-right {
+
+.wrapping-grid > .full-right {
     grid-column: content-start / full-end;
 }
 
@@ -200,11 +200,11 @@ body {
         grid-template-columns: repeat(8, 1fr)
     }
 }
+
 @media screen and (min-width: 930px) {
     .content-grid {
         grid-template-columns: repeat(12, 1fr)
     }
-    
 }
 
 /* Responsive Classes */
@@ -214,6 +214,7 @@ body {
         display: none;
     }
 }
+
 @media screen and (max-width: 600px) {
     .not-small {
         display: none;
@@ -238,8 +239,6 @@ body {
         scroll-margin-top: var(--_scroll-spacing);
         scroll-snap-margin-top: var(--_scroll-spacing);
     }
-
-    
 }
 
 /* Style */
@@ -259,25 +258,25 @@ header {
     --_header-elevation: var(--elevation-1);
 
     position: fixed;
-    top:0;
+    top: 0;
     padding: var(--padding) var(--padding);
     height: var(--header-height);
     width: 100%;
     max-width: var(--max-site-width, 1920px);
     display: flex;
     justify-content: space-between;
-    
+
     text-align: center;
     font-size: var(--font-size-label);
     font-weight: var(--fontweight-headline);
-    background: var(--_header-background); 
+    background: var(--_header-background);
     filter: drop-shadow(var(--_header-elevation));
-    justify-content: space-between;
     align-items: center;
     color: var(--_header-text-color);
 
     transition: all 0.3s;
 }
+
 header.fading-header {
     --_header-text-color: var(--color-neutral-1000);
     --_header-background: color-mix(in srgb, var(--color-background) 0%); /* WARNING: CanIUse Compatibility of color-mix() only 88% */
@@ -296,7 +295,7 @@ header.scrolled {
     --_header-elevation: var(--elevation-1)
 }
 
-#minf-logo, #musk-logo{
+#minf-logo, #musk-logo {
     display: none;
 }
 
@@ -310,7 +309,7 @@ header > .controls {
     gap: var(--h-spacing);
 }
 
-.controls a:hover, .controls a:focus, 
+.controls a:hover, .controls a:focus,
 .controls button:hover, .controls button:focus {
     color: var(--color-primary);
 }
@@ -364,8 +363,6 @@ footer {
 }
 
 
-
-
 /* startseite */
 
 
@@ -380,7 +377,7 @@ section.hero {
     position: relative;
 }
 
-section.hero.wrapping-grid>.content-grid {
+section.hero.wrapping-grid > .content-grid {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -400,11 +397,11 @@ section.hero.wrapping-grid>.content-grid {
     align-self: end;
 }
 
-.welcome-text, .news-block, .line{
+.welcome-text, .news-block, .line {
     grid-column: 1 / -1;
 }
 
-.welcome-text>span {
+.welcome-text > span {
     font-size: var(--font-size-headline2);
     font-weight: var(--fontweight-headline);
     color: var(--color-secondary);
@@ -435,11 +432,11 @@ section.hero.wrapping-grid>.content-grid {
         padding-inline-end: var(--h-spacing);
         border-right: 4px solid var(--color-secondary);
     }
+
     .news-block {
         grid-column: 9 / -1;
     }
 }
-
 
 
 .filter-row {
@@ -471,7 +468,7 @@ section.hero.wrapping-grid>.content-grid {
     grid-auto-rows: max-content;
 }
 
-.previews .content-grid>.preview-column {
+.previews .content-grid > .preview-column {
     display: flex;
     flex-direction: column;
     gap: var(--v-spacing-previews);
@@ -503,7 +500,6 @@ section.hero.wrapping-grid>.content-grid {
     .preview .preview-img {
         max-height: 50svh;
     }
-    
 }
 
 .no-js .preview-img {
@@ -515,9 +511,6 @@ section.hero.wrapping-grid>.content-grid {
     font-weight: var(--fontweight-headline);
     line-height: var(--line-height-headline);
 }
-
-
-
 
 /* beitragsseite */
 
@@ -544,10 +537,10 @@ img {
     --poi-x: 0.5;
     --poi-y: 0.5;
 
-    object-position: calc(var(--poi-x, 0.5) * 100%) calc(var(--poi-y, 0.5) * 100%) 
+    object-position: calc(var(--poi-x, 0.5) * 100%) calc(var(--poi-y, 0.5) * 100%)
 }
 
-#content-section.content-grid>* {
+#content-section.content-grid > * {
     grid-column: 1 / -1;
 }
 
@@ -576,12 +569,13 @@ h1.content-title {
     }
 }
 
-.inline-img-container>img {
+.inline-img-container > img {
     width: 100%;
     height: auto;
     object-fit: cover;
     max-height: 70svh;
 }
+
 .credits {
     font-size: var(--font-size-label);
     color: var(--color-secondary);
