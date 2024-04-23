@@ -15,13 +15,14 @@
     <script src="./lib/javascript/preview-sort.js" defer></script>
     <script src="./lib/javascript/aspect-ratio-contraint.js" defer></script>
     <script src="./lib/javascript/point-of-interest-imgs.js" defer></script>
+    <script src="./lib/javascript/studiengang-url-parser.js" defer></script>
 
-    <title>Medien Hochschule Harz</title>
+    <title></title>
 </head>
 <body class="home-page">
 <div class="wrapper">
     <header style="z-index: 1" class="fading-header">
-        <a class="logo" id="medien-logo" href="#">
+        <a class="logo no-prefilter" href="#hero-section">
             <svg height="100%" viewBox="0 0 200 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clip-path="url(#clip0_314_4585)">
                     <path d="M10.4789 18.0169L0 12.0135V24.0203L10.4789 18.0169Z" fill="#C53850"/>
@@ -51,8 +52,8 @@
                 </defs>
             </svg>
         </a>
-        <a class="logo" id="minf-logo" href="#"></a>
-        <a class="logo" id="musk-logo" href="#"></a>
+        <a class="logo prefilter-minf" href="#hero-section">MINF</a>
+        <a class="logo prefilter-musk" href="#hero-section">MUSK</a>
         <div class="controls">
             <nav class="large-only">
                 <a class="menu-item" href="#preview-section">Beiträge</a>
@@ -74,7 +75,9 @@
 
             <section class="hero full anchor wrapping-grid" id="hero-section">
                 <div class="content-grid">
-                    <h1 class="website-title">Medien<br/> Hochschule Harz</h1>
+                    <h1 class="website-title no-prefilter">Medien<br/> Hochschule Harz</h1>
+                    <h1 class="website-title prefilter-minf">Bachelor<br/> Medieninformatik</h1>
+                    <h1 class="website-title prefilter-musk">Medien- und<br/> Spielekonzeption</h1>
                 </div>
                 <video class="hero-trailer full" muted autoplay loop>
                     <source src="./resources/videos/SAE-Website-hero-video.mp4" type="video/mp4">
@@ -83,10 +86,30 @@
 
 
             <section class="welcome content-grid anchor" id="welcome-section">
-                <p class="welcome-text">Willkommen bei den Medienstudiengängen der Hochschule Harz! Entdecke Projekte
-                    und Inhalte der Studiengänge Medieninformatik B.Sc. (Minf), wo Informatik auf Gestaltung trifft oder
-                    Medien- und Spielekonzeption M.A. (MuSK), welcher tief in die Welt der digitalen Unterhaltung
-                    eintaucht.</p>
+                <p class="welcome-text no-prefilter">
+                    Willkommen bei den Medienstudiengängen der Hochschule Harz! Entdecke Projekte
+                    und Inhalte der Studiengänge
+                    <a class="welcome-a minf" href="pages/minf.html">Medieninformatik B.Sc.</a>&nbsp;(Minf),
+                    wo Informatik auf Gestaltung trifft oder
+                    <a class="welcome-a musk" href="pages/musk.html">Medien- und Spielekonzeption M.A.</a>&nbsp;(MuSK),
+                    welcher tief in die Welt der digitalen Unterhaltung eintaucht.
+                </p>
+                <p class="welcome-text prefilter-minf">
+                    Willkommen bei dem Studiengang Medieninformatik&nbsp;B.Sc.&nbsp;(Minf) der Hochschule Harz!
+                    Erlebe wie kreative Freiheit auf technisches Know-how trifft. Erfahre, wie wir Informatik mit
+                    Gestaltung verknüpfen, um innovative Medienlösungen zu gestalten.
+                    <br>
+                    Du willst noch andere Bereiche unserer Medien-Studiengänge erleben? Dann besuche doch unsere
+                    <a class="welcome-a" href="index.html">Medien Seite</a>.
+                </p>
+                <p class="welcome-text prefilter-musk">
+                    Willkommen bei dem Studiengang <b>Medien-&nbsp;und&nbsp;Spielekonzeption&nbsp;M.A.</b>&nbsp;(MuSK)
+                    der Hochschule Harz! Blicke hinter die Kulissen der Spieleentwicklung und arbeite in Teams an der
+                    Zukunft der Medienwelt.
+                    <br>
+                    Du willst noch andere Bereiche unserer Medien-Studiengänge erleben? Dann besuche doch unsere
+                    <a class="welcome-a" href="index.html">Medien Seite</a>.
+                </p>
                 <div class="line not-large"></div>
                 <div class="news-block">
                     <h2 class="news-title">Aktuelles</h2>
@@ -112,7 +135,7 @@
                     <button class="filter">Zeit</button>
                 </div>
                 <div class="content-grid">
-                    <a href="beitrag.html" class="preview">
+                    <a href="pages/beitrag.html" class="preview">
                         <img src="./resources/imgs/pexels-mitch-lally-401527143-14894306.jpg" alt=""
                              class="preview-img">
                         <h3 class="preview-title">1 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt,
