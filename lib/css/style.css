@@ -328,6 +328,31 @@ header nav {
     display: block;
 }
 
+header .icon-button {
+    padding: 0;
+    background: transparent;
+    filter: none;
+}
+
+.icon-button {
+    border-radius: var(--border-radius-interaction, 100vw);
+    padding: calc(var(--padding)*0.75);
+    background: var(--color-background);
+    filter: drop-shadow(var(--elevation-1));
+}
+
+.floating-actions {
+    position: fixed;
+    bottom: 24px;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    margin-inline-end: 24px;
+    justify-self: end;
+    gap: var(--v-spacing);
+}
+
 footer {
     margin-block-start: var(--v-spacing);
     padding: var(--padding);
@@ -337,7 +362,6 @@ footer {
     filter: drop-shadow(var(--elevation-1));
     height: var(--header-height);
 }
-
 
 
 
