@@ -341,6 +341,31 @@ header nav {
     display: block;
 }
 
+header .icon-button {
+    padding: 0;
+    background: transparent;
+    filter: none;
+}
+
+.icon-button {
+    border-radius: var(--border-radius-interaction, 100vw);
+    padding: calc(var(--padding)*0.75);
+    background: var(--color-background);
+    filter: drop-shadow(var(--elevation-1));
+}
+
+.floating-actions {
+    position: fixed;
+    bottom: var(--v-spacing);
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    margin-inline-end: var(--h-spacing);
+    justify-self: end;
+    gap: var(--v-spacing);
+}
+
 footer {
     margin-block-start: var(--v-spacing);
     padding: var(--padding);
