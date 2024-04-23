@@ -335,7 +335,7 @@ header .icon-button {
 
 .icon-button {
     border-radius: var(--border-radius-interaction, 100vw);
-    padding: calc(var(--padding)*0.75);
+    padding: calc(var(--padding) * 0.75);
     background: var(--color-background);
     filter: drop-shadow(var(--elevation-1));
 }
@@ -397,7 +397,7 @@ section.hero.wrapping-grid > .content-grid {
     align-self: end;
 }
 
-.welcome-text, .news-block, .line {
+.welcome-text, #news-block, .line {
     grid-column: 1 / -1;
 }
 
@@ -407,7 +407,7 @@ section.hero.wrapping-grid > .content-grid {
     color: var(--color-secondary);
 }
 
-.news-block {
+#news-block {
     display: grid;
     gap: var(--unit);
 }
@@ -433,7 +433,7 @@ section.hero.wrapping-grid > .content-grid {
         border-right: 4px solid var(--color-secondary);
     }
 
-    .news-block {
+    #news-block {
         grid-column: 9 / -1;
     }
 }
