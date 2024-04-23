@@ -343,12 +343,12 @@ header .icon-button {
 
 .floating-actions {
     position: fixed;
-    bottom: 24px;
+    bottom: var(--v-spacing);
     z-index: 2;
 
     display: flex;
     flex-direction: column;
-    margin-inline-end: 24px;
+    margin-inline-end: var(--h-spacing);
     justify-self: end;
     gap: var(--v-spacing);
 }
