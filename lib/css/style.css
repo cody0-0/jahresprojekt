@@ -420,7 +420,7 @@ section.hero.wrapping-grid > .content-grid {
 }
 
 #news-block {
-    display: grid;
+    display: none;
     gap: var(--unit);
     align-content: start;
 }
