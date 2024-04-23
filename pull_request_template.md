@@ -32,6 +32,7 @@ Describe the tests.
 - [ ] Internet Explorer
 - [ ] Safari
 
-## Related PRs: 
+## Related PRs:
+
 replace with PR-number + paste link directly onto the text
 

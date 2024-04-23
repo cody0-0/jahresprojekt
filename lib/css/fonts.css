@@ -6,6 +6,7 @@
     font-style: normal;
     font-display: swap;
 }
+
 @font-face {
     font-family: 'Helvetica Neue';
     src: url('../../resources/fonts/HelveticaNeue-ThinItalic.woff2') format('woff2'),
@@ -14,6 +15,7 @@
     font-style: italic;
     font-display: swap;
 }
+
 @font-face {
     font-family: 'Helvetica Neue';
     src: url('../../resources/fonts/HelveticaNeue-UltraLight.woff2') format('woff2'),
@@ -22,6 +24,7 @@
     font-style: normal;
     font-display: swap;
 }
+
 @font-face {
     font-family: 'Helvetica Neue';
     src: url('../../resources/fonts/HelveticaNeue-UltraLightItalic.woff2') format('woff2'),
@@ -30,6 +33,7 @@
     font-style: italic;
     font-display: swap;
 }
+
 @font-face {
     font-family: 'Helvetica Neue';
     src: url('../../resources/fonts/HelveticaNeue-Light.woff2') format('woff2'),
@@ -38,6 +42,7 @@
     font-style: normal;
     font-display: swap;
 }
+
 @font-face {
     font-family: 'Helvetica Neue';
     src: url('../../resources/fonts/HelveticaNeue-LightItalic.woff2') format('woff2'),
@@ -46,6 +51,7 @@
     font-style: italic;
     font-display: swap;
 }
+
 @font-face {
     font-family: 'Helvetica Neue';
     src: url('../../resources/fonts/HelveticaNeue.woff2') format('woff2'),
@@ -54,6 +60,7 @@
     font-style: normal;
     font-display: swap;
 }
+
 @font-face {
     font-family: 'Helvetica Neue';
     src: url('../../resources/fonts/HelveticaNeue-Italic.woff2') format('woff2'),
@@ -62,6 +69,7 @@
     font-style: italic;
     font-display: swap;
 }
+
 @font-face {
     font-family: 'Helvetica Neue';
     src: url('../../resources/fonts/HelveticaNeue-MediumItalic.woff2') format('woff2'),
@@ -79,6 +87,7 @@
     font-style: normal;
     font-display: swap;
 }
+
 @font-face {
     font-family: 'Helvetica Neue';
     src: url('../../resources/fonts/HelveticaNeue-Bold.woff2') format('woff2'),
@@ -87,6 +96,7 @@
     font-style: normal;
     font-display: swap;
 }
+
 @font-face {
     font-family: 'Helvetica Neue';
     src: url('../../resources/fonts/HelveticaNeue-BoldItalic.woff2') format('woff2'),

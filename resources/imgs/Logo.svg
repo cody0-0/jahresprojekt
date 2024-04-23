@@ -1,81 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg id="Ebene_2" data-name="Ebene 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 323.93 71.03">
-  <defs>
-    <style>
-      .cls-1 {
-        font-family: 'Helvetica Neue';
-      }
+    <defs>
+        <style>
+            .cls-1 {
+            font-family: 'Helvetica Neue';
+            }
 
-      .cls-2 {
-        fill: #66817a;
-      }
+            .cls-2 {
+            fill: #66817a;
+            }
 
-      .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8, .cls-9, .cls-10 {
-        stroke-width: 0px;
-      }
+            .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8, .cls-9, .cls-10 {
+            stroke-width: 0px;
+            }
 
-      .cls-11 {
-        font-family: 'Helvetica Neue';
-        font-weight: 500;
-      }
+            .cls-11 {
+            font-family: 'Helvetica Neue';
+            font-weight: 500;
+            }
 
-      .cls-3 {
-        fill: #c53850;
-      }
+            .cls-3 {
+            fill: #c53850;
+            }
 
-      .cls-4 {
-        fill: #ee7188;
-      }
+            .cls-4 {
+            fill: #ee7188;
+            }
 
-      .cls-5 {
-        fill: #ea4d69;
-      }
+            .cls-5 {
+            fill: #ea4d69;
+            }
 
-      .cls-6 {
-        fill: #afcec5;
-      }
+            .cls-6 {
+            fill: #afcec5;
+            }
 
-      .cls-7 {
-        fill: #84a59d;
-      }
+            .cls-7 {
+            fill: #84a59d;
+            }
 
-      .cls-12 {
-        fill: #1d1d1b;
-        font-size: 24px;
-      }
+            .cls-12 {
+            fill: #1d1d1b;
+            font-size: 24px;
+            }
 
-      .cls-8 {
-        fill: #d74c65;
-      }
+            .cls-8 {
+            fill: #d74c65;
+            }
 
-      .cls-9 {
-        fill: #ca4b61;
-      }
+            .cls-9 {
+            fill: #ca4b61;
+            }
 
-      .cls-10 {
-        fill: #9ec2b9;
-      }
-    </style>
-  </defs>
-  <g id="Ebene_1-2" data-name="Ebene 1">
-    <g>
-      <polygon class="cls-3" points="15.5 26.65 0 17.77 0 35.53 15.5 26.65"/>
-      <polygon class="cls-4" points="31 17.77 15.5 8.88 15.5 26.65 31 17.77"/>
-      <polygon class="cls-5" points="46.5 26.65 31 17.77 31 35.53 46.5 26.65"/>
-      <polygon class="cls-8" points="46.5 44.42 31 35.53 31 53.3 46.5 44.42"/>
-      <polygon class="cls-8" points="62 35.53 46.5 26.65 46.5 44.42 62 35.53"/>
-      <polygon class="cls-4" points="15.5 8.88 0 0 0 17.77 15.5 8.88"/>
-      <polygon class="cls-9" points="15.5 44.42 0 35.53 0 53.3 15.5 44.42"/>
-      <polygon class="cls-2" points="31 35.53 15.5 26.65 15.5 44.42 31 35.53"/>
-      <polygon class="cls-4" points="15.5 62.12 0 53.23 0 71 15.5 62.12"/>
-      <polygon class="cls-5" points="31 53.3 15.5 44.42 15.5 62.18 31 53.3"/>
-      <polygon class="cls-3" points="0 53.3 15.5 62.18 15.5 44.42 0 53.3"/>
-      <polygon class="cls-7" points="0 35.53 15.5 44.42 15.5 26.65 0 35.53"/>
-      <polygon class="cls-6" points="15.5 26.65 31 35.53 31 17.77 15.5 26.65"/>
-      <polygon class="cls-4" points="31 35.53 46.5 44.42 46.5 26.65 31 35.53"/>
-      <polygon class="cls-10" points="15.5 44.42 31 53.3 31 35.53 15.5 44.42"/>
-      <polygon class="cls-8" points="0 17.77 15.5 26.65 15.5 8.88 0 17.77"/>
+            .cls-10 {
+            fill: #9ec2b9;
+            }
+        </style>
+    </defs>
+    <g id="Ebene_1-2" data-name="Ebene 1">
+        <g>
+            <polygon class="cls-3" points="15.5 26.65 0 17.77 0 35.53 15.5 26.65"/>
+            <polygon class="cls-4" points="31 17.77 15.5 8.88 15.5 26.65 31 17.77"/>
+            <polygon class="cls-5" points="46.5 26.65 31 17.77 31 35.53 46.5 26.65"/>
+            <polygon class="cls-8" points="46.5 44.42 31 35.53 31 53.3 46.5 44.42"/>
+            <polygon class="cls-8" points="62 35.53 46.5 26.65 46.5 44.42 62 35.53"/>
+            <polygon class="cls-4" points="15.5 8.88 0 0 0 17.77 15.5 8.88"/>
+            <polygon class="cls-9" points="15.5 44.42 0 35.53 0 53.3 15.5 44.42"/>
+            <polygon class="cls-2" points="31 35.53 15.5 26.65 15.5 44.42 31 35.53"/>
+            <polygon class="cls-4" points="15.5 62.12 0 53.23 0 71 15.5 62.12"/>
+            <polygon class="cls-5" points="31 53.3 15.5 44.42 15.5 62.18 31 53.3"/>
+            <polygon class="cls-3" points="0 53.3 15.5 62.18 15.5 44.42 0 53.3"/>
+            <polygon class="cls-7" points="0 35.53 15.5 44.42 15.5 26.65 0 35.53"/>
+            <polygon class="cls-6" points="15.5 26.65 31 35.53 31 17.77 15.5 26.65"/>
+            <polygon class="cls-4" points="31 35.53 46.5 44.42 46.5 26.65 31 35.53"/>
+            <polygon class="cls-10" points="15.5 44.42 31 53.3 31 35.53 15.5 44.42"/>
+            <polygon class="cls-8" points="0 17.77 15.5 26.65 15.5 8.88 0 17.77"/>
+        </g>
+        <text class="cls-12" transform="translate(80.37 29.7)">
+            <tspan class="cls-11">
+                <tspan x="0" y="0">MEDIEN</tspan>
+            </tspan>
+            <tspan class="cls-1">
+                <tspan x="0" y="28.8">HOCHSCHULE HARZ</tspan>
+            </tspan>
+        </text>
     </g>
-    <text class="cls-12" transform="translate(80.37 29.7)"><tspan class="cls-11"><tspan x="0" y="0">MEDIEN</tspan></tspan><tspan class="cls-1"><tspan x="0" y="28.8">HOCHSCHULE HARZ</tspan></tspan></text>
-  </g>
 </svg>
