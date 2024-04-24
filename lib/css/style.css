@@ -129,6 +129,15 @@
     --color-secondary: var(--color-musk);
 }
 
+.minf .no-prefilter, .musk .no-prefilter, html .prefilter-minf, html .prefilter-musk {
+    display: none;
+}
+
+.no-prefilter, .minf .prefilter-minf, .musk .prefilter-musk {
+    display: block;
+}
+
+
 @media (min-width: 600px) {
     :root {
         --font-size: var(--font-size-large);
@@ -258,6 +267,11 @@ html {
 /* Elements */
 
 /* general */
+
+a {
+    text-decoration: underline;
+}
+
 header {
     --_header-text-color: var(--color-text);
     --_header-background: var(--color-background);
@@ -292,6 +306,10 @@ header.fading-header {
     --_header-elevation: 0 0 0 transparent;
 }
 
+header a, a.preview {
+    text-decoration: none;
+}
+
 .no-js header.fading-header {
     --_header-text-color: var(--color-text);
     --_header-background: var(--color-background);
@@ -302,11 +320,6 @@ header.scrolled {
     --_header-text-color: var(--color-text);
     --_header-background: var(--color-background);
     --_header-elevation: var(--elevation-1);
-}
-
-#minf-logo,
-#musk-logo {
-    display: none;
 }
 
 .logo {
@@ -400,7 +413,7 @@ section.hero.wrapping-grid > .content-grid {
     line-height: var(--line-height-headline);
     margin-block: var(--header-height) var(--h-spacing);
 
-    color: var(--color-neutral-1000);
+    color: var(--color-secondary);
     text-shadow: 0 0 24px black;
 
     grid-column: 2 / -2;
@@ -416,6 +429,12 @@ section.hero.wrapping-grid > .content-grid {
 .welcome-text > span {
     font-size: var(--font-size-headline2);
     font-weight: var(--fontweight-headline);
+    color: var(--color-secondary);
+}
+
+.welcome-a, b {
+    font-weight: var(--fontweight-headline);
+    white-space: nowrap;
     color: var(--color-secondary);
 }
 
