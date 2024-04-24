@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Ebene_2" data-name="Ebene 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 359.94 71">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #d23652;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6 {
+        stroke-width: 0px;
+      }
+
+      .cls-7 {
+        fill: #1d1d1b;
+        font-family: HelveticaNeueLT-Roman, 'Helvetica Neue LT';
+        font-size: 24px;
+      }
+
+      .cls-2 {
+        fill: #ee7188;
+      }
+
+      .cls-3 {
+        fill: #ea4d69;
+      }
+
+      .cls-4 {
+        fill: #deb5d6;
+      }
+
+      .cls-5 {
+        fill: #b68bba;
+      }
+
+      .cls-6 {
+        fill: #d74c65;
+      }
+    </style>
+  </defs>
+  <g id="Ebene_1-2" data-name="Ebene 1">
+    <g>
+      <polygon class="cls-1" points="15.5 26.65 0 17.77 0 35.53 15.5 26.65"/>
+      <polygon class="cls-2" points="31 17.77 15.5 8.88 15.5 26.65 31 17.77"/>
+      <polygon class="cls-3" points="46.5 26.65 31 17.77 31 35.53 46.5 26.65"/>
+      <polygon class="cls-6" points="46.5 44.42 31 35.53 31 53.3 46.5 44.42"/>
+      <polygon class="cls-6" points="62 35.53 46.5 26.65 46.5 44.42 62 35.53"/>
+      <polygon class="cls-2" points="15.5 8.88 0 0 0 17.77 15.5 8.88"/>
+      <polygon class="cls-6" points="15.5 44.42 0 35.53 0 53.3 15.5 44.42"/>
+      <polygon class="cls-5" points="31 35.53 15.5 26.65 15.5 44.42 31 35.53"/>
+      <polygon class="cls-2" points="15.5 62.12 0 53.23 0 71 15.5 62.12"/>
+      <polygon class="cls-3" points="31 53.3 15.5 44.42 15.5 62.18 31 53.3"/>
+      <polygon class="cls-1" points="0 53.3 15.5 62.18 15.5 44.42 0 53.3"/>
+      <polygon class="cls-4" points="0 35.53 15.5 44.42 15.5 26.65 0 35.53"/>
+      <polygon class="cls-4" points="15.5 26.65 31 35.53 31 17.77 15.5 26.65"/>
+      <polygon class="cls-2" points="31 35.53 46.5 44.42 46.5 26.65 31 35.53"/>
+      <polygon class="cls-4" points="15.5 44.42 31 53.3 31 35.53 15.5 44.42"/>
+      <polygon class="cls-6" points="0 17.77 15.5 26.65 15.5 8.88 0 17.77"/>
+    </g>
+    <text class="cls-7" transform="translate(76.29 29.67)"><tspan x="0" y="0">MEDIEN- UND </tspan><tspan x="0" y="28.8">SPIELEKONZEPTION</tspan></text>
+  </g>
+</svg>
