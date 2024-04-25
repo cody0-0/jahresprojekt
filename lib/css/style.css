@@ -1,5 +1,4 @@
 :root {
-
     /* Colors */
 
     --color-primary: var(--color-hsred-500);
@@ -11,55 +10,54 @@
     --color-background: var(--color-neutral-900);
     --color-text: var(--color-neutral-100);
 
-
     --color-neutral-000: #000000;
     --color-neutral-050: #191918;
-    --color-neutral-100: #2E2D2C;
-    --color-neutral-300: #6B6967;
-    --color-neutral-400: #83817E;
-    --color-neutral-500: #91908E;
-    --color-neutral-600: #A5A4A2;
-    --color-neutral-700: #C1C0BE;
-    --color-neutral-900: #F3F3F1;
-    --color-neutral-1000: #FFFFFF;
+    --color-neutral-100: #2e2d2c;
+    --color-neutral-300: #6b6967;
+    --color-neutral-400: #83817e;
+    --color-neutral-500: #91908e;
+    --color-neutral-600: #a5a4a2;
+    --color-neutral-700: #c1c0be;
+    --color-neutral-900: #f3f3f1;
+    --color-neutral-1000: #ffffff;
 
-    --color-ai-100: #02241C;
-    --color-ai-300: #1B5D4D;
-    --color-ai-400: #2B6D5D;
+    --color-ai-100: #02241c;
+    --color-ai-300: #1b5d4d;
+    --color-ai-400: #2b6d5d;
     --color-ai-500: #488878;
-    --color-ai-600: #6BA093;
-    --color-ai-700: #96BEB4;
-    --color-ai-800: #B9D5CE;
-    --color-ai-900: #DBEDE9;
+    --color-ai-600: #6ba093;
+    --color-ai-700: #96beb4;
+    --color-ai-800: #b9d5ce;
+    --color-ai-900: #dbede9;
 
-    --color-hsred-100: #2F0009;
-    --color-hsred-300: #9D0924;
-    --color-hsred-400: #CB1636;
-    --color-hsred-500: #F02D50;
-    --color-hsred-600: #F45571;
-    --color-hsred-700: #F8879B;
-    --color-hsred-900: #FADDE2;
+    --color-hsred-100: #2f0009;
+    --color-hsred-300: #9d0924;
+    --color-hsred-400: #cb1636;
+    --color-hsred-500: #f02d50;
+    --color-hsred-600: #f45571;
+    --color-hsred-700: #f8879b;
+    --color-hsred-900: #fadde2;
 
     --color-yellow-100: #363001;
-    --color-yellow-300: #887A05;
-    --color-yellow-400: #B8A60F;
-    --color-yellow-500: #D9C51F;
-    --color-yellow-600: #E3D032;
-    --color-yellow-650: #F0E164;
-    --color-yellow-700: #F4E884;
-    --color-yellow-900: #F6F1CA;
+    --color-yellow-300: #887a05;
+    --color-yellow-400: #b8a60f;
+    --color-yellow-500: #d9c51f;
+    --color-yellow-600: #e3d032;
+    --color-yellow-650: #f0e164;
+    --color-yellow-700: #f4e884;
+    --color-yellow-900: #f6f1ca;
 
     --color-lavender-100: #240427;
-    --color-lavender-300: #5B1D62;
+    --color-lavender-300: #5b1d62;
     --color-lavender-400: #612867;
-    --color-lavender-500: #76427C;
-    --color-lavender-600: #9C68A2;
-    --color-lavender-700: #B58BBA;
-    --color-lavender-900: #E2D0E4;
+    --color-lavender-500: #76427c;
+    --color-lavender-600: #9c68a2;
+    --color-lavender-700: #b58bba;
+    --color-lavender-900: #e2d0e4;
 
     /* Typography */
 
-    --font-family: 'Helvetica Neue', 'Arial', sans-serif;
+    --font-family: "Helvetica Neue", "Arial", sans-serif;
     --font-size-mobile: 16px;
     --font-size-large: 20px;
     --font-size: var(--font-size-mobile);
@@ -111,7 +109,6 @@
     --content-wrap: 1120px;
 
     --max-site-width: 1920px;
-
 
     --elevation-1: 0px 0px 8px rgba(0, 0, 0, 0.2);
 }
@@ -168,12 +165,22 @@ body {
     --_content-max-width: var(--content-wrap);
     --_breakout-max-width: 85ch;
 
-    --_breakout-size: calc((var(--_breakout-max-width) - var(--_content-max-width)) / 2);
+    --_breakout-size: calc(
+        (var(--_breakout-max-width) - var(--_content-max-width)) / 2
+    );
 
     display: grid;
     grid-template-columns:
-        [full-start] minmax(var(--_padding-inline), 1fr) [breakout-start] minmax(0, var(--_breakout-size)) [content-start] min(100% - (var(--_padding-inline) * 2),
-        var(--_content-max-width)) [content-end] minmax(0, var(--_breakout-size)) [breakout-end] minmax(var(--_padding-inline), 1fr) [full-end];
+        [full-start] minmax(var(--_padding-inline), 1fr)
+        [breakout-start] minmax(0, var(--_breakout-size)) [content-start] min(
+            100% - (var(--_padding-inline) * 2),
+            var(--_content-max-width)
+        )
+        [content-end] minmax(0, var(--_breakout-size)) [breakout-end] minmax(
+            var(--_padding-inline),
+            1fr
+        )
+        [full-end];
     gap: var(--h-spacing) 0;
 }
 
@@ -197,7 +204,6 @@ body {
     grid-column: content-start / full-end;
 }
 
-
 .content-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -206,13 +212,13 @@ body {
 
 @media screen and (min-width: 600px) {
     .content-grid {
-        grid-template-columns: repeat(8, 1fr)
+        grid-template-columns: repeat(8, 1fr);
     }
 }
 
 @media screen and (min-width: 930px) {
     .content-grid {
-        grid-template-columns: repeat(12, 1fr)
+        grid-template-columns: repeat(12, 1fr);
     }
 }
 
@@ -293,7 +299,10 @@ header {
 
 header.fading-header {
     --_header-text-color: var(--color-neutral-1000);
-    --_header-background: color-mix(in srgb, var(--color-background) 0%); /* WARNING: CanIUse Compatibility of color-mix() only 88% */
+    --_header-background: color-mix(
+        in srgb,
+        var(--color-background) 0%
+    ); /* WARNING: CanIUse Compatibility of color-mix() only 88% */
     --_header-elevation: 0 0 0 transparent;
 }
 
@@ -304,13 +313,13 @@ header a, a.preview {
 .no-js header.fading-header {
     --_header-text-color: var(--color-text);
     --_header-background: var(--color-background);
-    --_header-elevation: var(--elevation-1)
+    --_header-elevation: var(--elevation-1);
 }
 
 header.scrolled {
     --_header-text-color: var(--color-text);
     --_header-background: var(--color-background);
-    --_header-elevation: var(--elevation-1)
+    --_header-elevation: var(--elevation-1);
 }
 
 .logo {
@@ -323,8 +332,10 @@ header > .controls {
     gap: var(--h-spacing);
 }
 
-.controls a:hover, .controls a:focus,
-.controls button:hover, .controls button:focus {
+.controls a:hover,
+.controls a:focus,
+.controls button:hover,
+.controls button:focus {
     color: var(--color-primary);
 }
 
@@ -376,9 +387,7 @@ footer {
     height: var(--header-height);
 }
 
-
 /* startseite */
-
 
 .hero-trailer {
     background: rgb(27, 27, 82);
@@ -411,7 +420,9 @@ section.hero.wrapping-grid > .content-grid {
     align-self: end;
 }
 
-.welcome-text, .news-block, .line {
+.welcome-text,
+#news-block,
+.line {
     grid-column: 1 / -1;
 }
 
@@ -427,9 +438,10 @@ section.hero.wrapping-grid > .content-grid {
     color: var(--color-secondary);
 }
 
-.news-block {
-    display: grid;
+#news-block {
+    display: none;
     gap: var(--unit);
+    align-content: start;
 }
 
 .news-title {
@@ -438,7 +450,7 @@ section.hero.wrapping-grid > .content-grid {
 
 .news-text {
     font-size: 0.6rem;
-    font-weight: 300
+    font-weight: 300;
 }
 
 .line {
@@ -453,11 +465,10 @@ section.hero.wrapping-grid > .content-grid {
         border-right: 4px solid var(--color-secondary);
     }
 
-    .news-block {
+    #news-block {
         grid-column: 9 / -1;
     }
 }
-
 
 .filter-row {
     display: flex;
@@ -557,7 +568,8 @@ img {
     --poi-x: 0.5;
     --poi-y: 0.5;
 
-    object-position: calc(var(--poi-x, 0.5) * 100%) calc(var(--poi-y, 0.5) * 100%)
+    object-position: calc(var(--poi-x, 0.5) * 100%)
+        calc(var(--poi-y, 0.5) * 100%);
 }
 
 #content-section.content-grid > * {
