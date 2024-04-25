@@ -349,7 +349,7 @@ header .icon-button {
 
 .icon-button {
     border-radius: var(--border-radius-interaction, 100vw);
-    padding: calc(var(--padding)*0.75);
+    padding: calc(var(--padding) * 0.75);
     background: var(--color-background);
     filter: drop-shadow(var(--elevation-1));
 }
