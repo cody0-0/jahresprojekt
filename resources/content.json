@@ -1,0 +1,307 @@
+[
+  {
+    "id": 1,
+    "title": "A CODED DAY",
+    "title-img": "A_CODED_DAY.png",
+    "minf": false,
+    "musk": true,
+    "date": "2024-03-12",
+    "tags": [
+      "Film & Audio"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Nachruf auf Lothar Werthschulte",
+    "title-img": "Nachruf_Auf_Lothar.jpg",
+    "minf": true,
+    "musk": true,
+    "date": "2024-02-05",
+    "tags": [
+      "Film & Audio"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Der Filmabend",
+    "title-img": "Filmabend.png",
+    "minf": true,
+    "musk": true,
+    "date": "2023-12-08",
+    "tags": [
+      "Film & Audio",
+      "Animation"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "MedieninformatikerInnen der Hochschule Harz zu Besuch im Zentrum für Kunst und Medien in Karlsruhe",
+    "title-img": "Besuch_ZKM.png",
+    "minf": true,
+    "musk": true,
+    "date": "2023-11-20",
+    "tags": [
+      "Events"
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Making of... Filme machen am Studiengang Medieninformatik",
+    "title-img": "Making_Of.png",
+    "minf": true,
+    "musk": false,
+    "date": "2023-10-15",
+    "tags": [
+      "Film & Audio"
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Motion Capture im Forschungsprojekt DigiLehR",
+    "title-img": "MoCap_DigiLehR.png",
+    "minf": true,
+    "musk": false,
+    "date": "2023-06-25",
+    "tags": [
+      "Film & Audio",
+      "Grafik"
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Landschaftsfotografie und das Anthropozän",
+    "title-img": "Landschaftsfotografie.png",
+    "minf": true,
+    "musk": false,
+    "date": "2023-06-23",
+    "tags": [
+      "Fotografie"
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Querschnitt-Tag der offenen Tür an der Hochschule Harz",
+    "title-img": "Querschnitt.png",
+    "minf": true,
+    "musk": true,
+    "date": "2023-06-13",
+    "tags": [
+      "Events",
+      "Web"
+    ]
+  },
+  {
+    "id": 9,
+    "title": "IMPLUS-Das Kultevent in Haus 9",
+    "title-img": "IMPULS.png",
+    "minf": true,
+    "musk": true,
+    "date": "2023-06-08",
+    "tags": [
+      "Events"
+    ]
+  },
+  {
+    "id": 10,
+    "title": "Full House-Agentur B12 zu Besuch an der Hochschule Harz",
+    "title-img": "Full_House.png",
+    "minf": true,
+    "musk": false,
+    "date": "2023-06-08",
+    "tags": [
+      "Events"
+    ]
+  },
+  {
+    "id": 11,
+    "title": "Filme drehen-Studierende der Medieninformatik bei der Arbeit",
+    "title-img": "Filme_drehen.png",
+    "minf": true,
+    "musk": false,
+    "date": "2023-06-02",
+    "tags": [
+      "Film & Audio"
+    ]
+  },
+  {
+    "id": 12,
+    "title": "Global Game Jam '23- Digital wider Willen",
+    "title-img": "GGJ23.png",
+    "minf": true,
+    "musk": true,
+    "date": "2023-04-05",
+    "tags": [
+      "Games",
+      "Coding",
+      "Animation"
+    ]
+  },
+  {
+    "id": 13,
+    "title": "Fotografie-Ausstellung im Kreativloft",
+    "title-img": "Fotografie_Ausstellung.jpg",
+    "minf": true,
+    "musk": false,
+    "date": "2023-04-05",
+    "tags": [
+      "Events"
+    ]
+  },
+  {
+    "id": 14,
+    "title": "Masken und Gesichter-Filmdreh an der Hochschule Harz",
+    "title-img": "Masken_Gesichter.png",
+    "minf": false,
+    "musk": true,
+    "date": "2023-01-30",
+    "tags": [
+      "Film & Audio"
+    ]
+  },
+  {
+    "id": 15,
+    "title": "Keying im Studio Hochschule Harz",
+    "title-img": "Keying.png",
+    "minf": true,
+    "musk": false,
+    "date": "2023-01-20",
+    "tags": [
+      "Film & Audio"
+    ]
+  },
+  {
+    "id": 16,
+    "title": "Zwei Sekunden Stille",
+    "title-img": "Zwei_Sekunden_Stille.png",
+    "minf": true,
+    "musk": false,
+    "date": "2022-12-14",
+    "tags": [
+      "Events"
+    ]
+  },
+  {
+    "id": 17,
+    "title": "Der Kuriositär, Kurzfilm von Luca Joel Spirka, gewinnt beim 27.Jugendfilmpreis Sachsen-Anhalt",
+    "title-img": "DerKuriositär.png",
+    "minf": true,
+    "musk": false,
+    "date": "2022-11-22",
+    "tags": [
+      "Film & Audio",
+      "Animation"
+    ]
+  },
+  {
+    "id": 18,
+    "title": "Reality Check 2022",
+    "title-img": "RealityCheck.png",
+    "minf": true,
+    "musk": true,
+    "date": "2022-11-07",
+    "tags": [
+      "Events"
+    ]
+  },
+  {
+    "id": 19,
+    "title": "Studierende der Medieninformatik präsentieren kurze Spielfilme und Animationen",
+    "title-img": "Spielfilme_Animationen.png",
+    "minf": true,
+    "musk": false,
+    "date": "2022-11-04",
+    "tags": [
+      "Animation",
+      "Film & Audio"
+    ]
+  },
+  {
+    "id": 20,
+    "title": "MINFF 2022",
+    "title-img": "Minff22.jpg",
+    "minf": true,
+    "musk": true,
+    "date": "2022-06-28",
+    "tags": [
+      "Film & Audio",
+      "Games",
+      "Web",
+      "Events"
+    ]
+  },
+  {
+    "id": 21,
+    "title": "Sunny Side Up",
+    "title-img": "SunnySideUp.png",
+    "minf": true,
+    "musk": true,
+    "date": "2022-06-22",
+    "tags": [
+      "Events",
+      "Fotografie",
+      "Games",
+      "Grafik",
+      "Film & Audio",
+      "Coding",
+      "Web"
+    ]
+  },
+  {
+    "id": 22,
+    "title": "Back to the Roots",
+    "title-img": "BackToTheRoots.png",
+    "minf": true,
+    "musk": true,
+    "date": "2022-5-19",
+    "tags": [
+      "Games"
+    ]
+  },
+  {
+    "id": 23,
+    "title": "Jahresprojekt, zum Beispiel Produktfilm",
+    "title-img": "Jahresprojekt.png",
+    "minf": true,
+    "musk": false,
+    "date": "2022-06-21",
+    "tags": [
+      "Film & Audio",
+      "Grafik"
+    ]
+  },
+  {
+    "id": 24,
+    "title": "Der Prototyp für Erfolg",
+    "title-img": "Prototyp_fuer_Erfolg.png",
+    "minf": true,
+    "musk": false,
+    "date": "2023-09-13",
+    "tags": [
+      "Film & Audio",
+      "Grafik"
+    ]
+  },
+  {
+    "id": 25,
+    "title": "Animation der anderen Art",
+    "title-img": "3D-AnimationsFrame.png",
+    "minf": true,
+    "musk": false,
+    "date": "2023-09-22",
+    "tags": [
+      "Film & Audio",
+      "Animation"
+    ]
+  },
+  {
+    "id": 26,
+    "title": "Eine Suche nach Inspiration",
+    "title-img": "InspirationGesucht.png",
+    "minf": true,
+    "musk": false,
+    "date": "2024-01-12",
+    "tags": [
+      "Grafik"
+    ]
+  }
+]
