@@ -364,7 +364,7 @@ section.hero.wrapping-grid>.content-grid {
 
 .website-title {
     display: block;
-    font-size: var(--font-size-title);
+    font-size: 3.8rem;
     font-weight: var(--fontweight-title);
     line-height: var(--line-height-headline);
     margin-block: var(--header-height) var(--h-spacing);
