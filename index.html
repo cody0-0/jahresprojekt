@@ -12,8 +12,7 @@
     <!-- JS -->
     <script src="./lib/javascript/script-check.js" defer></script>
     <script src="./lib/javascript/hero-scroll.js" defer></script>
-    <script src="lib/javascript/load-previews.js" defer></script>
-    <script src="./lib/javascript/aspect-ratio-contraint.js" defer></script>
+    <script src="./lib/javascript/load-previews.js" defer></script>
     <script src="./lib/javascript/point-of-interest-imgs.js" defer></script>
     <script src="./lib/javascript/news-picker.js" defer></script>
     <script src="./lib/javascript/studiengang-url-parser.js" defer></script>
@@ -129,9 +128,10 @@
 
             <section class="previews anchor" id="preview-section">
                 <div class="filter-row">
-                    <button class="filter">Studiengänge</button>
-                    <button class="filter">Kategorien</button>
-                    <button class="filter">Zeit</button>
+                    <!--                    TODO: change onclick functions-->
+                    <button class="filter" onclick="toggleURLParameter('site', 'minf')">Studiengänge</button>
+                    <button class="filter" onclick="toggleURLParameter('tag', 'animation')">Kategorien</button>
+                    <button class="filter" onclick="toggleURLParameter('max-date', '2023-01-01')">Zeit</button>
                 </div>
                 <div class="content-grid" id="preview-grid"></div>
             </section>
