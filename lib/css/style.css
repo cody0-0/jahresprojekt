@@ -122,10 +122,12 @@
 }
 
 .minf {
+    --color-primary: var(--color-yellow-600);
     --color-secondary: var(--color-minf);
 }
 
 .musk {
+    --color-primary: var(--color-lavender-700);
     --color-secondary: var(--color-musk);
 }
 
