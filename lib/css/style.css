@@ -168,7 +168,7 @@ body {
     --_breakout-max-width: 85ch;
 
     --_breakout-size: calc(
-        (var(--_breakout-max-width) - var(--_content-max-width)) / 2
+            (var(--_breakout-max-width) - var(--_content-max-width)) / 2
     );
 
     display: grid;
@@ -302,8 +302,8 @@ header {
 header.fading-header {
     --_header-text-color: var(--color-neutral-1000);
     --_header-background: color-mix(
-        in srgb,
-        var(--color-background) 0%
+            in srgb,
+            var(--color-background) 0%
     ); /* WARNING: CanIUse Compatibility of color-mix() only 88% */
     --_header-elevation: 0 0 0 transparent;
 }
@@ -327,6 +327,21 @@ header.scrolled {
 .logo {
     width: auto;
     height: 100%;
+}
+
+.logo svg {
+    height: 100%;
+}
+
+.logo svg:last-child {
+    position: relative;
+    top: -100%;
+}
+
+@media screen and (max-width: 460px) {
+    .logo svg:last-child {
+        display: none;
+    }
 }
 
 header > .controls {
@@ -570,8 +585,7 @@ img {
     --poi-x: 0.5;
     --poi-y: 0.5;
 
-    object-position: calc(var(--poi-x, 0.5) * 100%)
-        calc(var(--poi-y, 0.5) * 100%);
+    object-position: calc(var(--poi-x, 0.5) * 100%) calc(var(--poi-y, 0.5) * 100%);
 }
 
 #content-section.content-grid > * {
