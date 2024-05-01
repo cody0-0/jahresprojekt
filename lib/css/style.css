@@ -3,7 +3,7 @@
 
     --color-primary: var(--color-hsred-500);
     --color-secondary: var(--color-ai-700);
-    --color-secondary-light: var(--color-ai-900);
+    --color-secondary-container: var(--color-ai-900);
 
     --color-minf: var(--color-yellow-600);
     --color-musk: var(--color-lavender-700);
@@ -129,25 +129,35 @@
     --elevation-1: 0px 0px 4px rgba(0, 0, 0, 0.1);
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        --color-background: var(--color-neutral-050);
-        --color-text: var(--color-neutral-900);
-        --elevation-1: 0px 0px 8px rgba(0, 0, 0, 0.5);
-    }
-}
-
 .minf {
     --color-primary: var(--color-minf);
     --color-secondary: var(--color-minf);
-    --color-secondary-light: var(--color-yellow-900);
+    --color-secondary-container: var(--color-yellow-900);
 }
 
 .musk {
     --color-primary: var(--color-musk);
     --color-secondary: var(--color-musk);
-    --color-secondary-light: var(--color-lavender-900);
+    --color-secondary-container: var(--color-lavender-900);
 }
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-background: var(--color-neutral-050);
+        --color-text: var(--color-neutral-900);
+        --color-secondary-container: var(--color-ai-300);
+        --elevation-1: 0px 0px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    .minf {
+        --color-secondary-container: var(--color-yellow-300);
+    }
+
+    .musk {
+        --color-secondary-container: var(--color-lavender-300);
+    }
+}
+
 
 .minf .no-prefilter, .musk .no-prefilter, html .prefilter-minf, html .prefilter-musk {
     display: none;
@@ -450,7 +460,7 @@ header .icon-button:hover, header .icon-button:focus {
 }
 
 .button:hover, .button:focus {
-    background: var(--color-secondary-light);
+    background: var(--color-secondary-container);
 }
 
 .button.active {
@@ -487,7 +497,7 @@ header .icon-button:hover, header .icon-button:focus {
 }
 
 .icon-button:hover, .icon-button:focus {
-    background: var(--color-secondary-light);
+    background: var(--color-secondary-container);
 }
 
 .icon-button.active {
