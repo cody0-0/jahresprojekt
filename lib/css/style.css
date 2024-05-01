@@ -525,6 +525,18 @@ section.hero.wrapping-grid > .content-grid {
     height: auto;
 }
 
+.previews .content-grid > .no-content {
+    grid-column: 1 / -1;
+    padding: var(--v-spacing) 0;
+}
+
+.previews .content-grid > .no-content > p {
+    font-size: var(--font-size-headline3);
+    font-weight: var(--fontweight-headline);
+    text-align: center;
+    color: var(--color-secondary);
+}
+
 .preview {
     display: flex;
     flex-direction: column;

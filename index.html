@@ -13,8 +13,7 @@
     <!-- JS -->
     <script src="./lib/javascript/script-check.js" defer></script>
     <script src="./lib/javascript/hero-scroll.js" defer></script>
-    <script src="./lib/javascript/preview-sort.js" defer></script>
-    <script src="./lib/javascript/aspect-ratio-contraint.js" defer></script>
+    <script src="./lib/javascript/load-previews.js" defer></script>
     <script src="./lib/javascript/point-of-interest-imgs.js" defer></script>
     <script src="./lib/javascript/news-picker.js" defer></script>
     <script src="./lib/javascript/studiengang-url-parser.js" defer></script>
@@ -197,92 +196,12 @@
 
             <section class="previews anchor" id="preview-section">
                 <div class="filter-row">
-                    <button class="filter">Studiengänge</button>
-                    <button class="filter">Kategorien</button>
-                    <button class="filter">Zeit</button>
+                    <!--                    TODO: change onclick functions-->
+                    <button class="filter" onclick="toggleURLParameter('course', 'minf', this)">Studiengänge</button>
+                    <button class="filter" onclick="toggleURLParameter('tag', 'animation', this)">Kategorien</button>
+                    <button class="filter" onclick="toggleURLParameter('max-date', '2023-01-01', this)">Zeit</button>
                 </div>
-                <div class="content-grid">
-                    <a href="javascript:goTo('./pages/beitrag.html')" class="preview">
-                        <img src="./resources/imgs/pexels-mitch-lally-401527143-14894306.jpg" alt=""
-                             class="preview-img"/>
-                        <h3 class="preview-title">
-                            1 Lorem ipsum dolor, sit amet consectetur
-                            adipisicing elit. Nesciunt, labore.
-                        </h3>
-                    </a>
-                    <a href="#" class="preview">
-                        <img src="https://picsum.photos/600/900" data-poi-x="0.9" data-poi-y="0.8" alt=""
-                             class="preview-img"/>
-                        <h3 class="preview-title">
-                            2 Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit.
-                        </h3>
-                    </a>
-                    <a href="#" class="preview">
-                        <img src="https://picsum.photos/800/" alt="" class="preview-img"/>
-                        <h3 class="preview-title">
-                            3 Lorem ipsum dolor sit amet consectetur,
-                            adipisicing elit. Laudantium dolorem quidem
-                            cumque?
-                        </h3>
-                    </a>
-                    <a href="#" class="preview">
-                        <img src="https://picsum.photos/800/420" alt="" class="preview-img"/>
-                        <h3 class="preview-title">
-                            4 Lorem ipsum dolor sit amet consectetur.
-                        </h3>
-                    </a>
-                    <a href="#" class="preview">
-                        <img src="https://picsum.photos/700/400" alt="" class="preview-img"/>
-                        <h3 class="preview-title">
-                            5 Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Voluptas error nesciunt
-                            sequi dignissimos numquam eaque.
-                        </h3>
-                    </a>
-                    <a href="#" class="preview">
-                        <img src="https://picsum.photos/1000/400" alt="" class="preview-img"/>
-                        <h3 class="preview-title">
-                            Lorem ipsum dolor sit amet consectetur.
-                        </h3>
-                    </a>
-                    <a href="#" class="preview">
-                        <img src="https://picsum.photos/700/410" alt="" class="preview-img"/>
-                        <h3 class="preview-title">
-                            Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Voluptas error nesciunt
-                            sequi dignissimos numquam eaque.
-                        </h3>
-                    </a>
-                    <a href="#" class="preview">
-                        <img src="https://picsum.photos/450/1000" alt="" class="preview-img"/>
-                        <h3 class="preview-title">
-                            Lorem ipsum dolor sit amet consectetur.
-                        </h3>
-                    </a>
-                    <a href="#" class="preview">
-                        <img src="https://picsum.photos/500/600" alt="" class="preview-img"/>
-                        <h3 class="preview-title">
-                            Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Voluptas error nesciunt
-                            sequi dignissimos numquam eaque.
-                        </h3>
-                    </a>
-                    <a href="#" class="preview">
-                        <img src="https://picsum.photos/800/500" alt="" class="preview-img"/>
-                        <h3 class="preview-title">
-                            Lorem ipsum dolor, sit amet consectetur
-                            adipisicing elit. Nesciunt, labore.
-                        </h3>
-                    </a>
-                    <a href="#" class="preview">
-                        <img src="https://picsum.photos/700/700" alt="" class="preview-img"/>
-                        <h3 class="preview-title">
-                            Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit.
-                        </h3>
-                    </a>
-                </div>
+                <div class="content-grid" id="preview-grid"></div>
             </section>
         </div>
     </main>
