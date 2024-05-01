@@ -352,6 +352,21 @@ header.scrolled {
     height: 100%;
 }
 
+.logo svg {
+    height: 100%;
+}
+
+.logo svg:last-child {
+    position: relative;
+    top: -100%;
+}
+
+@media screen and (max-width: 460px) {
+    .logo svg:last-child {
+        display: none;
+    }
+}
+
 header > .controls {
     display: flex;
     gap: var(--h-spacing);

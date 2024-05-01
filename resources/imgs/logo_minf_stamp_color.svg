@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Ebene_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 54.14 54.14">
+    <g id="Ebene_1-2">
+        <path d="m27.07,54.14c14.95,0,27.07-12.12,27.07-27.07S42.02,0,27.07,0,0,12.12,0,27.07s12.12,27.07,27.07,27.07"
+              style="fill:#e2d032; stroke-width:0px;"/>
+        <text transform="translate(14.06 25.73)"
+              style="fill:#2e2d2c; font-family:HelveticaNeue-Bold, &apos;Helvetica Neue&apos;; font-size:20.74px; font-weight:700;">
+            <tspan x="0" y="0">MI</tspan>
+        </text>
+        <text transform="translate(14.06 43.4)"
+              style="fill:#2e2d2c; font-family:HelveticaNeue-Bold, &apos;Helvetica Neue&apos;; font-size:20.74px; font-weight:700;">
+            <tspan x="0" y="0">NF</tspan>
+        </text>
+    </g>
+</svg>
