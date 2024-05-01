@@ -420,7 +420,7 @@ header .icon-button:hover, header .icon-button:focus {
 .icon-button {
     --_on-button-color: var(--color-text);
     --_button-background: var(--color-background);
-    --_button-size: 2.4rem;
+    --_button-size: 2.6rem;
 
     border-radius: var(--border-radius-interaction, 100vw);
     height: var(--_button-size);
@@ -638,19 +638,9 @@ section.hero.wrapping-grid > .content-grid {
 
 .page-nav {
     display: flex;
-    gap: var(--unit);
+    gap: calc(var(--unit)*3);
     justify-content: center;
     align-items: center;
-}
-
-.page-nav-divider {
-    border-color: var(--color-text);
-    width: 0.5rem;
-}
-
-.page-nav .icon-button:last-child, .page-nav .icon-button:first-child {
-    --_button-size: 2rem;
-    margin-inline: var(--unit);
 }
 
 /* beitragsseite */
