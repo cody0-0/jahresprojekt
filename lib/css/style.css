@@ -122,10 +122,12 @@
 }
 
 .minf {
+    --color-primary: var(--color-minf);
     --color-secondary: var(--color-minf);
 }
 
 .musk {
+    --color-primary: var(--color-musk);
     --color-secondary: var(--color-musk);
 }
 
@@ -166,7 +168,7 @@ body {
     --_breakout-max-width: 85ch;
 
     --_breakout-size: calc(
-        (var(--_breakout-max-width) - var(--_content-max-width)) / 2
+            (var(--_breakout-max-width) - var(--_content-max-width)) / 2
     );
 
     display: grid;
@@ -268,8 +270,27 @@ html {
 
 /* general */
 
-a {
-    text-decoration: underline;
+a:not(:has(> *)) {
+    white-space: nowrap;
+    font-weight: var(--fontweight-headline);
+    color: var(--color-primary);
+}
+
+a:not(:has(> *))::after, a *:not(.preview-title):last-child::after {
+    content: ' ';
+    display: inline-block;
+    width: 1rem;
+    height: 2ex;
+    --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M6.4 18L5 16.6L14.6 7H6V5h12v12h-2V8.4z'/%3E%3C/svg%3E");
+    background-color: var(--color-primary);
+    -webkit-mask-image: var(--svg);
+    mask-image: var(--svg);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    -webkit-mask-position: 0.15em 0.5ex;
+    mask-position: 0.15em 0.5ex;
 }
 
 header {
@@ -300,10 +321,14 @@ header {
 header.fading-header {
     --_header-text-color: var(--color-neutral-1000);
     --_header-background: color-mix(
-        in srgb,
-        var(--color-background) 0%
+            in srgb,
+            var(--color-background) 0%
     ); /* WARNING: CanIUse Compatibility of color-mix() only 88% */
     --_header-elevation: 0 0 0 transparent;
+}
+
+header a {
+    color: var(--_header-text-color);
 }
 
 header a, a.preview {
@@ -432,9 +457,8 @@ section.hero.wrapping-grid > .content-grid {
     color: var(--color-secondary);
 }
 
-.welcome-a, b {
+b {
     font-weight: var(--fontweight-headline);
-    white-space: nowrap;
     color: var(--color-secondary);
 }
 
@@ -580,8 +604,7 @@ img {
     --poi-x: 0.5;
     --poi-y: 0.5;
 
-    object-position: calc(var(--poi-x, 0.5) * 100%)
-        calc(var(--poi-y, 0.5) * 100%);
+    object-position: calc(var(--poi-x, 0.5) * 100%) calc(var(--poi-y, 0.5) * 100%);
 }
 
 #content-section.content-grid > * {
