@@ -203,18 +203,13 @@
                 </div>
                 <div class="content-grid" id="preview-grid"></div>
                 <div class="page-nav" id="page-nav">
-                    <button class="icon-button" onclick="navigateToPrevPage()">
+                    <button class="icon-button" id="prev-page-button" onclick="navigateToPrevPage()">
                         <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z"/></svg>
                     </button>
-                    <button class="icon-button" onclick="navigateToPage(first)">1</button>
-                    <div class="line-h page-nav-divider"></div>
-                    <button class="icon-button active">5</button>
-                    <button class="icon-button" onclick="openPageNavigator()">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M215.48-375.39q-43.56 0-74.13-30.48-30.58-30.49-30.58-74.04 0-43.55 30.49-74.13 30.48-30.57 74.04-30.57 43.55 0 74.12 30.48Q320-523.64 320-480.09q0 43.55-30.49 74.13-30.48 30.57-74.03 30.57Zm-.12-59.99q18.95 0 31.8-12.82Q260-461.02 260-479.97t-12.82-31.8q-12.82-12.85-31.77-12.85t-31.79 12.82q-12.85 12.82-12.85 31.77t12.82 31.8q12.82 12.85 31.77 12.85Zm264.73 59.99q-43.55 0-74.13-30.48-30.57-30.49-30.57-74.04 0-43.55 30.48-74.13 30.49-30.57 74.04-30.57 43.55 0 74.13 30.48 30.57 30.49 30.57 74.04 0 43.55-30.48 74.13-30.49 30.57-74.04 30.57Zm-.12-59.99q18.95 0 31.8-12.82 12.85-12.82 12.85-31.77t-12.82-31.8q-12.82-12.85-31.77-12.85t-31.8 12.82q-12.85 12.82-12.85 31.77t12.82 31.8q12.82 12.85 31.77 12.85Zm264.73 59.99q-43.55 0-74.12-30.48Q640-436.36 640-479.91q0-43.55 30.49-74.13 30.48-30.57 74.03-30.57 43.56 0 74.13 30.48 30.58 30.49 30.58 74.04 0 43.55-30.49 74.13-30.48 30.57-74.04 30.57Z"/></svg>
-                    </button>
-                    <div class="line-h page-nav-divider"></div>
-                    <button class="icon-button" onclick="navigateToPage(last)">10</button>
-                    <button class="icon-button" onclick="navigateToNextPage()">
+                    <button class="icon-button" id="first-page-button" onclick="navigateToPage(first)">1</button>
+                    <p id="currentPageIndicator">Seite 3</p>
+                    <button class="icon-button" id="first-page-button" onclick="navigateToPage(last)">10</button>
+                    <button class="icon-button" id="next-page-button" onclick="navigateToNextPage()">
                         <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z"/></svg>
                     </button>
                 </div>
