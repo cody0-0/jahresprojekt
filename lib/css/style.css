@@ -454,7 +454,12 @@ header .icon-button:hover, header .icon-button:focus {
 
 }
 
-.icon-button:hover, .icon-button:focus {
+.icon-button:disabled {
+    cursor: default;
+    opacity: 0.5;
+}
+
+.icon-button:not(:disabled):hover, .icon-button:focus {
     background: var(--color-secondary-container);
 }
 
