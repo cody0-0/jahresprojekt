@@ -536,21 +536,23 @@ header .icon-button:hover, header .icon-button:focus {
     width: calc(100% - (var(--_snack-bar-margin) * 2));
     background: var(--color-background);
     filter: drop-shadow(var(--elevation-1));
-    padding: 1rem;
-    padding-inline-start: 2rem;
+    padding: 0.6rem;
+    padding-inline: 1rem;
     margin: var(--padding);
     border-radius: var(--border-radius-interaction);
     justify-self: center;
 
     display: flex;
     justify-content: space-between;
+    align-items: center;
     gap: var(--h-spacing);
 }
 
 .snack-bar .icon-button {
-    background: none;
+    --_button-background: none;
+    --_button-size: fit-content;
+
     padding: 0;
-    min-height: none;
 }
 
 footer {
@@ -795,7 +797,7 @@ b {
 
 /* beitragsseite */
 
-:not(.home-page) section:first-of-type {
+body:not(.home-page) section:first-of-type {
     margin-block-start: var(--header-height);
 }
 
