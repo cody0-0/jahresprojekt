@@ -93,11 +93,13 @@
     --h-spacing-large: 48px;
 
     --h-spacing: clamp(var(--h-spacing-mobile), 5vw, var(--h-spacing-large));
+    --h-spacing-small: calc(var(--h-spacing) / 2);
 
     --v-spacing-mobile: 40px;
     --v-spacing-large: 48px;
 
     --v-spacing: var(--v-spacing-mobile);
+    --v-spacing-small: calc(var(--v-spacing) / 2);
 
     --v-spacing-previews-mobile: 72px;
     --v-spacing-previews-large: 80px;
@@ -418,13 +420,26 @@ header .icon-button {
 }
 
 footer {
-    margin-block-start: var(--v-spacing);
-    padding: var(--padding);
-    background: var(--color-background);
+    margin-block: var(--v-spacing);
+    padding: var(--padding) 0;
+    font-size: var(--font-size-label);
+}
+
+footer a {
     color: var(--color-text);
-    text-align: center;
-    filter: drop-shadow(var(--elevation-1));
-    height: var(--header-height);
+}
+
+footer .content-grid {
+    gap: var(--v-spacing-small) var(--h-spacing-small);
+}
+
+.footer-column {
+    grid-column: span 4;
+    overflow: hidden;
+}
+
+.footer-column.footer-icons {
+    text-align: right;
 }
 
 /* startseite */
@@ -475,6 +490,13 @@ section.hero.wrapping-grid > .content-grid {
 b {
     font-weight: var(--fontweight-headline);
     color: var(--color-secondary);
+}
+
+hr {
+    grid-column: 1 / -1;
+    height: 2px;
+    background: var(--color-secondary);
+    border: none;
 }
 
 #news-block {
