@@ -115,6 +115,8 @@
 
     --v-spacing-previews: var(--v-spacing-previews-mobile);
 
+    --border-radius-interaction: 100vw;
+
     --header-height: 88px;
 
     --content-wrap: 1120px;
@@ -188,6 +190,7 @@ body {
 .wrapper {
     max-width: var(--max-site-width, 1920px);
     margin: 0;
+    padding: 0;
 }
 
 .wrapping-grid {
@@ -518,9 +521,36 @@ header .icon-button:hover, header .icon-button:focus {
 
     display: flex;
     flex-direction: column;
-    margin-inline-end: var(--h-spacing);
+    margin-inline: var(--h-spacing);
     justify-self: end;
-    gap: var(--v-spacing);
+    gap: calc(var(--v-spacing)*0.5);
+}
+
+.snack-bar {
+    --_snack-bar-margin: var(--padding);
+
+    position: fixed;
+    bottom: 0;
+    min-height: var(--_button-size, 2.4rem);
+    max-width: var(--content-wrap);
+    width: calc(100% - (var(--_snack-bar-margin) * 2));
+    background: var(--color-background);
+    filter: drop-shadow(var(--elevation-1));
+    padding: 1rem;
+    padding-inline-start: 2rem;
+    margin: var(--padding);
+    border-radius: var(--border-radius-interaction);
+    justify-self: center;
+
+    display: flex;
+    justify-content: space-between;
+    gap: var(--h-spacing);
+}
+
+.snack-bar .icon-button {
+    background: none;
+    padding: 0;
+    min-height: none;
 }
 
 footer {
