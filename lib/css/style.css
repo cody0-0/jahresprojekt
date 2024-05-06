@@ -488,6 +488,17 @@ header.expanded-header > .active {
     display: flex;
 }
 
+header .expanded-header .sub-menu {
+    margin-right: 4rem;
+}
+
+input[type="search"] {
+    background: none;
+
+    border: none;
+    border-bottom: 2px solid var(--color-text);
+}
+
 
 .logo {
     width: auto;
