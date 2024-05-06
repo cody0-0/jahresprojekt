@@ -180,6 +180,7 @@
                 <div class="line-h not-large"></div>
                 <div id="news-block">
                     <h2 class="news-title">Aktuelles</h2>
+                    <div id="news-items"></div>
                 </div>
                 <div class="line-h not-large"></div>
             </section>
@@ -192,6 +193,9 @@
                     <button class="filter button" onclick="toggleFilter('max-date', '2023-01-01', this)">Zeit</button>
                 </div>
                 <div class="content-grid" id="preview-grid"></div>
+                <div class="content-grid" id="preview-no-content">
+                    <p>Es konnten leider keine Beiträge gefunden werden (°¬°)</p>
+                </div>
                 <div class="page-nav" id="page-nav">
                     <button class="icon-button" id="prev-page-button" onclick="navigateTo(-1, true);">
                         <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
