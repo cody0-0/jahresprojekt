@@ -1,1 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?><svg id="Ebene_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 54.14 54.14"><g id="Ebene_1-2"><path d="m27.07,54.14c14.95,0,27.07-12.12,27.07-27.07S42.02,0,27.07,0,0,12.12,0,27.07s12.12,27.07,27.07,27.07" style="fill:#e73251; stroke-width:0px;"/><path d="m21.14,13.53l6.41,18.71h.08l6.07-18.71h8.49v27.2h-5.65v-19.28h-.08l-6.72,19.28h-4.65l-6.72-19.09h-.08v19.09h-5.65V13.53h8.49Z" style="fill:#2e2d2c; stroke-width:0px;"/></g></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Ebene_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 54.14 54.14">
+    <g id="Ebene_1-2">
+        <path d="m27.07,54.14c14.95,0,27.07-12.12,27.07-27.07S42.02,0,27.07,0,0,12.12,0,27.07s12.12,27.07,27.07,27.07"
+              style="fill:#e73251; stroke-width:0px;"/>
+        <path d="m21.14,13.53l6.41,18.71h.08l6.07-18.71h8.49v27.2h-5.65v-19.28h-.08l-6.72,19.28h-4.65l-6.72-19.09h-.08v19.09h-5.65V13.53h8.49Z"
+              style="fill:#2e2d2c; stroke-width:0px;"/>
+    </g>
+</svg>
