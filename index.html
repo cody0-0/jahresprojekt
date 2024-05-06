@@ -122,10 +122,8 @@
         <div class="wrapping-grid">
             <div class="floating-actions">
                 <a href="#hero-section" class="icon-button" id="back-to-top">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"
-                         fill="var(--color-text)">
-                        <path
-                                d="M440-727 256-544l-56-56 280-280 280 280-56 57-184-184v287h-80v-287Zm0 487v-120h80v120h-80Zm0 160v-80h80v80h-80Z"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+                        <path d="M440-160v-487L216-423l-56-57 320-320 320 320-56 57-224-224v487h-80Z"/>
                     </svg>
                 </a>
             </div>
@@ -187,21 +185,36 @@
                     unsere
                     <a href="index.html">Medien Seite</a>.
                 </p>
-                <div class="line not-large"></div>
+                <div class="line-h not-large"></div>
                 <div id="news-block">
                     <h2 class="news-title">Aktuelles</h2>
                 </div>
-                <div class="line not-large"></div>
+                <div class="line-h not-large"></div>
             </section>
 
             <section class="previews anchor" id="preview-section">
                 <div class="filter-row">
                     <!--                    TODO: change onclick functions-->
-                    <button class="filter" onclick="toggleURLParameter('course', 'minf', this)">Studiengänge</button>
-                    <button class="filter" onclick="toggleURLParameter('tag', 'animation', this)">Kategorien</button>
-                    <button class="filter" onclick="toggleURLParameter('max-date', '2023-01-01', this)">Zeit</button>
+                    <button class="filter button" onclick="toggleFilter('course', 'minf', this)">Studiengänge</button>
+                    <button class="filter button" onclick="toggleFilter('tag', 'animation', this)">Kategorien</button>
+                    <button class="filter button" onclick="toggleFilter('max-date', '2023-01-01', this)">Zeit</button>
                 </div>
                 <div class="content-grid" id="preview-grid"></div>
+                <div class="page-nav" id="page-nav">
+                    <button class="icon-button" id="prev-page-button" onclick="navigateTo(-1, true);">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+                            <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z"/>
+                        </svg>
+                    </button>
+                    <button class="icon-button" id="first-page-button" onclick="navigateTo(0);"></button>
+                    <p id="current-page-indicator">Seite 3</p>
+                    <button class="icon-button" id="last-page-button" onclick="navigateTo(pageCount - 1);"></button>
+                    <button class="icon-button" id="next-page-button" onclick="navigateTo(+1, true);">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+                            <path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z"/>
+                        </svg>
+                    </button>
+                </div>
             </section>
         </div>
     </main>
