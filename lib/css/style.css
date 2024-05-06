@@ -412,12 +412,9 @@ header {
 
     position: fixed;
     top: 0;
-    padding: var(--padding) var(--padding);
-    height: var(--header-height);
     width: 100%;
     max-width: var(--max-site-width, 1920px);
-    display: flex;
-    justify-content: space-between;
+    display: grid;
 
     text-align: center;
     font-size: var(--font-size-label);
@@ -455,6 +452,43 @@ header.scrolled {
     --_header-elevation: var(--elevation-1);
 }
 
+header .main-header{
+    height: var(--header-height);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--padding);
+}
+
+header .expanded-header {
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    width: 100%;
+}
+
+header .expanded-header:has([aria-hidden="false"]), header .expanded-header:has(.active) {
+    height: fit-content;
+    display: flex;
+    justify-content: end;
+    align-items: start;
+    padding: var(--padding);
+    padding-block-start: 0;
+
+}
+
+header .expanded-header > *:not(.active) {
+    display: none;
+    flex-direction: column;
+    gap: var(--v-spacing);
+}
+
+header.expanded-header > .active {
+    display: flex;
+}
+
+
 .logo {
     width: auto;
     height: 100%;
@@ -480,6 +514,7 @@ header.scrolled {
 }
 
 header > .controls {
+
     display: flex;
     gap: var(--h-spacing);
 
@@ -490,17 +525,12 @@ nav {
     align-items: center;
 }
 
-:where(.controls>*) {
+nav, nav ul{
+    --_nav-spacing: var(--h-spacing);
+
     display: flex;
-    gap: var(--h-spacing);
-}
-
-.sub-menu-item {
-    display: none;
-}
-
-.sub-menu.item.active {
-    display: block;
+    gap: var(--_nav-spacing);
+    align-items: center;
 }
 
 header button, header .icon-button {
