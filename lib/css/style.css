@@ -673,6 +673,27 @@ b {
     max-height: 70svh;
 }
 
+.preview .preview-img-wrapper {
+    position: relative;
+}
+
+.preview .preview-img-wrapper::after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 2rem;
+    height: 2rem;
+    margin: var(--unit);
+}
+
+.preview.minf .preview-img-wrapper::after {
+    content: url("../../resources/imgs/logo_minf_stamp_color.svg");
+}
+
+.preview.musk .preview-img-wrapper::after {
+    content: url("../../resources/imgs/logo_musk_stamp_color.svg");
+}
+
 @media screen and (min-width: 930px) {
     .preview .preview-img {
         max-height: 50svh;
