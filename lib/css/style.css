@@ -407,10 +407,6 @@ header.scrolled {
     }
 }
 
-.logo .logo-text {
-    fill: var(--_on-header-color);
-}
-
 header > .controls {
     display: flex;
     gap: var(--h-spacing);
@@ -579,6 +575,10 @@ footer a {
     color: var(--color-text);
 }
 
+footer a:hover {
+    color: var(--color-primary);
+}
+
 footer .content-grid {
     gap: var(--v-spacing-small);
 }
@@ -612,6 +612,10 @@ footer .content-grid {
 .footer-column .footer-icons svg {
     fill: var(--color-text);
     height: 1.5em;
+}
+
+.footer-column .footer-icons svg:hover {
+    fill: var(--color-primary);
 }
 
 /* startseite */
