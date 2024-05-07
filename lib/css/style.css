@@ -173,7 +173,6 @@
 @media (min-width: 600px) {
     :root {
         --font-size: var(--font-size-large);
-        --font-size-title: 3.2rem;
         --v-spacing: var(--v-spacing-large);
         --v-spacing-previews: var(--v-spacing-previews-large);
         --font-size-label: 0.9rem;
@@ -191,6 +190,14 @@ body {
     max-width: var(--max-site-width, 1920px);
     margin: 0;
     padding: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.spacer {
+    flex-grow: 1;
 }
 
 .wrapping-grid {
@@ -314,6 +321,12 @@ a:not(:has(> *), .menu-item)::after, a *:not(.preview-title):last-child::after {
     mask-size: 100% 100%;
     -webkit-mask-position: 0.15em 0.5ex;
     mask-position: 0 0.5ex;
+}
+
+h1 {
+    font-size: var(--font-size-headline2);
+    font-weight: var(--fontweight-headline);
+    line-height: var(--line-height-headline);
 }
 
 header {
@@ -677,7 +690,7 @@ b {
 
 @media screen and (min-width: 930px) {
     .welcome-text {
-        grid-column: span 8;
+        grid-column: span 8 !important;
         padding-inline-end: var(--h-spacing);
         border-right: var(--v-line-thickness) solid var(--color-secondary);
     }

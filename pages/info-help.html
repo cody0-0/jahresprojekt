@@ -6,28 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="./lib/css/reset.css"/>
-    <link rel="stylesheet" href="./lib/css/fonts.css"/>
-    <link rel="stylesheet" href="./lib/css/style.css"/>
+    <link rel="stylesheet" href="../lib/css/reset.css"/>
+    <link rel="stylesheet" href="../lib/css/fonts.css"/>
+    <link rel="stylesheet" href="../lib/css/style.css"/>
 
     <!-- JS -->
-    <script src="./lib/javascript/script-check.js" defer></script>
-    <script src="./lib/javascript/studiengang-url-parser.js" defer></script>
-    <script src="./lib/javascript/textFit.js" defer></script>
-    <script src="./lib/javascript/news-picker.js" defer></script>
-    <script src="./lib/javascript/load-previews.js" defer></script>
-    <script src="./lib/javascript/point-of-interest-imgs.js" defer></script>
-    <script src="./lib/javascript/hero-scroll.js" defer></script>
-    <script src="./lib/javascript/goTo.js"></script>
+    <script src="../lib/javascript/script-check.js" defer></script>
+    <script src="../lib/javascript/studiengang-url-parser.js" defer></script>
+    <script src="../lib/javascript/point-of-interest-imgs.js" defer></script>
+    <script src="../lib/javascript/goTo.js"></script>
 
-    <link id="favicon" rel="shortcut icon" type="image/svg"/>
-    <title></title>
+    <link rel="icon" id="favicon" type="image/svg"/>
+    <title>Info & Hilfe</title>
 </head>
 
-<body class="home-page">
+<body class="help-page">
 <div class="wrapper">
-    <header style="z-index: 1" class="fading-header">
-        <a class="logo" href="#hero-section">
+    <header style="z-index: 1">
+        <a class="logo" href="javascript:goTo('../index.html')">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 85.75 85.75">
                 <defs>
                     <clipPath id="clippath">
@@ -106,11 +102,12 @@
         </a>
         <div class="controls">
             <nav class="large-only">
-                <a class="menu-item" href="#preview-section">Beiträge</a>
+                <a class="menu-item" href="javascript:goTo('../index.html#preview-section')">Beiträge</a>
                 <button class="menu-item">Studiengänge</button>
-                <a class="sub-menu-item" href="javascript:goTo('./pages/about-minf.html')">Medieninformatik</a>
-                <a class="sub-menu-item" href="javascript:goTo('./pages/about-musk.html')">Medien- und Spielekonzeption</a>
-                <a class="menu-item" href="javascript:goTo('./pages/info-help.html')">Info & Hilfe</a>
+                <a class="sub-menu-item" href="javascript:goTo('./about-minf.html')">Medieninformatik B.Sc.</a>
+                <a class="sub-menu-item" href="javascript:goTo('./about-musk.html')">Medien- und Spielekonzeption
+                    M.A.</a>
+                <a class="menu-item" href="javascript:goTo('./info-help.html')">Info & Hilfe</a>
             </nav>
             <div>
                 <button class="icon-button">Suche</button>
@@ -122,99 +119,19 @@
     <main>
         <div class="wrapping-grid">
             <div class="floating-actions">
-                <a href="#hero-section" class="icon-button" id="back-to-top">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
-                        <path d="M440-160v-487L216-423l-56-57 320-320 320 320-56 57-224-224v487h-80Z"/>
+                <a href="#main-section" class="icon-button" id="back-to-top">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"
+                         fill="var(--color-text)">
+                        <path d="M440-727 256-544l-56-56 280-280 280 280-56 57-184-184v287h-80v-287Zm0 487v-120h80v120h-80Zm0 160v-80h80v80h-80Z"/>
                     </svg>
                 </a>
             </div>
-
-            <section class="hero full anchor wrapping-grid" id="hero-section">
-                <div class="content-grid">
-                    <h1 class="website-title no-prefilter">Medien<br/>Hochschule Harz</h1>
-                    <h1 class="website-title prefilter-minf">Bachelor<br/>Medieninformatik</h1>
-                    <h1 class="website-title prefilter-musk">Medien- und<br/>Spielekonzeption</h1>
-                </div>
-                <video class="hero-trailer full" muted autoplay loop>
-                    <source src="./resources/videos/SAE-Website-hero-video.mp4" type="video/mp4"/>
-                </video>
-            </section>
-
-            <section class="welcome content-grid anchor" id="welcome-section">
-                <p class="welcome-text no-prefilter">
-                    Willkommen bei den Medienstudiengängen der
-                    Hochschule Harz! Entdecke Projekte und Inhalte der
-                    Studiengänge
-                    <a class="minf" href="pages/minf.html">Medieninformatik B.Sc.</a>&nbsp;(Minf), wo
-                    Informatik auf Gestaltung trifft
-                    oder
-                    <a class="musk" href="pages/musk.html">Medien- und Spielekonzeption
-                        M.A.</a>&nbsp;(MuSK), welcher tief in die Welt der
-                    digitalen Unterhaltung eintaucht.
-                </p>
-                <p class="welcome-text prefilter-minf">
-                    Willkommen bei dem Studiengang
-                    <b>Medieninformatik&nbsp;B.Sc.</b>&nbsp;(Minf) der
-                    Hochschule Harz! Erlebe wie kreative Freiheit auf
-                    technisches Know-how trifft. Erfahre, wie wir
-                    Informatik mit Gestaltung verknüpfen, um innovative
-                    Medienlösungen zu gestalten.
-                    <br/>
-                    Du willst noch andere Bereiche unserer
-                    Medien-Studiengänge erleben? Dann besuche doch
-                    unsere
-                    <a href="index.html">Medien Seite</a>.
-                </p>
-                <p class="welcome-text prefilter-musk">
-                    Willkommen bei dem Studiengang
-                    <b>Medien-&nbsp;und&nbsp;Spielekonzeption&nbsp;M.A.</b>&nbsp;(MuSK) der Hochschule Harz! Blicke
-                    hinter die
-                    Kulissen der Spieleentwicklung und arbeite in Teams
-                    an der Zukunft der Medienwelt.
-                    <br/>
-                    Du willst noch andere Bereiche unserer
-                    Medien-Studiengänge erleben? Dann besuche doch
-                    unsere
-                    <a href="index.html">Medien Seite</a>.
-                </p>
-                <div class="line-h not-large"></div>
-                <div id="news-block">
-                    <h2 class="news-title">Aktuelles</h2>
-                    <div id="news-items"></div>
-                </div>
-                <div class="line-h not-large"></div>
-            </section>
-
-            <section class="previews anchor" id="preview-section">
-                <div class="filter-row">
-                    <!--                    TODO: change onclick functions-->
-                    <button class="filter button" onclick="toggleFilter('course', 'minf', this)">Studiengänge</button>
-                    <button class="filter button" onclick="toggleFilter('tag', 'animation', this)">Kategorien</button>
-                    <button class="filter button" onclick="toggleFilter('max-date', '2023-01-01', this)">Zeit</button>
-                </div>
-                <div class="content-grid" id="preview-grid"></div>
-                <div class="content-grid" id="preview-no-content">
-                    <p>Es konnten leider keine Beiträge gefunden werden (°¬°)</p>
-                </div>
-                <div class="page-nav" id="page-nav">
-                    <button class="icon-button" id="prev-page-button" onclick="navigateTo(-1, true);">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
-                            <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z"/>
-                        </svg>
-                    </button>
-                    <button class="icon-button" id="first-page-button" onclick="navigateTo(0);"></button>
-                    <p id="current-page-indicator">Seite 3</p>
-                    <button class="icon-button" id="last-page-button" onclick="navigateTo(pageCount - 1);"></button>
-                    <button class="icon-button" id="next-page-button" onclick="navigateTo(+1, true);">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
-                            <path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z"/>
-                        </svg>
-                    </button>
-                </div>
+            <section class="header-offset content content-grid anchor" id="main-section">
+                <div></div>
+                <h1>Informationen und Hilfe</h1>
             </section>
         </div>
     </main>
-
 
     <div class="spacer"></div>
     <footer>
@@ -264,5 +181,4 @@
     </footer>
 </div>
 </body>
-
 </html>
