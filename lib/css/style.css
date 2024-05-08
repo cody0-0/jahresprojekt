@@ -127,6 +127,7 @@
 
     --v-line-thickness: 4px;
     --h-line-thickness: 2px;
+    --line-thickness: 3px;
 
     --elevation-1: 0px 0px 4px rgba(0, 0, 0, 0.1);
 }
@@ -958,4 +959,35 @@ h1.content-title {
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+#cookies {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 1000;
+    font-size: 0.8rem;
+    padding: var(--padding);
+    border-top: var(--line-thickness) solid var(--color-primary);
+    background-color: var(--color-background);
+    filter: drop-shadow(var(--elevation-1));
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding);
+}
+
+@media screen and (min-width: 600px) {
+    #cookies {
+        width: 30em;
+        margin: var(--padding);
+        border: var(--line-thickness) solid var(--color-primary);
+    }
+}
+
+#cookies.hidden {
+    display: none;
+}
+
+#cookies button {
+    margin: auto;
 }

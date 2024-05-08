@@ -14,6 +14,7 @@
     <script src="../lib/javascript/script-check.js" defer></script>
     <script src="../lib/javascript/studiengang-url-parser.js" defer></script>
     <script src="../lib/javascript/point-of-interest-imgs.js" defer></script>
+    <script src="../lib/javascript/cookies.js" defer></script>
     <script src="../lib/javascript/goTo.js"></script>
     <script src="../lib/javascript/sharePage.js" defer></script>
 
@@ -22,6 +23,15 @@
 </head>
 
 <body class="content-page">
+<div id="cookies" class="hidden">
+    <p>
+        Diese Website verwendet Cookies, um ein angenehmeres Surfen zu ermöglichen. Mit der Nutzung unserer Website
+        erklärst Du Dich damit einverstanden, dass wir Cookies verwenden. Weitere Informationen findest Du in
+        unserer
+        <a href="https://www.hs-harz.de/datenschutzerklaerung">Datenschutzerklärung</a>.
+    </p>
+    <button onclick="cookieOk()">Alles&nbsp;<span style="text-decoration: underline">k</span>lar</button>
+</div>
 <div class="wrapper">
     <header style="z-index: 1">
         <a class="logo" href="javascript:goTo('../index.html')">
@@ -106,7 +116,8 @@
                 <a class="menu-item" href="javascript:goTo('../index.html#preview-section')">Beiträge</a>
                 <button class="menu-item">Studiengänge</button>
                 <a class="sub-menu-item" href="javascript:goTo('./about-minf.html')">Medieninformatik B.Sc.</a>
-                <a class="sub-menu-item" href="javascript:goTo('./about-musk.html')">Medien- und Spielekonzeption M.A.</a>
+                <a class="sub-menu-item" href="javascript:goTo('./about-musk.html')">Medien- und Spielekonzeption
+                    M.A.</a>
                 <a class="menu-item" href="javascript:goTo('./info-help.html')">Info & Hilfe</a>
             </nav>
             <div>
