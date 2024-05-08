@@ -115,8 +115,8 @@
                 <nav>
                     <ul class="large-only">
                         <li><a class="menu-item" href="#preview-section" tabindex="1">Übersicht & Beiträge</a></li>
-                        <li><button class="menu-item toggle-button" aria-controls="sub-menu" tabindex="1">Über die Studiengänge</button></li>
-                        <li><a class="menu-item" href="#" tabindex="1">Info & Hilfe</a></li>
+                        <li><button class="menu-item toggle-button dropdown" aria-controls="sub-menu" tabindex="1">Über die Studiengänge</button></li>
+                        <li><a class="menu-item" href="javascript:goTo('./pages/info-help.html')" tabindex="1">Info & Hilfe</a></li>
                     </ul>
                     <ul>
                         <li>
@@ -125,7 +125,7 @@
                             </button>
                         </li>
                         <li class="not-large">
-                            <button class="icon-button" aria-controls="hamburger-menu" tabindex="1">
+                            <button class="icon-button toggle-button" aria-controls="hamburger-menu" tabindex="1">
                                 <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
                                     <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
                                 </svg>
@@ -135,11 +135,10 @@
                 </nav>
         </div>
         <div class="expanded-header">
-            <input class="large-only" type="search" name="preview-search" id="preview-search-large" area-hidden="true" tabindex="1">
-            <nav class="" id="sub-menu">
+            <nav class="">
                 <ul class="large-only sub-menu" aria-hidden="true">
-                    <li><a class="sub-menu-item" href="pages/minf.html" tabindex="1">Medieninformatik</a></li>
-                    <li><a class="sub-menu-item" href="pages/musk.html" tabindex="1">Medien- und Spielekonzeption</a></li>
+                    <li><a class="sub-menu-item" href="javascript:goTo('./pages/about-minf.html')" tabindex="1">Medieninformatik</a></li>
+                    <li><a class="sub-menu-item" href="javascript:goTo('./pages/about-musk.html')" tabindex="1">Medien- und Spielekonzeption</a></li>
                 </ul>
                 <ul class="not-large" id="hamburger-menu" aria-hidden="true">
                     <li><input type="search" name="preview-search" id="preview-search-small" tabindex="1"></li>
@@ -154,6 +153,7 @@
                     <li><a class="menu-item" href="javascript:goTo('./pages/info-help.html')" tabindex="1">Info & Hilfe</a></li>
                 </ul>
             </nav>
+            <input class="large-only" type="search" name="preview-search" id="preview-search-large" area-hidden="true" tabindex="1">
         </div>
     </header>
 

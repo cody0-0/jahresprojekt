@@ -440,6 +440,10 @@ header a {
     color: var(--_on-header-color);
 }
 
+header a::after {
+    display: none;
+}
+
 .no-js header.fading-header {
     --_on-header-color: var(--color-text);
     --_header-background: var(--color-background);
@@ -459,6 +463,7 @@ header .main-header{
     justify-content: space-between;
     align-items: center;
     padding: var(--padding);
+    gap: var(--v-spacing);
 }
 
 header .expanded-header {
@@ -466,6 +471,7 @@ header .expanded-header {
     padding: 0;
     overflow: hidden;
     width: 100%;
+    gap: var(--v-spacing);
 }
 
 header .expanded-header:has([aria-hidden="false"]), header .expanded-header:has(.active) {
@@ -492,11 +498,39 @@ header .expanded-header .sub-menu {
     margin-right: 4rem;
 }
 
+header input[type="search"] {
+    --_input-color: var(--_on-header-color);
+    --_on-input-color: var(--_on-header-color);
+}
+
+#hamburger-menu.active {
+    height: 100px;
+    min-height: 100px;
+    display: grid;
+    gap: var(--v-spacing);
+}
+
+#hamburger-menu li {
+    display: block;
+    height: 100px;
+    width: 100%;
+}
+
 input[type="search"] {
+    --_input-color: var(--color-text);
+    --_on-input-color: var(--color-text);
+
     background: none;
+    position: relative;
 
     border: none;
-    border-bottom: 2px solid var(--color-text);
+    border-bottom: 2px solid var(--_input-color);
+    color: var(--_on-input-color);
+}
+
+input[type="search"]:focus {
+    --_input-color: var(--color-primary);
+    outline: none;
 }
 
 
@@ -524,18 +558,6 @@ input[type="search"] {
     }
 }
 
-header > .controls {
-
-    display: flex;
-    gap: var(--h-spacing);
-
-    align-items: center;
-}
-
-nav {
-    align-items: center;
-}
-
 nav, nav ul{
     --_nav-spacing: var(--h-spacing);
 
@@ -552,8 +574,11 @@ header button, header .icon-button {
     filter: none;
 }
 
-header button:hover, header .icon-button:focus {
-    background: none;
+header .icon-button:hover, header .icon-button:focus, 
+header .icon-button:hover svg, header .icon-button:focus svg {
+    --_button-background: none;
+    color: var(--color-primary);
+    fill: var(--color-primary);
 }
 
 button, .icon-button {
@@ -591,6 +616,23 @@ button.active svg {
 button:disabled {
     cursor: default;
     opacity: 0.5;
+}
+
+.dropdown::after {
+    content: ' ';
+    display: inline-block;
+    aspect-ratio: 1;
+    width: 1rem;
+    --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px' fill='%235f6368'%3E%3Cpath d='M480-345 240-585l56-56 184 184 184-184 56 56-240 240Z'/%3E%3C/svg%3E");
+    background-color: var(--color-primary);
+    -webkit-mask-image: var(--svg);
+    mask-image: var(--svg);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    -webkit-mask-position: 0.15em 0.5ex;
+    mask-position: 0 0.5ex;
 }
 
 .icon-button {
