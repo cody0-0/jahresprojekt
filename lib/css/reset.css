@@ -87,3 +87,11 @@ button {
     border: none;
     color: inherit;
 }
+
+textarea,
+input:not([type="checkbox"]):not([type="file"]):not([type="image"]):not([type="radio"]):not([type="range"]) {
+  font: inherit;
+  letter-spacing: inherit;
+  word-spacing: inherit;
+  padding: 0 0.2em;
+}
