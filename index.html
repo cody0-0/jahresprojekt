@@ -27,7 +27,7 @@
 <body class="home-page">
 <div class="wrapper">
     <header style="z-index: 1" class="fading-header">
-        <a class="logo" href="#hero-section">
+        <a class="logo" tabindex="1" href="#hero-section">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 85.75 85.75">
                 <defs>
                     <clipPath id="clippath">
@@ -106,29 +106,22 @@
         </a>
         <div class="controls">
             <nav class="large-only">
-                <a class="menu-item" href="#preview-section">Beiträge</a>
-                <button class="menu-item">Studiengänge</button>
-                <a class="sub-menu-item" href="javascript:goTo('./pages/about-minf.html')">Medieninformatik</a>
-                <a class="sub-menu-item" href="javascript:goTo('./pages/about-musk.html')">Medien- und Spielekonzeption</a>
-                <a class="menu-item" href="javascript:goTo('./pages/info-help.html')">Info & Hilfe</a>
+                <a class="menu-item" tabindex="1" href="#preview-section">Beiträge</a>
+                <button class="menu-item" tabindex="1">Studiengänge</button>
+                <a class="sub-menu-item" tabindex="1" href="javascript:goTo('./pages/about-minf.html')">Medieninformatik</a>
+                <a class="sub-menu-item" tabindex="1" href="javascript:goTo('./pages/about-musk.html')">Medien- und Spielekonzeption</a>
+                <a class="menu-item" tabindex="1" href="javascript:goTo('./pages/info-help.html')">Info & Hilfe</a>
             </nav>
             <div>
-                <button class="icon-button">Suche</button>
-                <button class="icon-button not-large">Menü</button>
+                <!-- TODO: add tabindex for search input field -->
+                <button class="icon-button" tabindex="1">Suche</button>
+                <button class="icon-button not-large" tabindex="1">Menü</button>
             </div>
         </div>
     </header>
 
     <main>
         <div class="wrapping-grid">
-            <div class="floating-actions">
-                <a href="#hero-section" class="icon-button" id="back-to-top">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
-                        <path d="M440-160v-487L216-423l-56-57 320-320 320 320-56 57-224-224v487h-80Z"/>
-                    </svg>
-                </a>
-            </div>
-
             <section class="hero full anchor wrapping-grid" id="hero-section">
                 <div class="content-grid">
                     <h1 class="website-title no-prefilter">Medien<br/>Hochschule Harz</h1>
@@ -145,16 +138,16 @@
                     Willkommen bei den Medienstudiengängen der
                     Hochschule Harz! Entdecke Projekte und Inhalte der
                     Studiengänge
-                    <a class="minf" href="pages/minf.html">Medieninformatik B.Sc.</a>&nbsp;(Minf), wo
+                    <a tabindex="1" class="minf" href="pages/minf.html">Medieninformatik B.Sc.</a>&nbsp;(MINF), wo
                     Informatik auf Gestaltung trifft
                     oder
-                    <a class="musk" href="pages/musk.html">Medien- und Spielekonzeption
+                    <a tabindex="1" class="musk" href="pages/musk.html">Medien- und Spielekonzeption
                         M.A.</a>&nbsp;(MuSK), welcher tief in die Welt der
                     digitalen Unterhaltung eintaucht.
                 </p>
                 <p class="welcome-text prefilter-minf">
                     Willkommen bei dem Studiengang
-                    <b>Medieninformatik&nbsp;B.Sc.</b>&nbsp;(Minf) der
+                    <b>Medieninformatik&nbsp;B.Sc.</b>&nbsp;(MINF) der
                     Hochschule Harz! Erlebe wie kreative Freiheit auf
                     technisches Know-how trifft. Erfahre, wie wir
                     Informatik mit Gestaltung verknüpfen, um innovative
@@ -163,7 +156,7 @@
                     Du willst noch andere Bereiche unserer
                     Medien-Studiengänge erleben? Dann besuche doch
                     unsere
-                    <a href="index.html">Medien Seite</a>.
+                    <a tabindex="1" href="index.html">Medien Seite</a>.
                 </p>
                 <p class="welcome-text prefilter-musk">
                     Willkommen bei dem Studiengang
@@ -175,22 +168,22 @@
                     Du willst noch andere Bereiche unserer
                     Medien-Studiengänge erleben? Dann besuche doch
                     unsere
-                    <a href="index.html">Medien Seite</a>.
+                    <a tabindex="1" href="index.html">Medien Seite</a>.
                 </p>
-                <div class="line-h not-large"></div>
+                <div class="line not-large"></div>
                 <div id="news-block">
-                    <h2 class="news-title">Aktuelles</h2>
+                    <b class="news-title">Aktuelles</b>
                     <div id="news-items"></div>
                 </div>
-                <div class="line-h not-large"></div>
+                <div class="line not-large"></div>
             </section>
 
             <section class="previews anchor" id="preview-section">
                 <div class="filter-row">
                     <!--                    TODO: change onclick functions-->
-                    <button class="filter button" onclick="toggleFilter('course', 'minf', this)">Studiengänge</button>
-                    <button class="filter button" onclick="toggleFilter('tag', 'animation', this)">Kategorien</button>
-                    <button class="filter button" onclick="toggleFilter('max-date', '2023-01-01', this)">Zeit</button>
+                    <button class="filter button" tabindex="1" onclick="toggleFilter('course', 'minf', this)">Studiengänge</button>
+                    <button class="filter button" tabindex="1" onclick="toggleFilter('tag', 'animation', this)">Kategorien</button>
+                    <button class="filter button" tabindex="1" onclick="toggleFilter('max-date', '2023-01-01', this)">Zeit</button>
                 </div>
                 <div class="content-grid" id="preview-grid"></div>
                 <div class="content-grid" id="preview-no-content">
@@ -219,8 +212,16 @@
     <div class="spacer"></div>
     <footer>
         <div class="wrapping-grid">
+            <div class="floating-actions">
+                <a href="#hero-section" class="icon-button" id="back-to-top">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+                        <path d="M440-160v-487L216-423l-56-57 320-320 320 320-56 57-224-224v487h-80Z"/>
+                    </svg>
+                </a>
+            </div>
+
             <div class="content-grid">
-                <div class="line-h"></div>
+                <div class="line"></div>
                 <div class="footer-column">
                     <a href="https://hs-harz.de">Hochschule Harz</a>
                     <a href="https://hs-harz.de/impressum">Impressum</a>
@@ -257,7 +258,7 @@
                     </div>
                 </div>
                 <div class="footer-column">
-                    <b>&copy; 2024 Hochschule Harz</b>
+                    <b>&copy; 2024 Medienstudiengänge der ▲ Hochschule Harz</b>
                 </div>
             </div>
         </div>
