@@ -486,6 +486,10 @@ header > .controls {
     align-items: center;
 }
 
+nav {
+    align-items: center;
+}
+
 :where(.controls>*) {
     display: flex;
     gap: var(--h-spacing);
