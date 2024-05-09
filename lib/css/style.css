@@ -58,7 +58,7 @@
 
     --font-family: "Helvetica Neue", "Arial", sans-serif;
     --font-size-mobile: 16px;
-    --font-size-large: 20px;
+    --font-size-large: 100%;
     --font-size: var(--font-size-mobile);
     --line-height: 1.5;
 
@@ -119,6 +119,8 @@
     --line-thickness: 3px;
 
     --elevation-1: 0px 0px 4px rgba(0, 0, 0, 0.1);
+
+    outline-color: var(--color-primary);
 }
 
 .minf {
@@ -464,6 +466,7 @@ header.scrolled {
     align-items: center;
     padding: var(--padding);
     gap: var(--v-spacing);
+    white-space: nowrap;
 }
 
 .expanded-header {
@@ -471,27 +474,37 @@ header.scrolled {
     padding: 0;
     overflow: hidden;
     width: 100%;
-    gap: var(--v-spacing);
+    gap: calc(var(--v-spacing) * 2);
+    transition: all 0.3s;
 }
 
-.expanded-header:has([aria-hidden="false"]), header .expanded-header:has(.active) {
+.expanded-header:has(.active) {
     height: fit-content;
     display: flex;
-    justify-content: end;
-    align-items: start;
+    justify-content: start;
+    align-items: end;
     padding: var(--padding);
-    padding-block-start: 0;
 
 }
 
-.expanded-header>*:not(.active) {
-    display: none;
-    flex-direction: column;
-    gap: var(--v-spacing);
+@media screen and (max-width: 930px) {
+    .expanded-header:has(.active) {
+        height: calc(100dvh - var(--header-height));
+        flex-direction: column;
+        justify-content: space-between;
+    }
 }
 
 .expanded-header > .active {
     display: flex;
+    flex-direction: column;
+    gap: var(--v-spacing);
+    width: 100%;
+    justify-content: end;
+}
+
+.expanded-header>*:not(active) {
+    display: none;
 }
 
 .expanded-header .sub-menu {
@@ -511,7 +524,7 @@ input[type="search"] {
     position: relative;
 
     border: none;
-    border-bottom: 2px solid var(--_input-color);
+    border-bottom: var(--line-thickness, 2px) solid var(--_input-color);
     color: var(--_on-input-color);
 }
 
@@ -520,21 +533,54 @@ input[type="search"]:focus {
     outline: none;
 }
 
+#preview-search-large {
+    width: 50%;
+}
+#preview-search-small {
+    width: 100%;
+}
+
+
+#hamburger-toggle>*:not(.active) {
+    display: none;
+}
+#hamburger-toggle>.active {
+    display: block;
+}
+
+.expanded-header nav {
+    flex-grow: 1;
+}
+
+.expanded-menu {
+    align-items: end;
+}
+
+@media screen and (max-width: 930px) {
+    .expanded-menu {
+        align-items: center;
+    }   
+}
+
 .hamburger-menu {
-    padding: inherit var(--h-spacing);
-    height: calc(100dvh - var(--header-height) - var(--padding));
+    font-size: var(--font-size-headline3);
+    width: 100%;
     display: flex;
     flex-direction: column;
-    gap: var(--v-spacing);
+    flex: 1;
+    gap: var(--_nav-spacing);
     align-items: end;
     text-align: end;
-    margin-top: 4rem;
+    justify-content: center;
 }
 
 .hamburger-menu>li {
     display: flex;
     flex-direction: column;
-    gap: calc(var(--v-spacing) / 2);
+    gap: calc(var(--_nav-spacing) / 2);
+    width: 100%;
+    min-height: var(--_button-size);
+    align-items: end;
 }
 
 .hamburger-menu .sub-menu {
@@ -545,10 +591,16 @@ input[type="search"]:focus {
 }
 
 .sub-menu-heading {
-    font-size: 0.8rem;
-    color: var(--color-secondary);
+    font-weight: normal;
+    font-size: var(--font-size-body);
 }
 
+.expanded-header .social-media-links {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: var(--h-spacing);
+}
 
 .logo {
     width: auto;
@@ -588,6 +640,7 @@ header button, header .icon-button {
     padding: 0;
     background: transparent;
     filter: none;
+    margin-right: calc((2.4rem - 24px) / -2);
 }
 
 header .icon-button:hover, header .icon-button:focus, 
@@ -667,6 +720,15 @@ button:disabled {
     fill: var(--color-primary);
 }
 
+.logo-icon svg {
+    fill: var(--color-text);
+    height: 1.5em;
+}
+
+.logo-icon:hover svg, .logo-icon:focus svg {
+    fill: var(--color-primary);
+}
+
 .floating-actions {
     position: fixed;
     bottom: var(--v-spacing);
@@ -742,16 +804,11 @@ footer .content-grid {
     }
 }
 
-.footer-icons {
+footer .social-media-links {
     flex: 1;
     display: flex;
     justify-content: flex-end;
     gap: var(--h-spacing-small);
-}
-
-.footer-icons svg {
-    fill: var(--color-text);
-    height: 1.5em;
 }
 
 /* startseite */
