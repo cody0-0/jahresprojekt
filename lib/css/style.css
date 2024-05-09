@@ -564,7 +564,7 @@ button:disabled {
     fill: var(--_on-button-color);
 }
 
-.icon-button:hover svg, .icon-button:focus svg {
+.icon-button:not(:disabled):hover svg, .icon-button:focus svg {
     fill: var(--color-primary);
 }
 
