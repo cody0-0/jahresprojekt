@@ -1107,3 +1107,43 @@ img {
     margin-left: auto;
     margin-right: auto;
 }
+
+#cookies {
+    position: fixed;
+    bottom: -1px;
+    right: 0;
+    z-index: 1000;
+    font-size: 0.8rem;
+    padding: var(--padding);
+    border-top: var(--line-thickness) solid var(--color-text);
+    background-color: var(--color-background);
+    filter: drop-shadow(var(--elevation-1));
+    width: 100%;
+}
+
+#cookies > div {
+    margin: auto;
+    max-width: var(--max-site-width);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5lh;
+}
+
+@media screen and (min-width: 930px) {
+    #cookies > div {
+        flex-direction: row;
+    }
+}
+
+#cookies.hidden {
+    border: none;
+    filter: none;
+    padding: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+#cookies button {
+    margin: auto;
+}

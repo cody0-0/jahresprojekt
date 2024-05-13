@@ -14,6 +14,7 @@
     <script src="../lib/javascript/script-check.js" defer></script>
     <script src="../lib/javascript/studiengang-url-parser.js" defer></script>
     <script src="../lib/javascript/point-of-interest-imgs.js" defer></script>
+    <script src="../lib/javascript/cookies.js" defer></script>
     <script src="../lib/javascript/menu-toggle.js" defer></script>
     <script src="../lib/javascript/goTo.js"></script>
 
@@ -23,6 +24,19 @@
 
 <body class="about-page about-minf-page">
 <div class="wrapper">
+    <div id="cookies" class="hidden">
+        <div>
+            <p>
+                Diese Website verwendet Cookies, um ein angenehmeres Surfen zu ermöglichen. Mit der Nutzung unserer
+                Website
+                erklärst Du Dich damit einverstanden, dass wir Cookies verwenden. Weitere Informationen findest Du in
+                unserer
+                <a href="https://www.hs-harz.de/datenschutzerklaerung">Datenschutzerklärung</a>.
+            </p>
+            <button onclick="cookieOk()">Alles&nbsp;<span style="text-decoration: underline">k</span>lar</button>
+        </div>
+    </div>
+
     <header style="z-index: 3">
         <div class="main-header">
             <a class="logo" href="../index.html">

@@ -14,6 +14,7 @@
     <script src="../lib/javascript/script-check.js" defer></script>
     <script src="../lib/javascript/studiengang-url-parser.js" defer></script>
     <script src="../lib/javascript/point-of-interest-imgs.js" defer></script>
+    <script src="../lib/javascript/cookies.js" defer></script>
     <script src="../lib/javascript/menu-toggle.js" defer></script>
     <script src="../lib/javascript/goTo.js"></script>
 
@@ -23,6 +24,19 @@
 
 <body class="help-page">
 <div class="wrapper">
+    <div id="cookies" class="hidden">
+        <div>
+            <p>
+                Diese Website verwendet Cookies, um ein angenehmeres Surfen zu ermöglichen. Mit der Nutzung unserer
+                Website
+                erklärst Du Dich damit einverstanden, dass wir Cookies verwenden. Weitere Informationen findest Du in
+                unserer
+                <a href="https://www.hs-harz.de/datenschutzerklaerung">Datenschutzerklärung</a>.
+            </p>
+            <button onclick="cookieOk()">Alles&nbsp;<span style="text-decoration: underline">k</span>lar</button>
+        </div>
+    </div>
+
     <header style="z-index: 3">
         <div class="main-header">
             <a class="logo" href="../index.html">
@@ -174,7 +188,7 @@
                 </ul>
                 <h1>Informationen und Hilfe</h1>
             </section>
-            <section class="content-grid anchor"  id="info-bewerber">
+            <section class="content-grid anchor" id="info-bewerber">
                 <h2>Informationen für Bewerber</h2>
                 <p><a href="https://www.hs-harz.de/deutschlandstipendium/bewerber/">Bewerber/innen</a></p>
                 <h2>Medienleihe</h2>
@@ -193,7 +207,7 @@
                     </a>
                 </div>
             </section>
-            <section class="content-grid anchor"  id="rundfuehrung">
+            <section class="content-grid anchor" id="rundfuehrung">
                 <h2>Labore und Rundführung</h2>
                 <div class="span">
                     <p>Du möchtest Dir die Medien-Labore der Hochschule näher anschauen? In einem studentischen Projekt
@@ -207,7 +221,7 @@
                     </a>
                 </div>
             </section>
-            <section class="content-grid anchor"  id="kontakt">
+            <section class="content-grid anchor" id="kontakt">
                 <h2>Kontakt</h2>
                 <div class="span">
                     <p>Du hast Fragen zu den Studiengängen? Dann wende Dich doch an unsere jeweiligen
