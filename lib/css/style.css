@@ -6,9 +6,11 @@
 
     --color-background: var(--color-neutral-900);
     --color-text: var(--color-neutral-100);
+    --color-container: var(--color-neutral-950);
 
     --color-primary: var(--color-hsred-500);
     --color-secondary: var(--color-text);
+
 
     --color-neutral-000: #000000;
     --color-neutral-050: #191918;
@@ -19,6 +21,7 @@
     --color-neutral-600: #a5a4a2;
     --color-neutral-700: #c1c0be;
     --color-neutral-900: #f3f3f1;
+    --color-neutral-950: #f9f9f8;
     --color-neutral-1000: #ffffff;
 
     --color-hsred-100: #2f0009;
@@ -116,7 +119,7 @@
 
     /* Styling */
 
-    --line-thickness: 3px;
+    --line-thickness: 2px;
 
     --elevation-1: 0px 0px 4px rgba(0, 0, 0, 0.1);
 
@@ -126,28 +129,19 @@
 .minf {
     --color-primary: var(--color-minf);
     --color-secondary: var(--color-minf);
-    --color-secondary-container: var(--color-yellow-900);
 }
 
 .musk {
     --color-primary: var(--color-musk);
     --color-secondary: var(--color-musk);
-    --color-secondary-container: var(--color-lavender-900);
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
         --color-background: var(--color-neutral-050);
         --color-text: var(--color-neutral-900);
+        --color-container: var(--color-neutral-100);
         --elevation-1: 0px 0px 8px rgba(0, 0, 0, 0.5);
-    }
-
-    .minf {
-        --color-secondary-container: var(--color-yellow-300);
-    }
-
-    .musk {
-        --color-secondary-container: var(--color-lavender-300);
     }
 }
 
@@ -376,6 +370,10 @@ a:focus .anchor-arrow::after {
     transform: translateY(-10%) translateX(10%) scale(90%);
 }
 
+b {
+    font-weight: bold;
+}
+
 h1 {
     font-size: var(--font-size-headline1);
     font-weight: var(--fontweight-headline);
@@ -437,7 +435,7 @@ header a {
     color: var(--_on-header-color);
 }
 
-header a:hover, header a:focus {
+header a:not(.logo):hover, header a:not(.logo):focus {
     --_on-header-color: var(--color-primary);
 }
 
@@ -461,7 +459,6 @@ header.scrolled {
     header {
         white-space: nowrap;
     }
-
 }
 
 .main-header{
@@ -507,7 +504,7 @@ header.scrolled {
     justify-content: end;
 }
 
-.expanded-header>*:not(active) {
+.expanded-header>*:not(.active) {
     display: none;
 }
 
@@ -527,7 +524,6 @@ nav, nav ul {
     .expanded-header nav, .expanded-header nav ul {
         --_nav-spacing: calc(var(--v-spacing) * 1.5);
     }
-
 }
 
 header input[type="search"] {
@@ -573,7 +569,6 @@ input[type="search"]:focus {
     .expanded-header nav {
         flex-grow: inherit;
     }
-
 }
 
 .expanded-menu {
@@ -631,10 +626,6 @@ input[type="search"]:focus {
     height: 100%;
 }
 
-.logo .logo-text {
-    fill: var(--_on-header-color);
-}
-
 .logo svg {
     height: 100%;
 }
@@ -642,6 +633,24 @@ input[type="search"]:focus {
 .logo svg:last-child {
     position: relative;
     top: -100%;
+}
+
+.logo-stamp-text {
+    fill: var(--_on-header-color);
+    filter: invert(1);
+}
+
+.minf .logo-stamp-text, .musk .logo-stamp-text {
+    fill: #2e2d2c;
+    filter: none;
+}
+
+.logo-stamp-container {
+    fill : var(--_on-header-color);
+}
+
+.minf .logo-stamp-container, .musk .logo-stamp-container {
+    fill: var(--color-primary);
 }
 
 @media screen and (max-width: 460px) {
@@ -666,7 +675,7 @@ header .icon-button:hover svg, header .icon-button:focus svg {
 
 button, .icon-button {
     --_on-button-color: var(--color-text);
-    --_button-background: var(--color-background);
+    --_button-background: var(--color-container);
     --_button-size: 2.4rem;
 
     border-radius: var(--border-radius-interaction, 100vw);
@@ -754,9 +763,14 @@ button:disabled {
 
     display: flex;
     flex-direction: column;
-    margin-inline: var(--h-spacing);
+    width: 100%;
     justify-self: end;
+    align-items: end;
     gap: calc(var(--v-spacing) * 0.5);
+}
+
+.floating-actions > * {
+    margin-right: var(--h-spacing);
 }
 
 .snack-bar {
@@ -767,7 +781,7 @@ button:disabled {
     min-height: var(--_button-size, 2.4rem);
     max-width: var(--content-wrap);
     width: calc(100% - (var(--_snack-bar-margin) * 2));
-    background: var(--color-background);
+    background: var(--color-container);
     filter: drop-shadow(var(--elevation-1));
     padding: 0.6rem;
     padding-inline: 1rem;
@@ -779,6 +793,7 @@ button:disabled {
     justify-content: space-between;
     align-items: center;
     gap: var(--h-spacing);
+    z-index: 3;
 }
 
 .snack-bar .icon-button {
@@ -867,22 +882,17 @@ section.hero.wrapping-grid > .content-grid {
     grid-column: 1 / -1;
 }
 
-.welcome-text > span {
-    font-size: var(--font-size-headline2);
-    font-weight: var(--fontweight-headline);
-    color: var(--color-secondary);
-}
-
-b {
-    font-weight: bold;
-}
-
 #news-block a {
     display: block;
-    margin-block-start: 0.5lh;
+    margin-bottom: 0.1em;
 }
 
-#news-items {
+#news-block a:not(:last-child) {
+    margin-bottom: calc(var(--font-size-label));
+}
+
+#news-block .caption {
+    line-height: 1em;
 }
 
 #news-block:has(#news-items:empty),
@@ -890,12 +900,8 @@ b {
     display: none;
 }
 
-.news-title {
-    font-weight: var(--fontweight-title);
-}
-
 .line {
-    border-top: var(--line-thickness) solid var(--color-secondary);
+    border-top: var(--line-thickness) solid var(--color-text);
     width: 100%;
 }
 
@@ -903,7 +909,17 @@ b {
     .welcome-text {
         grid-column: span 8 !important;
         padding-inline-end: var(--h-spacing);
-        border-right: var(--line-thickness) solid var(--color-secondary);
+        position: relative;
+    }
+
+    .welcome-text::after {
+        content: '';
+        position: absolute;
+        height: calc(100% - (1lh - 1em));
+        right: 0;
+        /* adjust last factor to position the line */
+        top: calc((1lh - 1em) * 0.6);
+        border-right: var(--line-thickness) solid var(--color-text);
     }
 
     #news-block {
@@ -1009,7 +1025,7 @@ a.preview:hover, a.preview:focus {
     font-size: var(--font-size-headline3);
     font-weight: var(--fontweight-headline);
     text-align: center;
-    color: var(--color-secondary);
+    color: var(--color-primary);
 }
 
 .previews:has(#preview-grid:empty) #preview-grid,
