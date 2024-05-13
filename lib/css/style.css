@@ -1102,13 +1102,30 @@ img {
     border-top: var(--line-thickness) solid var(--color-text);
     background-color: var(--color-background);
     filter: drop-shadow(var(--elevation-1));
+    width: 100%;
+}
+
+#cookies > div {
+    margin: auto;
+    max-width: var(--max-site-width);
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 0.5lh;
 }
 
+@media screen and (min-width: 930px) {
+    #cookies > div {
+        flex-direction: row;
+    }
+}
+
 #cookies.hidden {
-    display: none;
+    border: none;
+    filter: none;
+    padding: 0;
+    height: 0;
+    overflow: hidden;
 }
 
 #cookies button {
