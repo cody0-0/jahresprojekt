@@ -1091,13 +1091,14 @@ img {
 .inline-img-container {
     position: relative;
     margin: 0 var(--padding);
-    display: grid;
+    display: flex;
+    flex-direction: column;
     gap: var(--unit) 0;
 }
 
 @media screen and (min-width: 930px) {
     #content-section .inline-img-container {
-        padding: 0;
+        margin: 0;
         grid-column: 2 / -2;
     }
 }
@@ -1116,35 +1117,71 @@ img {
     margin: var(--unit);
 }
 
-.gallery > img, .gallery > #more-imgs {
+#content-gallery > img, #content-gallery > #more-imgs {
     aspect-ratio: 1;
     object-fit: cover;
     grid-column: span 2;
 }
 
-.gallery #more-imgs {
+#content-gallery #more-imgs {
     display: none;
 }
 
+#more-imgs {
+    background: var(--color-surface, rgba(0, 0, 0, 0.1));
+    justify-content: center;
+    align-items: center;
+    font-size: var(--font-size-headline2);
+    font-weight: var(--fontweight-headline);
+    padding: var(--padding);
+    color: var(--color-background);
+
+    position: relative;
+    isolation: isolate;
+}
+
+#more-imgs::before {
+    content: '';
+    position: absolute;
+    width: var(--line-thickness);
+    height: 100%;
+    background: var(--color-background);
+}
+
+#more-imgs::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: var(--line-thickness);
+    background: var(--color-background);
+}
+
+#more-imgs > * {
+    z-index: 1;
+    position: absolute;
+    top: 75%;
+    left: 75%;
+
+    transform: translate(-50%, -50%);
+}
+
 @media screen and (max-width: 930px) {
-    .gallery:has(.gallery-img:nth-child(5)) .gallery-img:nth-of-type(n+4) {
+    #content-gallery:has(.gallery-img:nth-child(5)) .gallery-img:nth-of-type(n+4) {
         display: none;
     }
     
-    .gallery:has(.gallery-img:nth-child(5)) #more-imgs {
-        display: block;
-        background: blue;
+    #content-gallery:has(.gallery-img:nth-child(5)) #more-imgs {
+        display: flex;
     }   
 }
 
 @media screen and (min-width: 930px) {
-    .gallery:has(.gallery-img:nth-child(7)) .gallery-img:nth-of-type(n+6) {
+    #content-gallery:has(.gallery-img:nth-child(7)) .gallery-img:nth-of-type(n+6) {
         display: none;
     }
 
-    .gallery:has(.gallery-img:nth-child(7)) #more-imgs {
-        display: block;
-        background: blue;
+    #content-gallery:has(.gallery-img:nth-child(7)) #more-imgs {
+        display: flex;
     }
 }
 
