@@ -1116,6 +1116,39 @@ img {
     margin: var(--unit);
 }
 
+.gallery > img, .gallery > #more-imgs {
+    aspect-ratio: 1;
+    object-fit: cover;
+    grid-column: span 2;
+}
+
+.gallery #more-imgs {
+    display: none;
+}
+
+@media screen and (max-width: 930px) {
+    .gallery:has(.gallery-img:nth-child(5)) .gallery-img:nth-of-type(n+4) {
+        display: none;
+    }
+    
+    .gallery:has(.gallery-img:nth-child(5)) #more-imgs {
+        display: block;
+        background: blue;
+    }   
+}
+
+@media screen and (min-width: 930px) {
+    .gallery:has(.gallery-img:nth-child(7)) .gallery-img:nth-of-type(n+6) {
+        display: none;
+    }
+
+    .gallery:has(.gallery-img:nth-child(7)) #more-imgs {
+        display: block;
+        background: blue;
+    }
+}
+
+
 .center {
     display: block;
     margin-left: auto;
