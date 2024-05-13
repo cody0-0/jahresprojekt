@@ -281,7 +281,7 @@ body {
 
 @media screen and (min-width: 600px) {
     .small-only {
-        display: none !important; 
+        display: none !important;
     }
 }
 
@@ -434,7 +434,7 @@ header a {
     color: var(--_on-header-color);
 }
 
-header a:hover, header a:focus {
+header a:not(.logo):hover, header a:not(.logo):focus {
     --_on-header-color: var(--color-primary);
 }
 
@@ -458,7 +458,6 @@ header.scrolled {
     header {
         white-space: nowrap;
     }
-    
 }
 
 .main-header{
@@ -504,7 +503,7 @@ header.scrolled {
     justify-content: end;
 }
 
-.expanded-header>*:not(active) {
+.expanded-header>*:not(.active) {
     display: none;
 }
 
@@ -524,7 +523,6 @@ nav, nav ul {
     .expanded-header nav, .expanded-header nav ul {
         --_nav-spacing: calc(var(--v-spacing) * 1.5);
     }
-    
 }
 
 header input[type="search"] {
@@ -570,7 +568,6 @@ input[type="search"]:focus {
     .expanded-header nav {
         flex-grow: inherit;
     }
-    
 }
 
 .expanded-menu {
@@ -580,7 +577,7 @@ input[type="search"]:focus {
 @media screen and (max-width: 930px) {
     .expanded-menu {
         align-items: center;
-    }   
+    }
 }
 
 .hamburger-menu {
@@ -628,10 +625,6 @@ input[type="search"]:focus {
     height: 100%;
 }
 
-.logo .logo-text {
-    fill: var(--_on-header-color);
-}
-
 .logo svg {
     height: 100%;
 }
@@ -674,7 +667,7 @@ header button, header .icon-button {
     margin-right: calc((2.4rem - 24px) / -2);
 }
 
-header .icon-button:hover, header .icon-button:focus, 
+header .icon-button:hover, header .icon-button:focus,
 header .icon-button:hover svg, header .icon-button:focus svg {
     --_button-background: none;
 }
