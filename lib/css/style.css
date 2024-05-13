@@ -763,9 +763,14 @@ button:disabled {
 
     display: flex;
     flex-direction: column;
-    margin-inline: var(--h-spacing);
+    width: 100%;
     justify-self: end;
+    align-items: end;
     gap: calc(var(--v-spacing) * 0.5);
+}
+
+.floating-actions > * {
+    margin-right: var(--h-spacing);
 }
 
 .snack-bar {
@@ -776,7 +781,7 @@ button:disabled {
     min-height: var(--_button-size, 2.4rem);
     max-width: var(--content-wrap);
     width: calc(100% - (var(--_snack-bar-margin) * 2));
-    background: var(--color-background);
+    background: var(--color-container);
     filter: drop-shadow(var(--elevation-1));
     padding: 0.6rem;
     padding-inline: 1rem;
@@ -788,6 +793,7 @@ button:disabled {
     justify-content: space-between;
     align-items: center;
     gap: var(--h-spacing);
+    z-index: 3;
 }
 
 .snack-bar .icon-button {
