@@ -6,7 +6,7 @@
 
     --color-background: var(--color-neutral-900);
     --color-text: var(--color-neutral-100);
-    --color-container: var(--color-neutral-1000);
+    --color-container: var(--color-neutral-950);
 
     --color-primary: var(--color-hsred-500);
     --color-secondary: var(--color-text);
@@ -21,6 +21,7 @@
     --color-neutral-600: #a5a4a2;
     --color-neutral-700: #c1c0be;
     --color-neutral-900: #f3f3f1;
+    --color-neutral-950: #f9f9f8;
     --color-neutral-1000: #ffffff;
 
     --color-hsred-100: #2f0009;
