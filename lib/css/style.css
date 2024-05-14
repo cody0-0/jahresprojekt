@@ -673,6 +673,15 @@ header .icon-button:hover svg, header .icon-button:focus svg {
     --_button-background: none;
 }
 
+section {
+    display: grid;
+    gap: var(--v-spacing);
+}
+
+label {
+    font-size: var(--font-size-label);
+}
+
 button, .icon-button {
     --_on-button-color: var(--color-text);
     --_button-background: var(--color-container);
@@ -1040,6 +1049,9 @@ a.preview:hover, a.preview:focus {
     justify-content: center;
     align-items: center;
 }
+.page-nav * {
+    white-space: nowrap;
+}
 
 /* beitragsseite */
 
@@ -1101,6 +1113,41 @@ img {
     object-fit: cover;
     max-height: 70svh;
 }
+
+#post-browsing-section .preview {
+    grid-column: span 4;
+}
+
+#post-browsing-section .preview .preview-img {
+    aspect-ratio: 3/2;
+}
+
+@media screen and (min-width: 600px) and (max-width: 930px) {
+    #post-browsing-section .preview:nth-of-type(n+3) {
+        display: none;
+    }
+}
+
+.post-nav {
+    display: flex;
+    gap: var(--h-spacing);
+    justify-content: center;
+}
+
+@media screen and (max-width: 600px) {
+    .post-nav {
+        justify-content: space-between;
+    }
+}
+
+.post-nav > * {
+    display: flex;
+    gap: var(--h-spacing-small);
+    align-items: center;
+    color: var(--color-text);
+}
+
+
 
 .center {
     display: block;
