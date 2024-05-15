@@ -64,6 +64,7 @@
     --font-size-large: 20px;
     --font-size: var(--font-size-mobile);
     --line-height: 1.5;
+    --button-size: 2.4rem;
 
     --font-size-title: 2.8rem;
     --font-size-headline1: 2.4rem;
@@ -461,7 +462,7 @@ header.scrolled {
     }
 }
 
-.main-header{
+.main-header {
     height: var(--header-height);
     width: 100%;
     display: flex;
@@ -504,7 +505,7 @@ header.scrolled {
     justify-content: end;
 }
 
-.expanded-header>*:not(.active) {
+.expanded-header > *:not(.active) {
     display: none;
 }
 
@@ -554,10 +555,11 @@ input[type="search"]:focus {
     }
 }
 
-#hamburger-toggle>*:not(.active) {
+#hamburger-toggle > *:not(.active) {
     display: none;
 }
-#hamburger-toggle>.active {
+
+#hamburger-toggle > .active {
     display: block;
 }
 
@@ -593,12 +595,12 @@ input[type="search"]:focus {
     justify-content: center;
 }
 
-.hamburger-menu>li {
+.hamburger-menu > li {
     display: flex;
     flex-direction: column;
     gap: calc(var(--_nav-spacing) / 2);
     width: 100%;
-    min-height: var(--_button-size);
+    min-height: var(--button-size);
     align-items: end;
 }
 
@@ -646,7 +648,7 @@ input[type="search"]:focus {
 }
 
 .logo-stamp-container {
-    fill : var(--_on-header-color);
+    fill: var(--_on-header-color);
 }
 
 .minf .logo-stamp-container, .musk .logo-stamp-container {
@@ -676,10 +678,9 @@ header .icon-button:hover svg, header .icon-button:focus svg {
 button, .icon-button {
     --_on-button-color: var(--color-text);
     --_button-background: var(--color-container);
-    --_button-size: 2.4rem;
 
     border-radius: var(--border-radius-interaction, 100vw);
-    height: var(--_button-size);
+    height: var(--button-size);
     padding: 0 var(--padding);
     background: var(--_button-background);
     filter: drop-shadow(var(--elevation-1));
@@ -726,6 +727,7 @@ button:disabled {
     -webkit-mask-position: center;
     mask-position: center;
 }
+
 .dropdown:hover::after {
     transform: translateY(10%) scale(90%);
 
@@ -778,7 +780,7 @@ button:disabled {
 
     position: fixed;
     bottom: 0;
-    min-height: var(--_button-size, 2.4rem);
+    min-height: var(--button-size, 2.4rem);
     max-width: var(--content-wrap);
     width: calc(100% - (var(--_snack-bar-margin) * 2));
     background: var(--color-container);
@@ -798,7 +800,7 @@ button:disabled {
 
 .snack-bar .icon-button {
     --_button-background: none;
-    --_button-size: fit-content;
+    --button-size: fit-content;
 
     padding: 0;
 }
@@ -1146,4 +1148,113 @@ img {
 
 #cookies button {
     margin: auto;
+}
+
+#image-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+#image-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+    z-index: -1;
+}
+
+#image-overlay .wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: min-content auto min-content;
+    grid-template-areas:
+        "area1 area2"
+        "area3 area4"
+        "area5 area6";
+    padding: var(--padding);
+    gap: var(--v-spacing);
+}
+
+#image-overlay .wrapper > *:nth-child(2) {
+    justify-self: end;
+}
+
+#image-overlay-prev {
+    grid-area: area5;
+    justify-self: right;
+}
+
+#image-overlay-next {
+    grid-area: area6;
+    justify-self: left;
+}
+
+.image-overlay-container {
+    align-self: center;
+    justify-self: center;
+    grid-column: 1 / -1;
+    display: flex;
+    overflow: hidden;
+}
+
+#image-overlay-img {
+    object-fit: cover;
+    max-height: calc(100vh - var(--button-size) * 2 - var(--v-spacing) * 2 - var(--padding) * 2);
+    max-width: 100%;
+    cursor: zoom-in;
+}
+
+#image-overlay-img.zoomed {
+    --_x: 0;
+    --_y: 0;
+    --_s: 3;
+    z-index: 3000;
+    cursor: zoom-out;
+    transform: scale(var(--_s)) translate(var(--_x), var(--_y));
+}
+
+@media screen and (min-width: 930px) {
+    #image-overlay .wrapper {
+        width: 100%;
+        height: 100%;
+        grid-template-columns: min-content auto min-content;
+        grid-template-rows: auto auto;
+        grid-template-areas:
+            "area1 area2 area3"
+            "area4 area5 area6";
+    }
+
+    #image-overlay .wrapper > *:nth-child(2) {
+        justify-self: end;
+        grid-area: area3;
+    }
+
+    #image-overlay-prev {
+        grid-area: area4;
+        align-self: end;
+    }
+
+    #image-overlay-next {
+        grid-area: area6;
+        align-self: end;
+    }
+
+    .image-overlay-container {
+        grid-column: area2;
+        grid-row: area2 / area5;
+    }
+
+    #image-overlay-img {
+        max-height: calc(100vh - var(--padding) * 2);
+    }
+}
+
+.image-overlay-caller {
+    cursor: nesw-resize;
 }
