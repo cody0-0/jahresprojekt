@@ -1067,6 +1067,17 @@ main.wrapping-grid {
     object-fit: cover;
 }
 
+.title-img-container {
+    position: relative;
+}
+
+.title-img-container button {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: var(--unit);
+}
+
 /* point of interest system */
 img {
     --poi-x: 0.5;
@@ -1085,7 +1096,7 @@ img {
 }
 
 .inline-img-container {
-    padding: 0 var(--padding);
+    margin: 0 var(--padding);
     display: grid;
     gap: var(--unit) 0;
 }
@@ -1155,8 +1166,8 @@ img {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
+    height: 100.1%;
+    background-color: rgba(0, 0, 0, 0.95);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1171,42 +1182,59 @@ img {
 
 #image-overlay .wrapper {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: min-content auto min-content;
+    grid-template-columns: var(--button-size) auto auto var(--button-size);
+    grid-template-rows: auto var(--button-size);
     grid-template-areas:
-        "area1 area2"
-        "area3 area4"
-        "area5 area6";
+        "area0 area0 area0 area0"
+        "area1 area2 area3 area4";
     padding: var(--padding);
-    gap: var(--v-spacing);
+    gap: var(--v-spacing-small) var(--h-spacing-small);
+}
+
+#image-overlay .wrapper > *:nth-child(1) {
+    grid-area: area1;
+    align-self: end;
+    justify-self: start;
 }
 
 #image-overlay .wrapper > *:nth-child(2) {
+    grid-area: area4;
     justify-self: end;
 }
 
 #image-overlay-prev {
-    grid-area: area5;
-    justify-self: right;
+    grid-area: area2;
+    justify-self: end;
 }
 
 #image-overlay-next {
-    grid-area: area6;
-    justify-self: left;
+    grid-area: area3;
+    justify-self: start;
 }
 
 .image-overlay-container {
-    align-self: center;
-    justify-self: center;
-    grid-column: 1 / -1;
+    grid-area: area0;
+    align-self: stretch;
+    justify-self: stretch;
     display: flex;
+    flex-direction: column;
+    gap: var(--unit);
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
 }
 
 #image-overlay-img {
-    object-fit: cover;
-    max-height: calc(100vh - var(--button-size) * 2 - var(--v-spacing) * 2 - var(--padding) * 2);
+    object-fit: contain;
     max-width: 100%;
+    max-height: calc(
+            100vh
+            - var(--button-size)
+            - var(--v-spacing-small)
+            - var(--padding) * 2
+            - var(--unit)
+            - 1lh
+    );
     cursor: zoom-in;
 }
 
@@ -1219,42 +1247,66 @@ img {
     transform: scale(var(--_s)) translate(var(--_x), var(--_y));
 }
 
-@media screen and (min-width: 930px) {
+#image-overlay-caption {
+    width: 100%;
+    text-align: center;
+}
+
+@media screen and (orientation: landscape) {
     #image-overlay .wrapper {
         width: 100%;
         height: 100%;
-        grid-template-columns: min-content auto min-content;
-        grid-template-rows: auto auto;
+        grid-template-columns: var(--button-size) auto var(--button-size);
+        grid-template-rows: var(--button-size) auto var(--button-size) var(--button-size);
         grid-template-areas:
-            "area1 area2 area3"
-            "area4 area5 area6";
+            "area4 area0 area1"
+            ". area0 ."
+            ". area0 area2"
+            ". area0 area3";
+        gap: var(--v-spacing-small) var(--h-spacing-small);
+    }
+
+    #image-overlay .wrapper > *:nth-child(1) {
+        grid-area: area4;
+        justify-self: start;
+        align-self: start;
     }
 
     #image-overlay .wrapper > *:nth-child(2) {
-        justify-self: end;
-        grid-area: area3;
+        grid-area: area1;
     }
 
     #image-overlay-prev {
-        grid-area: area4;
-        align-self: end;
+        grid-area: area2;
     }
 
     #image-overlay-next {
-        grid-area: area6;
-        align-self: end;
+        grid-area: area3;
     }
 
     .image-overlay-container {
-        grid-column: area2;
-        grid-row: area2 / area5;
+        grid-area: area0;
     }
 
     #image-overlay-img {
-        max-height: calc(100vh - var(--padding) * 2);
+        max-height: calc(
+                100vh
+                - var(--padding) * 2
+                - var(--unit)
+                - 1lh
+        );
     }
 }
 
 .image-overlay-caller {
     cursor: nesw-resize;
+    position: relative;
+}
+
+.image-overlay-caller::after {
+    content: url("../../resources/imgs/expand_content_24dp_FILL0_wght400_GRAD0_opsz24.svg");
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: var(--unit);
 }
