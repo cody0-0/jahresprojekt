@@ -1071,13 +1071,6 @@ main.wrapping-grid {
     position: relative;
 }
 
-.title-img-container button {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    margin: var(--unit);
-}
-
 /* point of interest system */
 img {
     --poi-x: 0.5;
@@ -1096,6 +1089,7 @@ img {
 }
 
 .inline-img-container {
+    position: relative;
     margin: 0 var(--padding);
     display: grid;
     gap: var(--unit) 0;
@@ -1113,6 +1107,13 @@ img {
     height: auto;
     object-fit: cover;
     max-height: 70svh;
+}
+
+.title-img-container button, .inline-img-container button {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: var(--unit);
 }
 
 .center {
@@ -1252,6 +1253,10 @@ img {
     text-align: center;
 }
 
+#image-overlay-counter {
+    color: var(--color-neutral-900);
+}
+
 @media screen and (orientation: landscape) {
     #image-overlay .wrapper {
         width: 100%;
@@ -1296,17 +1301,4 @@ img {
                 - 1lh
         );
     }
-}
-
-.image-overlay-caller {
-    cursor: nesw-resize;
-    position: relative;
-}
-
-.image-overlay-caller::after {
-    content: url("../../resources/imgs/expand_content_24dp_FILL0_wght400_GRAD0_opsz24.svg");
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: var(--unit);
 }
