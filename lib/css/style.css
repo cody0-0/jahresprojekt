@@ -109,8 +109,6 @@
 
     --v-spacing-previews: var(--v-spacing-previews-mobile);
 
-    --border-radius-interaction: 100vw;
-
     --header-height: 88px;
 
     --content-wrap: 1120px;
@@ -120,6 +118,9 @@
     /* Styling */
 
     --line-thickness: 2px;
+
+    --button-size: 2.4rem;
+    --border-radius-interaction: calc(var(--button-size) / 2);
 
     --elevation-1: 0px 0px 4px rgba(0, 0, 0, 0.1);
 
@@ -554,9 +555,23 @@ input[type="search"]:focus {
     }
 }
 
+label {
+    font-size: var(--font-size-label);
+}
+
+label:has(button) {
+    color: var(--_on-button-color);
+}
+
+label:focus-within, label:has(button):hover {
+    cursor: pointer;
+    --_on-button-color: var(--color-primary);
+}
+
 #hamburger-toggle>*:not(.active) {
     display: none;
 }
+
 #hamburger-toggle>.active {
     display: block;
 }
@@ -676,9 +691,10 @@ header .icon-button:hover svg, header .icon-button:focus svg {
 button, .icon-button {
     --_on-button-color: var(--color-text);
     --_button-background: var(--color-container);
-    --_button-size: 2.4rem;
+    --_button-size: var(--button-size);
+    --_button-border-radius: var(--border-radius-interaction);
 
-    border-radius: var(--border-radius-interaction, 100vw);
+    border-radius: var(--_button-border-radius);
     height: var(--_button-size);
     padding: 0 var(--padding);
     background: var(--_button-background);
@@ -928,10 +944,43 @@ section.hero.wrapping-grid > .content-grid {
 }
 
 .filter-row {
+    position: relative;
     display: flex;
     gap: 16px;
     justify-content: start;
     align-items: center;
+}
+
+.filter-expansion {
+    position: absolute;
+    top: calc(var(--v-spacing) + var(--unit) * 2);
+
+    display: none;
+    gap: var(--h-spacing);
+    justify-content: start;
+    align-items: start;
+    z-index: 1;
+
+    background: var(--color-container);
+    padding: var(--padding);
+    border-radius: var(--border-radius-interaction);
+    filter: drop-shadow(var(--elevation-1));
+}
+
+.filter-expansion.active {
+    display: flex;
+}
+
+.filter-expansion:has(button:active), .filter-expansion:has(button.active) {
+    border: var(--line-thickness) solid var(--color-primary);
+}
+
+.filter-expansion > label {
+    display: grid;
+    gap: var(--v-spacing-small);
+    justify-items: center;
+    max-width: 10rem;
+    text-align: center;
 }
 
 .previews {

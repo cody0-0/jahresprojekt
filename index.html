@@ -123,7 +123,7 @@
                 <ul class="large-only">
                     <li><a class="menu-item" href="#preview-section" tabindex="1">Übersicht & Beiträge</a></li>
                     <li>
-                        <button class="menu-item toggle-button dropdown" aria-controls="expanded-menu" tabindex="1">Über
+                        <button class="menu-item toggle-button dropdown" aria-controls=".expanded-menu" tabindex="1">Über
                             die Studiengänge
                         </button>
                     </li>
@@ -132,7 +132,7 @@
                 </ul>
                 <ul>
                     <li class="large-only">
-                        <button class="icon-button toggle-button" aria-controls="preview-search"
+                        <button class="icon-button toggle-button" aria-controls=".preview-search"
                                 data-focus-next="#preview-search" tabindex="1">
                             <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
                                 <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
@@ -140,7 +140,7 @@
                         </button>
                     </li>
                     <li class="not-large">
-                        <button class="icon-button toggle-button" aria-controls="expanded-hamburger"
+                        <button class="icon-button toggle-button" aria-controls=".expanded-hamburger"
                                 data-focus-next="#preview-search" tabindex="1">
                             <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
                                 <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
@@ -149,7 +149,7 @@
                     </li>
                     <li class="not-large">
                         <button class="icon-button toggle-button" id="hamburger-toggle"
-                                aria-controls="expanded-hamburger" tabindex="1">
+                                aria-controls=".expanded-hamburger" tabindex="1">
                             <svg id="hamburger-menu-icon" class="active" xmlns="http://www.w3.org/2000/svg" height="24"
                                  viewBox="0 -960 960 960" width="24">
                                 <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
@@ -268,12 +268,72 @@
             <section class="previews anchor" id="preview-section">
                 <div class="filter-row">
                     <!--                    TODO: change onclick functions-->
-                    <button class="filter button" tabindex="1" onclick="toggleFilter('course', 'minf', this)">
+                    <button class="filter button toggle-button" tabindex="1" aria-controls="#course-filter">
                         Studiengänge
                     </button>
-                    <button class="filter button" tabindex="1" onclick="toggleFilter('tag', 'animation', this)">
+                    <div class="filter-expansion" id="course-filter">
+                        <label class="minf" for="minf-filter">
+                            <button class="icon-button" id="minf-filter" onclick="toggleFilter('course', 'minf', this)" tabindex="1">
+                                <svg id="Ebene_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 54.14 54.14">
+                                    <g id="Ebene_1-2">
+                                        <path d="m27.07,54.14c14.95,0,27.07-12.12,27.07-27.07S42.02,0,27.07,0,0,12.12,0,27.07s12.12,27.07,27.07,27.07"
+                                              style="fill:#e2d032; stroke-width:0px;"/>
+                                        <text transform="translate(14.06 25.73)"
+                                              style="fill:#2e2d2c; font-family:HelveticaNeue-Bold, Helvetica Neue; font-size:20.74px; font-weight:700;">
+                                            <tspan x="0" y="0">MI</tspan>
+                                        </text>
+                                        <text transform="translate(14.06 43.4)"
+                                              style="fill:#2e2d2c; font-family:HelveticaNeue-Bold, Helvetica Neue; font-size:20.74px; font-weight:700;">
+                                            <tspan x="0" y="0">NF</tspan>
+                                        </text>
+                                    </g>
+                                </svg>
+                            </button>
+                            <span>Medieninformatik B.Sc.</span>
+                        </label>
+                        <label class="musk" for="musk-filter">
+                            <button class="icon-button" id="musk-filter" onclick="toggleFilter('course', 'musk', this)" tabindex="1">
+                                <svg id="Ebene_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 54.14 54.14">
+                                    <g id="Ebene_1-2">
+                                        <path d="m27.07,54.14c14.95,0,27.07-12.12,27.07-27.07S42.02,0,27.07,0,0,12.12,0,27.07s12.12,27.07,27.07,27.07"
+                                              style="fill:#b68bba; stroke-width:0px;"/>
+                                        <text transform="translate(12.23 25.73)"
+                                              style="fill:#2e2d2c; font-family:HelveticaNeue-Bold, Helvetica Neue; font-size:20.74px; font-weight:700;">
+                                            <tspan x="0" y="0" style="letter-spacing:0em;">M</tspan>
+                                            <tspan x="18.87" y="0">u</tspan>
+                                        </text>
+                                        <text transform="translate(12.23 43.4)"
+                                              style="fill:#2e2d2c; font-family:HelveticaNeue-Bold, Helvetica Neue; font-size:20.74px; font-weight:700;">
+                                            <tspan x="0" y="0">SK</tspan>
+                                        </text>
+                                    </g>
+                                </svg>
+                            </button>
+                            <span>Medien- und Spielekonzeption M.A.</span>
+                        </label>
+                    </div>
+                    <button class="filter button toggle-button" tabindex="1" aria-controls="#category-filter">
                         Kategorien
                     </button>
+                    <div class="filter-expansion" id="category-filter">
+                        <label>
+                            <button class="icon-button" onclick="toggleFilter('tag', 'animation', this)" tabindex="1"></button>
+                            <span>Animation</span>
+                        </label>
+                        <label>
+                            <button class="icon-button" onclick="toggleFilter('tag', 'animation', this)" tabindex="1"></button>
+                            <span>Coding</span>
+                        </label>
+                        <label>
+                            <button class="icon-button" onclick="toggleFilter('tag', 'animation', this)" tabindex="1"></button>
+                            <span>Coding</span>
+                        </label>
+                        <label>
+                            <button class="icon-button" onclick="toggleFilter('tag', 'animation', this)" tabindex="1"></button>
+                            <span>Coding</span>
+                        </label>
+
+                    </div>
                     <button class="filter button" tabindex="1" onclick="toggleFilter('max-date', '2023-01-01', this)">
                         Zeit
                     </button>
