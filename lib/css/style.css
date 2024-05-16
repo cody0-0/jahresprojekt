@@ -1253,7 +1253,7 @@ img {
     text-align: center;
 }
 
-#image-overlay-counter {
+#image-overlay-caption, #image-overlay-counter {
     color: var(--color-neutral-900);
 }
 
