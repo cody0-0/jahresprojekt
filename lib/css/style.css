@@ -1172,7 +1172,7 @@ img {
 }
 
 #more-imgs {
-    background: rgba(0, 0, 0, 0.5);
+    background: color-mix(in srgb, var(--color-text) 75%, transparent 25%);
     justify-content: center;
     align-items: center;
     font-weight: var(--fontweight-light);
