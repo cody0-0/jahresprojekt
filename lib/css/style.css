@@ -1104,7 +1104,6 @@ img {
 .inline-img-container {
     position: relative;
     margin: 0 var(--padding);
-    display: grid;
     gap: var(--unit) 0;
 }
 
@@ -1161,6 +1160,86 @@ img {
     align-items: center;
     color: var(--color-text);
 }
+
+#content-gallery > img, #content-gallery > #more-imgs {
+    aspect-ratio: 1;
+    object-fit: cover;
+    grid-column: span 2;
+}
+
+#content-gallery #more-imgs {
+    display: none;
+}
+
+#more-imgs {
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    font-weight: var(--fontweight-light);
+    padding: var(--padding);
+    color: var(--color-background);
+    line-height: 1;
+
+    position: relative;
+    isolation: isolate;
+}
+
+@media screen and (max-width: 930px) {
+    #content-gallery:has(.gallery-img:nth-child(5)) .gallery-img:nth-of-type(n+5) {
+        display: none;
+    }
+
+    #content-gallery:has(.gallery-img:nth-child(5)) .gallery-img:nth-of-type(4) {
+        grid-column: -3/-1;
+        grid-row: 1 / 2;
+    }
+
+    #content-gallery:has(.gallery-img:nth-child(5)) #more-imgs {
+        display: flex;
+        grid-column: -3/-1;
+        grid-row: 1 / 2;
+
+        font-size: 8vw;
+        /* Typically vw is not a good idea for font-size.
+        In this case the font is a rather stylistic element and must be contained within its surrounding element. */
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #content-gallery:has(.gallery-img:nth-child(5)) .gallery-img:nth-of-type(4) {
+        grid-row: 2 / 3;
+    }
+
+    #content-gallery:has(.gallery-img:nth-child(7)) #more-imgs {
+        grid-row: 2 / 3;
+
+        font-size: 18vw;
+        /* Typically vw is not a good idea for font-size.
+        In this case the font is a rather stylistic element and must be contained within its surrounding element. */
+    }
+}
+
+@media screen and (min-width: 930px) {
+    #content-gallery:has(.gallery-img:nth-child(7)) .gallery-img:nth-of-type(n+7) {
+        display: none;
+    }
+
+    #content-gallery:has(.gallery-img:nth-child(7)) .gallery-img:nth-of-type(6) {
+        grid-column: -3/-1;
+        grid-row: 1 / 2;
+    }
+
+    #content-gallery:has(.gallery-img:nth-child(7)) #more-imgs {
+        display: flex;
+        grid-column: -3/-1;
+        grid-row: 1 / 2;
+
+        font-size: min(5vw, 60px);
+        /* Typically vw is not a good idea for font-size.
+        In this case the font is a rather stylistic element and must be contained within its surrounding element. */
+    }
+}
+
 
 .center {
     display: block;
