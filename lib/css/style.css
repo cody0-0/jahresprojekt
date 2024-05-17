@@ -1125,13 +1125,6 @@ img {
     max-height: 70svh;
 }
 
-.title-img-container button, .inline-img-container button {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    margin: var(--unit);
-}
-
 #post-browsing-section .preview {
     grid-column: span 4;
 }
@@ -1439,6 +1432,17 @@ img {
 
 #image-overlay-caption, #image-overlay-counter {
     color: var(--color-neutral-900);
+}
+
+.expand-button {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: var(--unit);
+}
+
+*:has(*.caption) > .expand-button {
+    bottom: calc(var(--unit) * 2 + var(--font-size-label));
 }
 
 @media screen and (orientation: landscape) {
