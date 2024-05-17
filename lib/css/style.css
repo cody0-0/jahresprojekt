@@ -923,38 +923,13 @@ img {
     background: rgba(0, 0, 0, 0.5);
     justify-content: center;
     align-items: center;
-    font-size: var(--font-size-headline1);
     font-weight: var(--fontweight-light);
     padding: var(--padding);
     color: var(--color-background);
+    line-height: 1;
 
     position: relative;
     isolation: isolate;
-}
-
-#more-imgs::before {
-    content: '';
-    position: absolute;
-    width: var(--line-thickness);
-    height: 80%;
-    background: var(--color-background);
-}
-
-#more-imgs::after {
-    content: '';
-    position: absolute;
-    width: 80%;
-    height: var(--line-thickness);
-    background: var(--color-background);
-}
-
-#more-imgs > * {
-    z-index: 1;
-    position: absolute;
-    top: 75%;
-    left: 75%;
-
-    transform: translate(-50%, -50%);
 }
 
 @media screen and (max-width: 930px) {
@@ -972,7 +947,7 @@ img {
         grid-column: -3/-1;
         grid-row: 1 / 2;
 
-        font-size: min(5vw, var(--font-size-headline1)); /* 48px = 2.4rem at 20px base font size (=headline1) */
+        font-size: 8vw;
         /* Typically vw is not a good idea for font-size. 
         In this case the font is a rather stylistic element and must be contained within its surrounding element. */
     }   
@@ -986,7 +961,7 @@ img {
     #content-gallery:has(.gallery-img:nth-child(7)) #more-imgs {
         grid-row: 2 / 3;
 
-        font-size: min(10vw, 64px); /* 64px = 4rem at 16px base font size */
+        font-size: 18vw;
         /* Typically vw is not a good idea for font-size. 
         In this case the font is a rather stylistic element and must be contained within its surrounding element. */
     }
@@ -1007,7 +982,7 @@ img {
         grid-column: -3/-1;
         grid-row: 1 / 2;
 
-        font-size: min(3vw, 36px); /* 36px = 1.8rem at 20px base font size (=headline2) */
+        font-size: min(5vw, 60px);
         /* Typically vw is not a good idea for font-size. 
         In this case the font is a rather stylistic element and must be contained within its surrounding element. */
     } 
