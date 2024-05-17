@@ -64,6 +64,7 @@
     --font-size-large: 20px;
     --font-size: var(--font-size-mobile);
     --line-height: 1.5;
+    --button-size: 2.4rem;
 
     --font-size-title: 2.8rem;
     --font-size-headline1: 2.4rem;
@@ -461,7 +462,7 @@ header.scrolled {
     }
 }
 
-.main-header{
+.main-header {
     height: var(--header-height);
     width: 100%;
     display: flex;
@@ -504,7 +505,7 @@ header.scrolled {
     justify-content: end;
 }
 
-.expanded-header>*:not(.active) {
+.expanded-header > *:not(.active) {
     display: none;
 }
 
@@ -554,10 +555,11 @@ input[type="search"]:focus {
     }
 }
 
-#hamburger-toggle>*:not(.active) {
+#hamburger-toggle > *:not(.active) {
     display: none;
 }
-#hamburger-toggle>.active {
+
+#hamburger-toggle > .active {
     display: block;
 }
 
@@ -593,12 +595,12 @@ input[type="search"]:focus {
     justify-content: center;
 }
 
-.hamburger-menu>li {
+.hamburger-menu > li {
     display: flex;
     flex-direction: column;
     gap: calc(var(--_nav-spacing) / 2);
     width: 100%;
-    min-height: var(--_button-size);
+    min-height: var(--button-size);
     align-items: end;
 }
 
@@ -646,7 +648,7 @@ input[type="search"]:focus {
 }
 
 .logo-stamp-container {
-    fill : var(--_on-header-color);
+    fill: var(--_on-header-color);
 }
 
 .minf .logo-stamp-container, .musk .logo-stamp-container {
@@ -676,10 +678,9 @@ header .icon-button:hover svg, header .icon-button:focus svg {
 button, .icon-button {
     --_on-button-color: var(--color-text);
     --_button-background: var(--color-container);
-    --_button-size: 2.4rem;
 
     border-radius: var(--border-radius-interaction, 100vw);
-    height: var(--_button-size);
+    height: var(--button-size);
     padding: 0 var(--padding);
     background: var(--_button-background);
     filter: drop-shadow(var(--elevation-1));
@@ -726,6 +727,7 @@ button:disabled {
     -webkit-mask-position: center;
     mask-position: center;
 }
+
 .dropdown:hover::after {
     transform: translateY(10%) scale(90%);
 
@@ -778,7 +780,7 @@ button:disabled {
 
     position: fixed;
     bottom: 0;
-    min-height: var(--_button-size, 2.4rem);
+    min-height: var(--button-size, 2.4rem);
     max-width: var(--content-wrap);
     width: calc(100% - (var(--_snack-bar-margin) * 2));
     background: var(--color-container);
@@ -798,7 +800,7 @@ button:disabled {
 
 .snack-bar .icon-button {
     --_button-background: none;
-    --_button-size: fit-content;
+    --button-size: fit-content;
 
     padding: 0;
 }
@@ -1065,6 +1067,10 @@ main.wrapping-grid {
     object-fit: cover;
 }
 
+.title-img-container {
+    position: relative;
+}
+
 /* point of interest system */
 img {
     --poi-x: 0.5;
@@ -1083,7 +1089,8 @@ img {
 }
 
 .inline-img-container {
-    padding: 0 var(--padding);
+    position: relative;
+    margin: 0 var(--padding);
     display: grid;
     gap: var(--unit) 0;
 }
@@ -1100,6 +1107,13 @@ img {
     height: auto;
     object-fit: cover;
     max-height: 70svh;
+}
+
+.title-img-container button, .inline-img-container button {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: var(--unit);
 }
 
 .center {
@@ -1146,4 +1160,145 @@ img {
 
 #cookies button {
     margin: auto;
+}
+
+#image-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100.1%;
+    background-color: rgba(0, 0, 0, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+#image-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+    z-index: -1;
+}
+
+#image-overlay .wrapper {
+    display: grid;
+    grid-template-columns: var(--button-size) auto auto var(--button-size);
+    grid-template-rows: auto var(--button-size);
+    grid-template-areas:
+        "area0 area0 area0 area0"
+        "area1 area2 area3 area4";
+    padding: var(--padding);
+    gap: var(--v-spacing-small) var(--h-spacing-small);
+}
+
+#image-overlay .wrapper > *:nth-child(1) {
+    grid-area: area1;
+    align-self: end;
+    justify-self: start;
+}
+
+#image-overlay .wrapper > *:nth-child(2) {
+    grid-area: area4;
+    justify-self: end;
+}
+
+#image-overlay-prev {
+    grid-area: area2;
+    justify-self: end;
+}
+
+#image-overlay-next {
+    grid-area: area3;
+    justify-self: start;
+}
+
+.image-overlay-container {
+    grid-area: area0;
+    align-self: stretch;
+    justify-self: stretch;
+    display: flex;
+    flex-direction: column;
+    gap: var(--unit);
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+#image-overlay-img {
+    object-fit: contain;
+    max-width: 100%;
+    max-height: calc(
+            100vh
+            - var(--button-size)
+            - var(--v-spacing-small)
+            - var(--padding) * 2
+            - var(--unit)
+            - 1lh
+    );
+    cursor: zoom-in;
+}
+
+#image-overlay-img.zoomed {
+    --_x: 0;
+    --_y: 0;
+    --_s: 3;
+    z-index: 3000;
+    cursor: zoom-out;
+    transform: scale(var(--_s)) translate(var(--_x), var(--_y));
+}
+
+#image-overlay-caption {
+    width: 100%;
+    text-align: center;
+}
+
+#image-overlay-caption, #image-overlay-counter {
+    color: var(--color-neutral-900);
+}
+
+@media screen and (orientation: landscape) {
+    #image-overlay .wrapper {
+        width: 100%;
+        height: 100%;
+        grid-template-columns: var(--button-size) auto var(--button-size);
+        grid-template-rows: var(--button-size) auto var(--button-size) var(--button-size);
+        grid-template-areas:
+            "area4 area0 area1"
+            ". area0 ."
+            ". area0 area2"
+            ". area0 area3";
+        gap: var(--v-spacing-small) var(--h-spacing-small);
+    }
+
+    #image-overlay .wrapper > *:nth-child(1) {
+        grid-area: area4;
+        justify-self: start;
+        align-self: start;
+    }
+
+    #image-overlay .wrapper > *:nth-child(2) {
+        grid-area: area1;
+    }
+
+    #image-overlay-prev {
+        grid-area: area2;
+    }
+
+    #image-overlay-next {
+        grid-area: area3;
+    }
+
+    .image-overlay-container {
+        grid-area: area0;
+    }
+
+    #image-overlay-img {
+        max-height: calc(
+                100vh
+                - var(--padding) * 2
+                - var(--unit)
+                - 1lh
+        );
+    }
 }
