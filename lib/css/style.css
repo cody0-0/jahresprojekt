@@ -1128,11 +1128,11 @@ img {
 }
 
 #more-imgs {
-    background: var(--color-surface, rgba(0, 0, 0, 0.1));
+    background: rgba(0, 0, 0, 0.5);
     justify-content: center;
     align-items: center;
-    font-size: var(--font-size-headline2);
-    font-weight: var(--fontweight-headline);
+    font-size: var(--font-size-headline1);
+    font-weight: var(--fontweight-light);
     padding: var(--padding);
     color: var(--color-background);
 
@@ -1144,14 +1144,14 @@ img {
     content: '';
     position: absolute;
     width: var(--line-thickness);
-    height: 100%;
+    height: 80%;
     background: var(--color-background);
 }
 
 #more-imgs::after {
     content: '';
     position: absolute;
-    width: 100%;
+    width: 80%;
     height: var(--line-thickness);
     background: var(--color-background);
 }
@@ -1166,23 +1166,59 @@ img {
 }
 
 @media screen and (max-width: 930px) {
-    #content-gallery:has(.gallery-img:nth-child(5)) .gallery-img:nth-of-type(n+4) {
+    #content-gallery:has(.gallery-img:nth-child(5)) .gallery-img:nth-of-type(n+5) {
         display: none;
+    }
+
+    #content-gallery:has(.gallery-img:nth-child(5)) .gallery-img:nth-of-type(4) {
+        grid-column: -3/-1;
+        grid-row: 1 / 2;
     }
     
     #content-gallery:has(.gallery-img:nth-child(5)) #more-imgs {
         display: flex;
+        grid-column: -3/-1;
+        grid-row: 1 / 2;
+
+        font-size: min(5vw, var(--font-size-headline1)); /* 48px = 2.4rem at 20px base font size (=headline1) */
+        /* Typically vw is not a good idea for font-size. 
+        In this case the font is a rather stylistic element and must be contained within its surrounding element. */
     }   
 }
 
-@media screen and (min-width: 930px) {
-    #content-gallery:has(.gallery-img:nth-child(7)) .gallery-img:nth-of-type(n+6) {
-        display: none;
+@media screen and (max-width: 600px) {
+    #content-gallery:has(.gallery-img:nth-child(5)) .gallery-img:nth-of-type(4) {
+        grid-row: 2 / 3;
     }
 
     #content-gallery:has(.gallery-img:nth-child(7)) #more-imgs {
-        display: flex;
+        grid-row: 2 / 3;
+
+        font-size: min(10vw, 64px); /* 64px = 4rem at 16px base font size */
+        /* Typically vw is not a good idea for font-size. 
+        In this case the font is a rather stylistic element and must be contained within its surrounding element. */
     }
+}
+
+@media screen and (min-width: 930px) {
+    #content-gallery:has(.gallery-img:nth-child(7)) .gallery-img:nth-of-type(n+7) {
+        display: none;
+    }
+
+    #content-gallery:has(.gallery-img:nth-child(7)) .gallery-img:nth-of-type(6) {
+        grid-column: -3/-1;
+        grid-row: 1 / 2;
+    }
+    
+    #content-gallery:has(.gallery-img:nth-child(7)) #more-imgs {
+        display: flex;
+        grid-column: -3/-1;
+        grid-row: 1 / 2;
+
+        font-size: min(3vw, 36px); /* 36px = 1.8rem at 20px base font size (=headline2) */
+        /* Typically vw is not a good idea for font-size. 
+        In this case the font is a rather stylistic element and must be contained within its surrounding element. */
+    } 
 }
 
 
