@@ -21,6 +21,8 @@
     <script src="./lib/javascript/hero-scroll.js" defer></script>
     <script src="./lib/javascript/cookies.js" defer></script>
     <script src="./lib/javascript/goTo.js"></script>
+    <script src="./lib/javascript/wheel-select.js" defer></script>
+    <script src="./lib/javascript/filterHandler.js" defer></script>
 
     <link id="favicon" rel="shortcut icon" type="image/svg"/>
     <title></title>
@@ -268,75 +270,141 @@
             <section class="previews anchor" id="preview-section">
                 <div class="filter-row">
                     <!--                    TODO: change onclick functions-->
-                    <button class="filter button toggle-button" tabindex="1" aria-controls="#course-filter">
-                        Studiengänge
-                    </button>
-                    <div class="filter-expansion" id="course-filter">
-                        <label class="minf" for="minf-filter">
-                            <button class="icon-button" id="minf-filter" onclick="toggleFilter('course', 'minf', this)" tabindex="1">
-                                <svg id="Ebene_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 54.14 54.14">
-                                    <g id="Ebene_1-2">
-                                        <path d="m27.07,54.14c14.95,0,27.07-12.12,27.07-27.07S42.02,0,27.07,0,0,12.12,0,27.07s12.12,27.07,27.07,27.07"
-                                              style="fill:#e2d032; stroke-width:0px;"/>
-                                        <text transform="translate(14.06 25.73)"
-                                              style="fill:#2e2d2c; font-family:HelveticaNeue-Bold, Helvetica Neue; font-size:20.74px; font-weight:700;">
-                                            <tspan x="0" y="0">MI</tspan>
-                                        </text>
-                                        <text transform="translate(14.06 43.4)"
-                                              style="fill:#2e2d2c; font-family:HelveticaNeue-Bold, Helvetica Neue; font-size:20.74px; font-weight:700;">
-                                            <tspan x="0" y="0">NF</tspan>
-                                        </text>
-                                    </g>
-                                </svg>
-                            </button>
-                            <span>Medieninformatik B.Sc.</span>
-                        </label>
-                        <label class="musk" for="musk-filter">
-                            <button class="icon-button" id="musk-filter" onclick="toggleFilter('course', 'musk', this)" tabindex="1">
-                                <svg id="Ebene_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 54.14 54.14">
-                                    <g id="Ebene_1-2">
-                                        <path d="m27.07,54.14c14.95,0,27.07-12.12,27.07-27.07S42.02,0,27.07,0,0,12.12,0,27.07s12.12,27.07,27.07,27.07"
-                                              style="fill:#b68bba; stroke-width:0px;"/>
-                                        <text transform="translate(12.23 25.73)"
-                                              style="fill:#2e2d2c; font-family:HelveticaNeue-Bold, Helvetica Neue; font-size:20.74px; font-weight:700;">
-                                            <tspan x="0" y="0" style="letter-spacing:0em;">M</tspan>
-                                            <tspan x="18.87" y="0">u</tspan>
-                                        </text>
-                                        <text transform="translate(12.23 43.4)"
-                                              style="fill:#2e2d2c; font-family:HelveticaNeue-Bold, Helvetica Neue; font-size:20.74px; font-weight:700;">
-                                            <tspan x="0" y="0">SK</tspan>
-                                        </text>
-                                    </g>
-                                </svg>
-                            </button>
-                            <span>Medien- und Spielekonzeption M.A.</span>
-                        </label>
+                    <div>
+                        <button class="filter button toggle-button" tabindex="1" aria-controls="#course-filter">
+                            Studiengänge
+                        </button>
+                        <div class="filter-expansion" id="course-filter">
+                            <label class="minf" for="minf-filter">
+                                <button class="icon-button" id="minf-filter" onclick="toggleFilter('course', 'minf', this)" tabindex="1">
+                                    <svg id="Ebene_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 54.14 54.14">
+                                        <g id="Ebene_1-2">
+                                            <path d="m27.07,54.14c14.95,0,27.07-12.12,27.07-27.07S42.02,0,27.07,0,0,12.12,0,27.07s12.12,27.07,27.07,27.07"
+                                                  style="fill:#e2d032; stroke-width:0px;"/>
+                                            <text transform="translate(14.06 25.73)"
+                                                  style="fill:#2e2d2c; font-family:HelveticaNeue-Bold, Helvetica Neue; font-size:20.74px; font-weight:700;">
+                                                <tspan x="0" y="0">MI</tspan>
+                                            </text>
+                                            <text transform="translate(14.06 43.4)"
+                                                  style="fill:#2e2d2c; font-family:HelveticaNeue-Bold, Helvetica Neue; font-size:20.74px; font-weight:700;">
+                                                <tspan x="0" y="0">NF</tspan>
+                                            </text>
+                                        </g>
+                                    </svg>
+                                </button>
+                                <span>Medieninformatik B.Sc.</span>
+                            </label>
+                            <label class="musk" for="musk-filter">
+                                <button class="icon-button" id="musk-filter" onclick="toggleFilter('course', 'musk', this)" tabindex="1">
+                                    <svg id="Ebene_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 54.14 54.14">
+                                        <g id="Ebene_1-2">
+                                            <path d="m27.07,54.14c14.95,0,27.07-12.12,27.07-27.07S42.02,0,27.07,0,0,12.12,0,27.07s12.12,27.07,27.07,27.07"
+                                                  style="fill:#b68bba; stroke-width:0px;"/>
+                                            <text transform="translate(12.23 25.73)"
+                                                  style="fill:#2e2d2c; font-family:HelveticaNeue-Bold, Helvetica Neue; font-size:20.74px; font-weight:700;">
+                                                <tspan x="0" y="0" style="letter-spacing:0em;">M</tspan>
+                                                <tspan x="18.87" y="0">u</tspan>
+                                            </text>
+                                            <text transform="translate(12.23 43.4)"
+                                                  style="fill:#2e2d2c; font-family:HelveticaNeue-Bold, Helvetica Neue; font-size:20.74px; font-weight:700;">
+                                                <tspan x="0" y="0">SK</tspan>
+                                            </text>
+                                        </g>
+                                    </svg>
+                                </button>
+                                <span>Medien- und Spielekonzeption M.A.</span>
+                            </label>
+                        </div>
                     </div>
-                    <button class="filter button toggle-button" tabindex="1" aria-controls="#category-filter">
-                        Kategorien
-                    </button>
-                    <div class="filter-expansion" id="category-filter">
-                        <label>
-                            <button class="icon-button" onclick="toggleFilter('tag', 'animation', this)" tabindex="1"></button>
-                            <span>Animation</span>
-                        </label>
-                        <label>
-                            <button class="icon-button" onclick="toggleFilter('tag', 'animation', this)" tabindex="1"></button>
-                            <span>Coding</span>
-                        </label>
-                        <label>
-                            <button class="icon-button" onclick="toggleFilter('tag', 'animation', this)" tabindex="1"></button>
-                            <span>Coding</span>
-                        </label>
-                        <label>
-                            <button class="icon-button" onclick="toggleFilter('tag', 'animation', this)" tabindex="1"></button>
-                            <span>Coding</span>
-                        </label>
-
+                    <div>
+                        <button class="filter button toggle-button" tabindex="1" aria-controls="#category-filter">
+                            Kategorien
+                        </button>
+                        <div class="filter-expansion" id="category-filter">
+                            <label>
+                                <button class="icon-button" onclick="toggleFilter('tag', 'animation', this)" tabindex="1"></button>
+                                <span>Animation</span>
+                            </label>
+                            <label>
+                                <button class="icon-button" onclick="toggleFilter('tag', 'audiovisuell', this)" tabindex="1"></button>
+                                <span>Film & Sound</span>
+                            </label>
+                            <label>
+                                <button class="icon-button" onclick="toggleFilter('tag', 'grafik', this)" tabindex="1"></button>
+                                <span>Grafik</span>
+                            </label>
+                            <label>
+                                <button class="icon-button" onclick="toggleFilter('tag', 'fotografie', this)" tabindex="1"></button>
+                                <span>Fotografie</span>
+                            </label>
+                            <label>
+                                <button class="icon-button" onclick="toggleFilter('tag', 'web', this)" tabindex="1"></button>
+                                <span>Web</span>
+                            </label>
+                            <label>
+                                <button class="icon-button" onclick="toggleFilter('tag', 'coding', this)" tabindex="1"></button>
+                                <span>Coding</span>
+                            </label>
+                            <label>
+                                <button class="icon-button" onclick="toggleFilter('tag', 'events', this)" tabindex="1"></button>
+                                <span>Events</span>
+                            </label>
+    
+                        </div>
                     </div>
-                    <button class="filter button" tabindex="1" onclick="toggleFilter('max-date', '2023-01-01', this)">
-                        Zeit
-                    </button>
+                    <div>
+                        <button class="filter button toggle-button" tabindex="1" aria-controls=".time-filter">
+                            Zeit
+                        </button>
+                        <div class="filter-expansion time-filter" id="time-filter-touch">
+                            <label>
+                                <span>min</span>
+                                <div>
+                                    <ol class="wheel-select" name="min-time" id="min-time-select" tabindex="1">
+                                        <li value="2015">2015</li>
+                                        <li value="2016">2016</li>
+                                        <li value="2017">2017</li>
+                                        <li value="2018">2018</li>
+                                        <li value="2019">2019</li>
+                                        <li value="2020">2020</li>
+                                        <li value="2021">2021</li>
+                                        <li value="2022">2022</li>
+                                        <li value="2023">2023</li>
+                                        <li value="2024">2024</li>
+                                    </ol>
+                                </div>
+                            </label>
+                            <label>
+                                <span>max</span>
+                                <div>
+                                    <ol class="wheel-select" name="max-time" id="max-time-select" tabindex="1">
+                                        <li value="2015">2015</li>
+                                        <li value="2016">2016</li>
+                                        <li value="2017">2017</li>
+                                        <li value="2018">2018</li>
+                                        <li value="2019">2019</li>
+                                        <li value="2020">2020</li>
+                                        <li value="2021">2021</li>
+                                        <li value="2022">2022</li>
+                                        <li value="2023">2023</li>
+                                        <li value="2024">2024</li>
+                                    </ol>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="filter-expansion time-filter" id="time-filter-mouse">
+                            <label>
+                                <span>min</span>
+                                <input type="range" min="2015" max="2024" step="1" value="2015" name="min-time-slider" id="min-time-slider">
+                                <input type="number" min="2015" max="2024" step="1" value="2015" name="min-time-field" id="min-time-field" tabindex="1">
+                            </label>
+                            <label>
+                                <span>max</span>
+                                <input type="range" min="2015" max="2024" step="1" value="2024" name="max-time-slider" id="max-time-slider">
+                                <input type="number" min="2015" max="2024" step="1" value="2024" name="max-time-field" id="max-time-field" tabindex="1">
+                            </label>
+                        </div>
+                    </div>
                 </div>
                 <div class="content-grid" id="preview-grid"></div>
                 <div class="content-grid" id="preview-no-content">

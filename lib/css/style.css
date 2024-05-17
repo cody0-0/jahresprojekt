@@ -951,14 +951,20 @@ section.hero.wrapping-grid > .content-grid {
     align-items: center;
 }
 
+div:has(>.filter-expansion) {
+    position: relative;
+}
+
 .filter-expansion {
     position: absolute;
     top: calc(var(--v-spacing) + var(--unit) * 2);
+    width: 60vw;
 
     display: none;
     gap: var(--h-spacing);
-    justify-content: start;
-    align-items: start;
+
+    grid-template-columns: repeat(auto-fit, minmax(4rem, 1fr));
+    justify-items: center;
     z-index: 1;
 
     background: var(--color-container);
@@ -968,7 +974,7 @@ section.hero.wrapping-grid > .content-grid {
 }
 
 .filter-expansion.active {
-    display: flex;
+    display: grid;
 }
 
 .filter-expansion:has(button:active), .filter-expansion:has(button.active) {
@@ -981,6 +987,70 @@ section.hero.wrapping-grid > .content-grid {
     justify-items: center;
     max-width: 10rem;
     text-align: center;
+}
+
+@media (pointer: fine) {
+    #time-filter-touch {
+        display: none;
+    }
+}
+@media (pointer: coarse) {
+    #time-filter-mouse {
+        display: none;
+    }
+}
+
+.wheel-select {
+    position: relative;
+    height: 5lh;
+    padding: 2lh var(--h-spacing);
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    isolation: isolate;
+}
+
+*:has(>.wheel-select) {
+    position: relative;
+}
+
+*:has(>.wheel-select)::before {
+    content: '';
+    display: block;
+    height: 1lh;
+    width: 100%;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    position: absolute;
+    background: transparent;
+    border-top: var(--line-thickness) solid var(--color-text);
+    border-bottom: var(--line-thickness) solid var(--color-text);
+    pointer-events: none;
+}
+
+*:has(>.wheel-select)::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, var(--color-container) 0%, transparent 50%, var(--color-container) 100%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.wheel-select::-webkit-scrollbar {
+    display: none;
+}
+
+.wheel-select > * {
+    scroll-snap-align: center;
+    text-align: center;
+}
+
+.wheel-select > *.disabled {
+    display: none;
 }
 
 .previews {
