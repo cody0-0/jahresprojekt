@@ -1,0 +1,53 @@
+{{ define "posting" }}
+    <!DOCTYPE html>
+    <html lang="de">
+    <head>
+        <meta charset="UTF-8">
+        <title>{{ .Title }}</title>
+        <style>
+            main {
+                margin: auto;
+                width: fit-content;
+                max-width: 800px;
+            }
+
+            #back {
+                position: fixed;
+                top: 0;
+                right: 0;
+                margin: 1em;
+            }
+        </style>
+    </head>
+    <body>
+    <main>
+        <button id="back" onclick="window.history.back()">Zurück</button>
+        {{- if gt .TitleImage 0 }}
+            {{- range .Images }}
+                {{- if eq .ID $.TitleImage }}
+                    <img height="200px" src="../{{ .URL }}" alt="{{ .Caption }}">
+                {{- end }}
+            {{- end }}
+        {{- end }}
+        <h1>{{ .Title }}</h1>
+        <p>{{ .Author }} | {{ .Date.Format "02.01.2006" }}</p>
+        <div id="text">{{ if gt (len .TextShort) 0 }}{{ .TextShort }}{{ else }}{{ .TextLong }}{{ end }}</div>
+        <p>
+            <b>Tags</b>:
+            {{ if .Minf }}<a href="javascript:void(0)">MINF</a>,{{ end }}
+            {{ if .Musk }}<a href="javascript:void(0)">Musk</a>,{{ end }}
+            {{ range $i, $name := .Tags }}{{ if $i }},{{ end }}
+            <a href="javascript:void(0)">{{ $name }}</a>{{ end }}
+        </p>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"
+            integrity="sha512-LhccdVNGe2QMEfI3x4DVV3ckMRe36TfydKss6mJpdHjNFiV07dFpS2xzeZedptKZrwxfICJpez09iNioiSZ3hA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        const converter = new showdown.Converter();
+        const text = document.getElementById("text");
+        text.innerHTML = converter.makeHtml(text.innerHTML);
+    </script>
+    </body>
+    </html>
+{{ end }}

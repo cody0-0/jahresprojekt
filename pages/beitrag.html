@@ -11,13 +11,17 @@
     <link rel="stylesheet" href="../lib/css/style.css"/>
 
     <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js"></script>
+
     <script src="../lib/javascript/script-check.js" defer></script>
     <script src="../lib/javascript/studiengang-url-parser.js" defer></script>
     <script src="../lib/javascript/point-of-interest-imgs.js" defer></script>
     <script src="../lib/javascript/cookies.js" defer></script>
     <script src="../lib/javascript/menu-toggle.js" defer></script>
+    <script src="../lib/javascript/search.js" defer></script>
     <script src="../lib/javascript/goTo.js"></script>
     <script src="../lib/javascript/sharePage.js" defer></script>
+    <script src="../lib/javascript/load-content.js" defer></script>
     <script src="../lib/javascript/image-overlay.js" defer></script>
 
     <link rel="icon" id="favicon" type="image/svg"/>
@@ -106,7 +110,8 @@
         </a>
         <nav>
             <ul class="large-only">
-                <li><a class="menu-item" href="javascript:goTo('../index.html#preview-section')">Übersicht & Beiträge</a></li>
+                <li><a class="menu-item" href="javascript:goTo('../index.html#preview-section')">Übersicht &
+                    Beiträge</a></li>
                 <li>
                     <button class="menu-item toggle-button dropdown" aria-controls="expanded-menu">Über die
                         Studiengänge
@@ -148,8 +153,11 @@
         </nav>
     </div>
     <div class="expanded-header">
-        <input type="search" name="preview-search" id="preview-search" class="preview-search expanded-hamburger"
-               placeholder="Suche...">
+        <!-- TODO: remove inline style -->
+        <form id="preview-search-form" class="preview-search expanded-hamburger">
+            <label for="preview-search" style="display: none">Suche</label>
+            <input type="search" name="q" id="preview-search" placeholder="Suche...">
+        </form>
         <nav class="expanded-hamburger expanded-menu" id="expanded-menu">
             <ul class="large-only sub-menu">
                 <li><a class="sub-menu-item" href="javascript:goTo('./about-minf.html')">Medieninformatik</a></li>
@@ -205,26 +213,52 @@
         <div class="wrapping-grid">
             <section class="content-title full wrapping-grid anchor" id="content-title-section">
                 <div class="title-img-container">
-                    <img src="../resources/imgs/pexels-mitch-lally-401527143-14894306.jpg"
-                         data-poi-x="0.5" data-poi-y="0.9" alt="" class="title-img">
+                    <img class="title-img" id="content-title-img" src="" alt>
+                    <button class="icon-button expand-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px">
+                            <path d="M200-200v-240h80v160h160v80H200Zm480-320v-160H520v-80h240v240h-80Z"/>
+                        </svg>
+                    </button>
                 </div>
-                <h1 class="content-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi.</h1>
-                <p class="caption">Max Mustermann | 01. 01. 2000</p>
+                <h1 class="content-title" id="content-title"></h1>
+                <p class="caption"><span id="content-author"></span> | <span id="content-date"></span></p>
             </section>
             <section class="content content-grid anchor" id="content-section">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda officia quae numquam deserunt
-                    consectetur molestiae magni distinctio ullam amet necessitatibus, aut porro laboriosam magnam
-                    dolorum nemo harum voluptas molestias autem!</p>
-                <div class="inline-img-container">
-                    <img src="https://picsum.photos/1400/900" alt="">
-                    <p class="caption">Urheber und Bildunterschrift</p>
+            </section>
+            <section class="gallery anchor" id="gallery-section">
+                <h2>Weitere Bilder</h2>
+                <div class="content-grid" id="content-gallery">
+                    <div id="more-imgs"><span>+<span id="more-img-indicator">2</span></span></div>
                 </div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat beatae at dolorum commodi
-                    laboriosam distinctio dolorem ab dolor optio eveniet.</p>
-                <p>
-                    Dies ist ein einfacher Platzhaltertext, in welchem sich ein <a>Link</a> befindet, um das Design zu
-                    testen. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                </p>
+            </section>
+            <section>
+                <p id="content-tags"><b>Tags: </b><span id="no-tags">keine</span></p>
+            </section>
+            <section class="post-browsing anchor" id="post-browsing-section">
+                <div class="line"></div>
+                <div class="post-nav">
+                    <a id="prev-post">
+                        <button class="icon-button" id="prev-post-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"
+                                 fill="var(--color-text)">
+                                <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z"/>
+                            </svg>
+                        </button>
+                        <label for="prev-post-button">Vorheriger<span class="not-small"> Beitrag</span></label>
+                    </a>
+                    <a id="next-post">
+                        <label for="next-post-button">Nächster<span class="not-small"> Beitrag</span></label>
+                        <button class="icon-button" id="next-post-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"
+                                 fill=var(--color-text)>
+                                <path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z"/>
+                            </svg>
+                        </button>
+                    </a>
+                </div>
+                <div class="content-grid" id="recommendation-container">
+                    <h2>Weitere Beiträge</h2>
+                </div>
             </section>
         </div>
     </main>
@@ -298,7 +332,7 @@
             </svg>
         </button>
         <div class="image-overlay-container">
-            <img id="image-overlay-img">
+            <img id="image-overlay-img" src="" alt>
             <p id="image-overlay-caption" class="caption"></p>
         </div>
         <button class="icon-button" id="image-overlay-prev">

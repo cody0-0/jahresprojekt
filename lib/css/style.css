@@ -335,11 +335,11 @@ a {
     word-break: keep-all;
 }
 
-a, a:hover, a:focus {
+a, a[href]:hover, a:focus {
     color: var(--_color-anchor);
 }
 
-a:hover svg, a:focus svg {
+a[href]:hover svg, a:focus svg {
     fill: var(--color-primary);
 }
 
@@ -371,7 +371,7 @@ a:focus .anchor-arrow::after {
     transform: translateY(-10%) translateX(10%) scale(90%);
 }
 
-b {
+b, strong {
     font-weight: bold;
 }
 
@@ -535,6 +535,12 @@ header input[type="search"] {
     --_on-input-color: var(--_on-header-color);
 }
 
+header form {
+    display: flex;
+    gap: var(--h-spacing);
+    align-items: end;
+}
+
 input[type="search"] {
     --_input-color: var(--color-text);
     --_on-input-color: var(--color-text);
@@ -553,7 +559,7 @@ input[type="search"]:focus {
 }
 
 @media screen and (min-width: 930px) {
-    header input[type="search"].active {
+    header form.active input[type="search"] {
         width: 37.15em; /* Same width as main-menu */
     }
 }
@@ -678,6 +684,15 @@ header .icon-button:hover svg, header .icon-button:focus svg {
     --_button-background: none;
 }
 
+section {
+    display: grid;
+    gap: var(--v-spacing);
+}
+
+label {
+    font-size: var(--font-size-label);
+}
+
 button, .icon-button {
     --_on-button-color: var(--color-text);
     --_button-background: var(--color-container);
@@ -772,10 +787,13 @@ button:disabled {
     justify-self: end;
     align-items: end;
     gap: calc(var(--v-spacing) * 0.5);
+
+    pointer-events: none;
 }
 
 .floating-actions > * {
     margin-right: var(--h-spacing);
+    pointer-events: auto;
 }
 
 .snack-bar {
@@ -965,6 +983,10 @@ section.hero.wrapping-grid > .content-grid {
     align-content: start;
 }
 
+.preview:has(*.dummy) {
+    opacity: 20%;
+}
+
 a.preview {
     --_color-anchor: var(--color-text);
 }
@@ -1046,6 +1068,10 @@ a.preview:hover, a.preview:focus {
     align-items: center;
 }
 
+.page-nav * {
+    white-space: nowrap;
+}
+
 /* beitragsseite */
 
 body.content-page section:first-of-type {
@@ -1094,14 +1120,37 @@ img {
 .inline-img-container {
     position: relative;
     margin: 0 var(--padding);
-    display: grid;
+    display: flex;
+    flex-direction: column;
     gap: var(--unit) 0;
+}
+
+#content-section blockquote {
+    height: auto;
+    display: none;
+}
+
+#content-section blockquote p {
+    font-size: 2em;
+    font-weight: 100;
+    text-indent: 0;
+    transform: translateY(calc((1lh - 1em) * -0.8));
 }
 
 @media screen and (min-width: 930px) {
     #content-section .inline-img-container {
-        padding: 0;
+        margin: 0;
         grid-column: 2 / -2;
+    }
+
+    #content-section .inline-img-container + blockquote {
+        display: block;
+    }
+
+    #content-section .inline-img-container:has(+ .inline-img-container, + blockquote) ,
+    #content-section .inline-img-container + .inline-img-container,
+    #content-section .inline-img-container + blockquote {
+        grid-column: span 6;
     }
 }
 
@@ -1112,11 +1161,139 @@ img {
     max-height: 70svh;
 }
 
-.title-img-container button, .inline-img-container button {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    margin: var(--unit);
+.inline-img-wrapper {
+    position: relative;
+}
+
+#post-browsing-section .preview {
+    grid-column: span 4;
+}
+
+#post-browsing-section .preview .preview-img {
+    aspect-ratio: 3/2;
+}
+
+@media screen and (min-width: 600px) and (max-width: 930px) {
+    #post-browsing-section .preview:nth-of-type(n+3) {
+        display: none;
+    }
+}
+
+.post-nav {
+    display: flex;
+    gap: var(--h-spacing);
+    justify-content: center;
+}
+
+@media screen and (max-width: 600px) {
+    .post-nav {
+        justify-content: space-between;
+    }
+}
+
+.post-nav > * {
+    display: flex;
+    gap: var(--h-spacing-small);
+    align-items: center;
+    color: var(--color-text);
+}
+
+.post-nav a:has(button:disabled) label {
+    opacity: 0.5;
+}
+
+#gallery-section:has(#more-imgs:first-child) {
+    display: none;
+}
+
+#content-gallery > img, #content-gallery > #more-imgs {
+    aspect-ratio: 1;
+    object-fit: cover;
+    grid-column: span 2;
+    cursor: pointer;
+}
+
+#content-gallery #more-imgs {
+    display: none;
+}
+
+#more-imgs {
+    background: color-mix(in srgb, var(--color-text) 75%, transparent 25%);
+    justify-content: center;
+    align-items: center;
+    font-weight: var(--fontweight-light);
+    padding: var(--padding);
+    color: var(--color-background);
+    line-height: 1;
+
+    position: relative;
+    isolation: isolate;
+    pointer-events: none;
+}
+
+@media screen and (max-width: 930px) {
+    #content-gallery:has(.gallery-img:nth-child(5)) .gallery-img:nth-of-type(n+5) {
+        display: none;
+    }
+
+    #content-gallery:has(.gallery-img:nth-child(5)) .gallery-img:nth-of-type(4) {
+        grid-column: -3/-1;
+        grid-row: 1 / 2;
+    }
+
+    #content-gallery:has(.gallery-img:nth-child(5)) #more-imgs {
+        display: flex;
+        grid-column: -3/-1;
+        grid-row: 1 / 2;
+
+        font-size: 8vw;
+        /* Typically vw is not a good idea for font-size.
+        In this case the font is a rather stylistic element and must be contained within its surrounding element. */
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #content-gallery:has(.gallery-img:nth-child(5)) .gallery-img:nth-of-type(4) {
+        grid-row: 2 / 3;
+    }
+
+    #content-gallery:has(.gallery-img:nth-child(5)) #more-imgs {
+        grid-row: 2 / 3;
+
+        font-size: 18vw;
+        /* Typically vw is not a good idea for font-size.
+        In this case the font is a rather stylistic element and must be contained within its surrounding element. */
+    }
+}
+
+@media screen and (min-width: 930px) {
+    #content-gallery:has(.gallery-img:nth-child(7)) .gallery-img:nth-of-type(n+7) {
+        display: none;
+    }
+
+    #content-gallery:has(.gallery-img:nth-child(7)) .gallery-img:nth-of-type(6) {
+        grid-column: -3/-1;
+        grid-row: 1 / 2;
+    }
+
+    #content-gallery:has(.gallery-img:nth-child(7)) #more-imgs {
+        display: flex;
+        grid-column: -3/-1;
+        grid-row: 1 / 2;
+
+        font-size: min(5vw, 60px);
+        /* Typically vw is not a good idea for font-size.
+        In this case the font is a rather stylistic element and must be contained within its surrounding element. */
+    }
+}
+
+#no-tags:not(:last-child) {
+    display: none;
+}
+
+#content-tags a:not(:nth-child(3))::before {
+    color: var(--color-text);
+    content: ', ';
 }
 
 .center {
@@ -1258,6 +1435,13 @@ img {
 
 #image-overlay-caption, #image-overlay-counter {
     color: var(--color-neutral-900);
+}
+
+.expand-button {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: var(--unit);
 }
 
 @media screen and (orientation: landscape) {

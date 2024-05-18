@@ -20,6 +20,7 @@
     <script src="./lib/javascript/menu-toggle.js" defer></script>
     <script src="./lib/javascript/hero-scroll.js" defer></script>
     <script src="./lib/javascript/cookies.js" defer></script>
+    <script src="./lib/javascript/search.js" defer></script>
     <script src="./lib/javascript/goTo.js"></script>
 
     <link id="favicon" rel="shortcut icon" type="image/svg"/>
@@ -151,17 +152,20 @@
         </nav>
     </div>
     <div class="expanded-header">
-        <input type="search" name="preview-search" id="preview-search" class="preview-search expanded-hamburger"
-               placeholder="Suche...">
+        <!-- TODO: remove inline style -->
+        <form id="preview-search-form" class="preview-search expanded-hamburger">
+            <label for="preview-search" style="display: none">Suche</label>
+            <input type="search" name="q" id="preview-search" placeholder="Suche...">
+        </form>
         <nav class="expanded-hamburger expanded-menu" id="expanded-menu">
             <ul class="large-only sub-menu">
                 <li><a class="sub-menu-item" href="javascript:goTo('./pages/about-minf.html')" tabindex="1">Medieninformatik</a>
                 </li>
-                <li><a class="sub-menu-item" href="javascript:goTo('./pages/about-musk.html')" tabindex="1">Medien-und Spielekonzeption</a>
+                <li><a class="sub-menu-item" href="javascript:goTo('./pages/about-musk.html')" tabindex="1">Medien-und
+                    Spielekonzeption</a>
                 </li>
             </ul>
             <ul class="not-large hamburger-menu" id="hamburger-menu">
-                <!--<li><input type="search" name="preview-search" id="preview-search-small" placeholder="Suche..." tabindex="1"></li>-->
                 <li><a class="menu-item" href="#preview-section" tabindex="1">Übersicht & Beiträge</a></li>
                 <li>
                     <p class="sub-menu-heading">Über die Studiengänge</p>

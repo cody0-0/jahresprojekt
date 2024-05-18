@@ -1,0 +1,290 @@
+{{ define "edit" }}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Edit</title>
+        <style>
+            header {
+                background: white;
+                padding-top: 1em;
+                position: sticky;
+                top: 0;
+            }
+
+            header div, .postings, .row, span {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-items: center;
+                gap: 1ch;
+            }
+
+            .postings {
+                flex-direction: column;
+                gap: 2.5lh;
+            }
+
+            .row {
+                justify-content: left;
+                align-items: start;
+                gap: 0 3ch;
+                margin-bottom: 0.5lh;
+            }
+
+            main:has(.postings:not(:empty)) .no-postings, form:has(.images:not(:empty)) .no-images {
+                display: none;
+            }
+
+            input[type="checkbox"] {
+                margin: 0;
+            }
+
+            span:has(textarea), textarea {
+                flex: 1;
+            }
+        </style>
+    </head>
+    <body style="margin: 0 1em 1lh;">
+    <script>
+        const images = new Map([{{ range .Postings }}
+            [{{ .ID }}, [{{ range .Images }}
+                {id: {{ .ID }}, url: '{{ .URL }}', caption: '{{ .Caption }}'},{{ end }}
+            ]],{{ end }}
+        ]);
+
+        function constructImgFormElm(img) {
+            const imgFormElm = document.createElement('div');
+            imgFormElm.id = `image-${img.id}`;
+            imgFormElm.className = 'row';
+            imgFormElm.innerHTML = `
+                <span>#${img.id}<input type="hidden" name="img-id-${img.id}" value="${img.id}"></span>
+                <span>
+                    <label for="image-${img.id}-url">URL:</label>
+                    <input type="text" id="image-${img.id}-url" name="img-url-${img.id}" value="${img.url}" size="40">
+                </span>
+                <span>
+                    <label for="image-${img.id}-title">Caption:</label>
+                    <input type="text" id="image-${img.id}-title" name="img-title-${img.id}" value="${img.caption}" size="40">
+                </span>
+                <span>
+                    <button type="button" onclick="removeImage(${img.id})">Remove</button>
+                    <button type="button" onclick="window.location.href = '${img.url}';">View</button>
+                </span>
+            `;
+            return imgFormElm;
+        }
+
+        function update(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const id = Number(formData.get('id'));
+            const data = {
+                id: id,
+                title: formData.get('title'),
+                title_image: Number(formData.get('title_image')),
+                author: formData.get('author'),
+                date: new Date(formData.get('date') + '').toISOString(),
+                minf: formData.get('minf') === 'on',
+                musk: formData.get('musk') === 'on',
+                tags: Array.from(formData.getAll('tags')),
+                images: images.get(id).map(image => ({
+                    id: image.id,
+                    url: formData.get(`img-url-${image.id}`),
+                    caption: formData.get(`img-title-${image.id}`)
+                })),
+                text_short: formData.get('text_short'),
+                text_long: formData.get('text_long'),
+            };
+            fetch(event.target.action, {
+                method: 'PUT',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(data)
+            }).then(response => {
+                if (response.ok) window.location.reload();
+                else response.text().then(body => alert(`Failed to update post.\n${body}`));
+            });
+        }
+
+        function addPost() {
+            fetch(`/add`, {
+                method: 'POST',
+                headers: {'Content-Length': '0'}
+            }).then(response => {
+                if (response.ok) window.location.reload();
+                else response.text().then(body => alert(`Failed to add post.\n${body}`));
+            });
+        }
+
+        function removePost(id) {
+            if (confirm(`Are you sure you want to delete this post?\nID: ${id}`)) {
+                fetch(`/delete/${id}`, {
+                    method: 'DELETE',
+                    headers: {'Content-Length': '0'}
+                }).then(response => {
+                    if (response.ok) window.location.reload();
+                    else response.text().then(body => alert(`Failed to delete post.\n${body}`));
+                });
+            }
+        }
+
+        function addImage(id) {
+            const is = images.get(id);
+            const img = {id: 0, url: '', caption: ''};
+            if (is) {
+                img.id = is.reduce((acc, cur) => Math.max(acc, cur.id), 0) + 1;
+                is.push(img);
+            } else images.set(id, [img]);
+            const imagesDiv = document.getElementById(`images-${id}`);
+            imagesDiv.insertBefore(constructImgFormElm(img), imagesDiv.lastChild);
+            const form = imagesDiv.closest('form');
+            form.requestSubmit();
+        }
+
+        function removeImage(id) {
+            if (confirm(`Are you sure you want to delete this image?\nID: ${id}`)) {
+                const imgFormElm = document.getElementById(`image-${id}`);
+                const form = imgFormElm.closest('form');
+                const formData = new FormData(form);
+                const parentId = Number(formData.get('id'));
+                console.log("Parent ID: ", parentId);
+                const is = images.get(parentId);
+                if (is) images.set(parentId, is.filter(img => img.id !== id));
+                imgFormElm.remove();
+                form.requestSubmit();
+            }
+        }
+
+        const pickerOpts = {types: [{description: "JSON files", accept: {"application/json": [".json"]}}]};
+
+        function selectFile() {
+            let fileHandle;
+            (async function () {
+                [fileHandle] = await window.showOpenFilePicker(pickerOpts);
+            })().then(() => fileHandle.getFile().then(file => {
+                const reader = new FileReader();
+                reader.onloadend = () => {
+                    fetch('/load', {
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify(JSON.parse(String(reader.result)))
+                    }).then(response => {
+                        if (response.ok) window.location.href = '/replace';
+                        else response.text().then(body => alert(`Failed to load JSON data.\n${body}`));
+                    }).catch(err => alert(`Failed to load JSON data.\n${err}`));
+                };
+                reader.readAsText(file);
+            }));
+        }
+
+        function link() {
+            fetch('/link', {
+                method: 'POST',
+                headers: {'Content-Length': '0'}
+            }).then(response => {
+                if (response.ok) window.location.reload();
+                else response.text().then(body => alert(`Failed to link content.\n${body}`));
+            });
+        }
+
+        let toggle = false;
+        function toggleCollapse(caller) {
+            toggle = !toggle;
+            caller.innerText = toggle ? 'Expand' : 'Collapse';
+            document.querySelectorAll('form > .row:not(:first-child)').forEach(row => {
+                row.style.display = toggle ? 'none' : 'flex';
+            });
+        }
+    </script>
+    <header>
+        <div>
+            <h1 style="margin: 0; flex: 1;">Edit postings</h1>
+            <button onclick="toggleCollapse(this)">Collapse</button>
+            <button onclick="addPost()">Add Post</button>
+            <button onclick="window.location.href = '/';">Back</button>
+            <button onclick="window.location.href = '/json';">JSON</button>
+            <button onclick="selectFile()">Load</button>
+        </div>
+        <hr style="margin: 1lh 0 1.5lh;">
+    </header>
+    <main>
+        <div class="postings">{{- range .Postings }}
+                <form id="update-{{ .ID }}" action="/update/{{ .ID }}">
+                    <div class="row">
+                        <span><b>#{{ .ID }}</b><input type="hidden" name="id" value="{{ .ID }}"></span>
+                        <span>
+                            <label for="title-{{ .ID }}">Title:</label>
+                            <input type="text" id="title-{{ .ID }}" name="title" value="{{ .Title }}" size="50">
+                        </span>
+                        <span>
+                            <label for="title_image-{{ .ID }}">Title Image:</label>
+                            <input type="number" id="title_image-{{ .ID }}" style="width: 6ch" name="title_image"
+                                   value="{{ .TitleImage }}" min="0" max="999">
+                        </span>
+                        <span>
+                            <label for="author-{{ .ID }}">Author:</label>
+                            <input type="text" id="author-{{ .ID }}" name="author" value="{{ .Author }}">
+                        </span>
+                        <span>
+                            <label for="date-{{ .ID }}">Date:</label>
+                            <input type="date" id="date-{{ .ID }}" name="date" value="{{ .Date.Format "2006-01-02" }}">
+                        </span>
+                        <span>
+                            <label for="minf-{{ .ID }}">Minf:</label>
+                            <input type="checkbox" id="minf-{{ .ID }}" name="minf" {{ if .Minf }}checked{{ end }}>
+                        </span>
+                        <span>
+                            <label for="musk-{{ .ID }}">Musk:</label>
+                            <input type="checkbox" id="musk-{{ .ID }}" name="musk" {{ if .Musk }}checked{{ end }}>
+                        </span>
+                        <span>
+                            <button type="button" onclick="removePost({{ .ID }})">Remove</button>
+                            <button type="button" onclick="window.location.href = './html/{{ .ID }}';">View</button>
+                        </span>
+                    </div>
+                    <div class="row">
+                        <span><b>Tags</b></span>
+                        {{- $id := .ID -}}{{- $tags := .Tags -}}{{- range $name := $.AllTags -}}
+                            <span>
+                                <label for="tag-{{ $name }}-{{ $id }}">{{ $name }}</label>
+                                <input type="checkbox" id="tag-{{ $name }}-{{ $id }}" name="tags" value="{{ $name }}"
+                                       {{- if contains $tags $name }}checked{{ end -}}>
+                            </span>
+                        {{- end -}}
+                    </div>
+                    <div class="row">
+                        <span><b>Images</b></span>
+                        <span><button type="button" onclick="addImage({{ .ID }})">Add Image</button></span>
+                        <span class="no-images">There are currently no images.</span>
+                        <div class="images" id="images-{{ .ID }}"></div>
+                    </div>
+                    <div class="row">
+                        <span><b><label for="text-short-{{ .ID }}">Text Short</label></b></span>
+                        <span>
+                            <textarea id="text-short-{{ .ID }}" name="text_short" rows="15">{{ .TextShort }}</textarea>
+                        </span>
+                    </div>
+                    <div class="row">
+                        <span><b><label for="text-long-{{ .ID }}">Text Long</label></b></span>
+                        <span>
+                            <textarea id="text-long-{{ .ID }}" name="text_long" rows="30">{{ .TextLong }}</textarea>
+                        </span>
+                    </div>
+                </form>
+            {{ end -}}
+        </div>
+        <div class="row no-postings" style="justify-content: center;">There are currently no postings.</div>
+    </main>
+    <script>
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', update);
+            const id = Number(new FormData(form).get('id'));
+            const imagesDiv = document.getElementById(`images-${id}`);
+            const is = images.get(id)
+            if (is) is.map(constructImgFormElm).forEach(elm => imagesDiv.insertBefore(elm, imagesDiv.lastChild));
+            form.querySelectorAll('input, textarea').forEach(el => el.addEventListener('change', () => form.requestSubmit()));
+        });
+    </script>
+    </body>
+    </html>
+{{ end }}
