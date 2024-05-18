@@ -125,7 +125,8 @@
                 <ul class="large-only">
                     <li><a class="menu-item" href="#preview-section" tabindex="1">Übersicht & Beiträge</a></li>
                     <li>
-                        <button class="menu-item toggle-button dropdown" aria-controls=".expanded-menu" tabindex="1">Über
+                        <button class="menu-item toggle-button dropdown" aria-controls=".expanded-menu" tabindex="1">
+                            Über
                             die Studiengänge
                         </button>
                     </li>
@@ -172,7 +173,8 @@
                 <ul class="large-only sub-menu">
                     <li><a class="sub-menu-item" href="javascript:goTo('./pages/about-minf.html')" tabindex="1">Medieninformatik</a>
                     </li>
-                    <li><a class="sub-menu-item" href="javascript:goTo('./pages/about-musk.html')" tabindex="1">Medien-und Spielekonzeption</a>
+                    <li><a class="sub-menu-item" href="javascript:goTo('./pages/about-musk.html')" tabindex="1">Medien-und
+                        Spielekonzeption</a>
                     </li>
                 </ul>
                 <ul class="not-large hamburger-menu" id="hamburger-menu">
@@ -269,14 +271,15 @@
 
             <section class="previews anchor" id="preview-section">
                 <div class="filter-row">
-                    <!--                    TODO: change onclick functions-->
                     <div>
-                        <button class="filter button toggle-button" tabindex="1" aria-controls="#course-filter">
+                        <button class="filter button toggle-button" data-param="cos" tabindex="1"
+                                aria-controls="#course-filter">
                             Studiengänge
                         </button>
                         <div class="filter-expansion" id="course-filter">
                             <label class="minf" for="minf-filter">
-                                <button class="icon-button" id="minf-filter" onclick="toggleFilter('cos', 'minf', this)" tabindex="1">
+                                <button class="icon-button" id="minf-filter" data-param="cos" data-val="minf"
+                                        tabindex="1">
                                     <svg id="Ebene_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 54.14 54.14">
                                         <g id="Ebene_1-2">
                                             <path d="m27.07,54.14c14.95,0,27.07-12.12,27.07-27.07S42.02,0,27.07,0,0,12.12,0,27.07s12.12,27.07,27.07,27.07"
@@ -295,7 +298,8 @@
                                 <span>Medieninformatik B.Sc.</span>
                             </label>
                             <label class="musk" for="musk-filter">
-                                <button class="icon-button" id="musk-filter" onclick="toggleFilter('cos', 'musk', this)" tabindex="1">
+                                <button class="icon-button" id="musk-filter" data-param="cos" data-val="musk"
+                                        tabindex="1">
                                     <svg id="Ebene_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 54.14 54.14">
                                         <g id="Ebene_1-2">
                                             <path d="m27.07,54.14c14.95,0,27.07-12.12,27.07-27.07S42.02,0,27.07,0,0,12.12,0,27.07s12.12,27.07,27.07,27.07"
@@ -317,43 +321,46 @@
                         </div>
                     </div>
                     <div>
-                        <button class="filter button toggle-button" tabindex="1" aria-controls="#category-filter">
+                        <button class="filter button toggle-button" data-param="tag" tabindex="1"
+                                aria-controls="#category-filter">
                             Kategorien
                         </button>
                         <div class="filter-expansion" id="category-filter">
                             <label>
-                                <button class="icon-button" onclick="toggleFilter('tag', 'animation', this)" tabindex="1"></button>
+                                <button class="icon-button" data-param="tag" data-val="animation" tabindex="1"></button>
                                 <span>Animation</span>
                             </label>
                             <label>
-                                <button class="icon-button" onclick="toggleFilter('tag', 'audiovisuell', this)" tabindex="1"></button>
+                                <button class="icon-button" data-param="tag" data-val="audiovisuell"
+                                        tabindex="1"></button>
                                 <span>Film & Sound</span>
                             </label>
                             <label>
-                                <button class="icon-button" onclick="toggleFilter('tag', 'grafik', this)" tabindex="1"></button>
+                                <button class="icon-button" data-param="tag" data-val="grafik" tabindex="1"></button>
                                 <span>Grafik</span>
                             </label>
                             <label>
-                                <button class="icon-button" onclick="toggleFilter('tag', 'fotografie', this)" tabindex="1"></button>
+                                <button class="icon-button" data-param="tag" data-val="fotografie"
+                                        tabindex="1"></button>
                                 <span>Fotografie</span>
                             </label>
                             <label>
-                                <button class="icon-button" onclick="toggleFilter('tag', 'web', this)" tabindex="1"></button>
+                                <button class="icon-button" data-param="tag" data-val="web" tabindex="1"></button>
                                 <span>Web</span>
                             </label>
                             <label>
-                                <button class="icon-button" onclick="toggleFilter('tag', 'coding', this)" tabindex="1"></button>
+                                <button class="icon-button" data-param="tag" data-val="coding" tabindex="1"></button>
                                 <span>Coding</span>
                             </label>
                             <label>
-                                <button class="icon-button" onclick="toggleFilter('tag', 'events', this)" tabindex="1"></button>
+                                <button class="icon-button" data-param="tag" data-val="events" tabindex="1"></button>
                                 <span>Events</span>
                             </label>
-    
                         </div>
                     </div>
                     <div>
-                        <button class="filter button toggle-button" tabindex="1" aria-controls=".time-filter">
+                        <button class="filter button toggle-button" data-param="date" tabindex="1"
+                                aria-controls=".time-filter">
                             Zeit
                         </button>
                         <div class="filter-expansion time-filter" id="time-filter-touch">
@@ -395,17 +402,22 @@
                         <div class="filter-expansion time-filter" id="time-filter-mouse">
                             <label>
                                 <span>min</span>
-                                <input type="range" min="2015" max="2024" step="1" value="2015" name="min-time-slider" id="min-time-slider">
-                                <input type="number" min="2015" max="2024" step="1" value="2015" name="min-time-field" id="min-time-field" tabindex="1">
+                                <input type="range" min="2015" max="2024" step="1" value="2015" name="min-time-slider"
+                                       id="min-time-slider">
+                                <input type="number" min="2015" max="2024" step="1" value="2015" name="min-time-field"
+                                       id="min-time-field" tabindex="1">
                             </label>
                             <label>
                                 <span>max</span>
-                                <input type="range" min="2015" max="2024" step="1" value="2024" name="max-time-slider" id="max-time-slider">
-                                <input type="number" min="2015" max="2024" step="1" value="2024" name="max-time-field" id="max-time-field" tabindex="1">
+                                <input type="range" min="2015" max="2024" step="1" value="2024" name="max-time-slider"
+                                       id="max-time-slider">
+                                <input type="number" min="2015" max="2024" step="1" value="2024" name="max-time-field"
+                                       id="max-time-field" tabindex="1">
                             </label>
                         </div>
                     </div>
                 </div>
+                <!-- TODO: Add search filter chip -->
                 <div class="content-grid" id="preview-grid"></div>
                 <div class="content-grid" id="preview-no-content">
                     <p>Es konnten leider keine Beiträge gefunden werden (^-^*)</p>
