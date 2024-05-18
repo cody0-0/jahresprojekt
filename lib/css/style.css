@@ -974,6 +974,10 @@ section.hero.wrapping-grid > .content-grid {
     align-content: start;
 }
 
+.preview:has(*.dummy) {
+    opacity: 20%;
+}
+
 a.preview {
     --_color-anchor: var(--color-text);
 }
