@@ -532,6 +532,12 @@ header input[type="search"] {
     --_on-input-color: var(--_on-header-color);
 }
 
+header form {
+    display: flex;
+    gap: var(--h-spacing);
+    align-items: end;
+}
+
 input[type="search"] {
     --_input-color: var(--color-text);
     --_on-input-color: var(--color-text);
@@ -550,7 +556,7 @@ input[type="search"]:focus {
 }
 
 @media screen and (min-width: 930px) {
-    header input[type="search"].active {
+    header form.active input[type="search"] {
         width: 37.15em; /* Same width as main-menu */
     }
 }
