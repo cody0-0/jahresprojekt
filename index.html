@@ -360,15 +360,15 @@
                     </div>
                     <div>
                         <button class="filter button toggle-button" data-param="date" tabindex="1"
-                                aria-controls=".time-filter">
+                                aria-controls=".date-filter" onclick="scrollToSelected('.wheel-select.date-filter-select')">
                             Zeit
                         </button>
-                        <div class="filter-expansion time-filter" id="time-filter-touch">
+                        <div class="filter-expansion date-filter" id="date-filter-touch">
                             <label>
                                 <span>min</span>
                                 <div>
-                                    <ol class="wheel-select" name="min-time" id="min-time-select" tabindex="1">
-                                        <li value="2015">2015</li>
+                                    <ol min="2015" max="2024" value="2015" class="wheel-select date-filter-select" name="min-date" id="min-date-select" tabindex="1">
+                                        <li value="2015" class="selected">2015</li>
                                         <li value="2016">2016</li>
                                         <li value="2017">2017</li>
                                         <li value="2018">2018</li>
@@ -384,7 +384,7 @@
                             <label>
                                 <span>max</span>
                                 <div>
-                                    <ol class="wheel-select" name="max-time" id="max-time-select" tabindex="1">
+                                    <ol min="2015" max="2024" value="2024" class="wheel-select date-filter-select" name="max-date" id="max-date-select" tabindex="1">
                                         <li value="2015">2015</li>
                                         <li value="2016">2016</li>
                                         <li value="2017">2017</li>
@@ -394,25 +394,25 @@
                                         <li value="2021">2021</li>
                                         <li value="2022">2022</li>
                                         <li value="2023">2023</li>
-                                        <li value="2024">2024</li>
+                                        <li value="2024" class="selected">2024</li>
                                     </ol>
                                 </div>
                             </label>
                         </div>
-                        <div class="filter-expansion time-filter" id="time-filter-mouse">
+                        <div class="filter-expansion date-filter" id="date-filter-mouse">
                             <label>
                                 <span>min</span>
-                                <input type="range" min="2015" max="2024" step="1" value="2015" name="min-time-slider"
-                                       id="min-time-slider">
-                                <input type="number" min="2015" max="2024" step="1" value="2015" name="min-time-field"
-                                       id="min-time-field" tabindex="1">
+                                <input type="range" step="1" name="min-date"
+                                       id="min-date-slider" class="date-filter-select">
+                                <input type="number" min="2015" max="2024" step="1" value="2015" name="min-date"
+                                       id="min-date-field" tabindex="1" class="date-filter-select">
                             </label>
                             <label>
                                 <span>max</span>
-                                <input type="range" min="2015" max="2024" step="1" value="2024" name="max-time-slider"
-                                       id="max-time-slider">
-                                <input type="number" min="2015" max="2024" step="1" value="2024" name="max-time-field"
-                                       id="max-time-field" tabindex="1">
+                                <input type="range" min="2015" max="2024" step="1" value="2024" name="max-date"
+                                       id="max-date-slider" class="date-filter-select">
+                                <input type="number" min="2015" max="2024" step="1" value="2024" name="max-date"
+                                       id="max-date-field" tabindex="1" class="date-filter-select">
                             </label>
                         </div>
                     </div>
