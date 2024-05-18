@@ -1,0 +1,84 @@
+{{ define "routes" }}
+    <!doctype html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Routes</title>
+        <style>
+            body {
+                margin: 1em;
+                height: calc(100vh - 2em);
+                width: calc(100vw - 2em);
+                display: flex;
+                flex-direction: column;
+            }
+
+            hr {
+                margin: 1lh 0;
+            }
+
+            h1 {
+                margin: 0;
+            }
+
+            .wrapper {
+                flex: 1;
+                display: flex;
+                align-content: center;
+                justify-content: center;
+                margin-bottom: 10%;
+            }
+
+            ul {
+                margin: auto;
+                display: grid;
+                gap: 0.5em;
+                padding: 0;
+            }
+
+            li {
+                display: flex;
+                align-items: center;
+                gap: 0.25em;
+            }
+
+            span {
+                display: inline-block;
+                width: 1.2em;
+                height: 1.2em;
+            }
+
+            a {
+                text-decoration: none;
+                font-weight: bold;
+            }
+
+            /*@formatter:off*/
+            .GET {content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M7 8H5a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h2v-4H6m8-4h-4v8h4m-4-4h2.5M17 8h4m-2 0v8'/%3E%3C/svg%3E");}
+            .HEAD {content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M3 16V8m4 0v8m-4-4h4m7-4h-4v8h4m-4-4h2.5m4.5 4v-6a2 2 0 1 1 4 0v6m-4-3h4'/%3E%3C/svg%3E");}
+            .POST {content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M3 12h2a2 2 0 1 0 0-4H3v8m9-8a2 2 0 0 1 2 2v4a2 2 0 1 1-4 0v-4a2 2 0 0 1 2-2m5 7a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1h-2a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1'/%3E%3C/svg%3E");}
+            .PUT {content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M3 12h2a2 2 0 1 0 0-4H3v8m14-8h4m-2 0v8m-9-8v6a2 2 0 1 0 4 0V8'/%3E%3C/svg%3E");}
+            .DELETE {content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M3 8v8h2a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2zm11 0h-4v8h4m-4-4h2.5M17 8v8h4'/%3E%3C/svg%3E");}
+            .CONNECT {content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M7 10a2 2 0 1 0-4 0v4a2 2 0 1 0 4 0m10 2V8l4 8V8m-9 0a2 2 0 0 1 2 2v4a2 2 0 1 1-4 0v-4a2 2 0 0 1 2-2'/%3E%3C/svg%3E");}
+            .OPTIONS {content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 8a2 2 0 0 1 2 2v4a2 2 0 1 1-4 0v-4a2 2 0 0 1 2-2m5 4h2a2 2 0 1 0 0-4h-2v8m7-8h4m-2 0v8'/%3E%3C/svg%3E");}
+            .TRACE {content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M3 8h4M5 8v8m5-4h2a2 2 0 1 0 0-4h-2v8m4 0l-3-4m6 4v-6a2 2 0 1 1 4 0v6m-4-3h4'/%3E%3C/svg%3E");}
+            .PATCH {content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M3 12h2a2 2 0 1 0 0-4H3v8m7 0v-6a2 2 0 1 1 4 0v6m-4-3h4m3-5h4m-2 0v8'/%3E%3C/svg%3E");}
+            /*@formatter:on*/
+        </style>
+    </head>
+    <body>
+    <h1>Routes</h1>
+    <hr>
+    <div class="wrapper">
+        <ul>
+            {{ range . }}
+                <li>
+                    <span class="{{ .Method }}"></span>
+                    <a href="{{ .Path }}">{{ .Path }}</a>
+                </li>
+            {{ end }}
+        </ul>
+    </div>
+    </body>
+    </html>
+{{ end }}
