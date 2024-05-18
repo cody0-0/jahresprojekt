@@ -1284,7 +1284,7 @@ img {
         grid-row: 2 / 3;
     }
 
-    #content-gallery:has(.gallery-img:nth-child(7)) #more-imgs {
+    #content-gallery:has(.gallery-img:nth-child(5)) #more-imgs {
         grid-row: 2 / 3;
 
         font-size: 18vw;
