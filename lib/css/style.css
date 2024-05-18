@@ -1169,10 +1169,6 @@ img {
     opacity: 0.5;
 }
 
-#gallery-section:has(#more-imgs:last-child) {
-    display: none;
-}
-
 #post-browsing-section .preview {
     grid-column: span 4;
 }
@@ -1210,7 +1206,7 @@ img {
     opacity: 0.5;
 }
 
-#gallery-section:has(#more-imgs:last-child) {
+#gallery-section:has(#more-imgs:first-child) {
     display: none;
 }
 
