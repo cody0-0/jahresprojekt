@@ -371,7 +371,7 @@ a:focus .anchor-arrow::after {
     transform: translateY(-10%) translateX(10%) scale(90%);
 }
 
-b {
+b, strong {
     font-weight: bold;
 }
 
