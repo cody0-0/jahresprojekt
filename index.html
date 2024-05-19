@@ -318,6 +318,9 @@
                                 </button>
                                 <span>Medien- und Spielekonzeption M.A.</span>
                             </label>
+                            <button class="icon-button not-large close-filter toggle-button" aria-controls="#course-filter" tabindex="1">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+                            </button>
                         </div>
                     </div>
                     <div>
@@ -356,16 +359,19 @@
                                 <button class="icon-button" data-param="tag" data-val="events" tabindex="1"></button>
                                 <span>Events</span>
                             </label>
+                            <button class="icon-button not-large close-filter toggle-button" aria-controls="#category-filter" tabindex="1">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+                            </button>
                         </div>
                     </div>
                     <div>
                         <button class="filter button toggle-button" data-param="date" tabindex="1"
-                                aria-controls=".date-filter" onclick="scrollToSelected('.wheel-select.date-filter-select')">
+                                aria-controls=".date-filter" >
                             Zeit<span class="dropdown large-only"></span>
                         </button>
                         <div class="filter-expansion date-filter" id="date-filter-touch">
                             <label>
-                                <span>min</span>
+                                <span>von:</span>
                                 <div>
                                     <ol min="2015" max="2024" value="2015" class="wheel-select date-filter-select" name="min-date" id="min-date-select" tabindex="1">
                                         <li value="2015" class="selected">2015</li>
@@ -382,7 +388,7 @@
                                 </div>
                             </label>
                             <label>
-                                <span>max</span>
+                                <span>bis:</span>
                                 <div>
                                     <ol min="2015" max="2024" value="2024" class="wheel-select date-filter-select" name="max-date" id="max-date-select" tabindex="1">
                                         <li value="2015">2015</li>
@@ -398,22 +404,28 @@
                                     </ol>
                                 </div>
                             </label>
+                            <button class="icon-button not-large close-filter toggle-button" aria-controls=".date-filter" tabindex="1">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+                            </button>
                         </div>
                         <div class="filter-expansion date-filter" id="date-filter-mouse">
                             <label>
-                                <span>min</span>
+                                <span>von:</span>
                                 <input type="range" step="1" name="min-date"
-                                       id="min-date-slider" class="date-filter-select">
+                                       id="min-date-slider" class="date-filter-select" tabindex="1">
                                 <input type="number" min="2015" max="2024" step="1" value="2015" name="min-date"
-                                       id="min-date-field" tabindex="1" class="date-filter-select">
+                                       id="min-date-field" class="date-filter-select" tabindex="1">
                             </label>
                             <label>
-                                <span>max</span>
+                                <span>bis:</span>
                                 <input type="range" min="2015" max="2024" step="1" value="2024" name="max-date"
-                                       id="max-date-slider" class="date-filter-select">
+                                       id="max-date-slider" class="date-filter-select" tabindex="1">
                                 <input type="number" min="2015" max="2024" step="1" value="2024" name="max-date"
-                                       id="max-date-field" tabindex="1" class="date-filter-select">
+                                       id="max-date-field" class="date-filter-select" tabindex="1">
                             </label>
+                            <button class="icon-button not-large close-filter toggle-button" aria-controls=".date-filter" tabindex="1">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+                            </button>
                         </div>
                     </div>
                 </div>
