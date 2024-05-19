@@ -1001,7 +1001,6 @@ div:has(>.filter-expansion) {
 }
 
 .filter-expansion {
-
     --_filter-expansion-background: var(--color-container);
 
     position: absolute;
@@ -1017,6 +1016,7 @@ div:has(>.filter-expansion) {
 
     grid-template-columns: repeat(auto-fit, minmax(4rem, 1fr));
     justify-items: center;
+    align-items: start;
     gap: var(--v-spacing-previews) var(--h-spacing);
     z-index: 1;
 
