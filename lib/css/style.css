@@ -742,7 +742,7 @@ button:disabled {
     -webkit-mask-position: center;
     mask-position: center;
 }
-.dropdown:hover::after {
+.dropdown:hover::after, button:has(.dropdown):hover .dropdown::after {
     transform: translateY(10%) scale(90%);
 
 }
@@ -985,7 +985,8 @@ div:has(>.filter-expansion) {
 
         border-top: var(--line-thickness) solid var(--color-text);
         border-radius: 0;
-        padding-bottom:calc(var(--v-spacing)*2);
+        padding-top: var(--v-spacing);
+        padding-bottom: calc(var(--v-spacing) * 2);
 
     }
 }
