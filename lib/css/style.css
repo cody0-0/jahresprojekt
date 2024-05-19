@@ -1083,12 +1083,14 @@ div:has(>.filter-expansion) {
 
     position: relative;
     width: 100%;
+    height: fit-content;
 }
 
 label:has(.wheel-select) {
     display: grid;
     gap: var(--v-spacing);
     justify-items: start;
+    align-items: start;
 }
 
 .wheel-select {
