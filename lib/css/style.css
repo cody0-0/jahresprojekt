@@ -131,14 +131,14 @@
     --h-spacing: var(--h-spacing-s);
     --h-spacing-small: calc(var(--h-spacing) / 2);
 
-    --v-spacing-s: calc(var(--unit) * 5);
-    --v-spacing-l: calc(var(--unit) * 6);
+    --v-spacing-s: calc(var(--unit) * 7);
+    --v-spacing-l: calc(var(--unit) * 8);
 
     --v-spacing: var(--v-spacing-s);
     --v-spacing-half: calc(var(--v-spacing) / 2);
 
 
-    --section-spacing: calc(var(--v-spacing) * 2);
+    --section-spacing: calc(var(--v-spacing) * 1.5);
 
     --v-spacing-previews: calc(var(--v-spacing) * 2);
 
@@ -1484,6 +1484,7 @@ img {
     --poi-y: 0.5;
 
     object-position: calc(var(--poi-x, 0.5) * 100%) calc(var(--poi-y, 0.5) * 100%);
+    object-fit: cover;
 }
 
 .content-grid > * {
@@ -1504,10 +1505,12 @@ img {
 }
 
 .content blockquote {
+.content blockquote {
     height: auto;
     display: none;
 }
 
+.content blockquote p {
 .content blockquote p {
     font-size: 2em;
     font-weight: 100;
@@ -1517,19 +1520,31 @@ img {
 
 @media screen and (min-width: 930px) {
     .content .inline-img-container {
+    .content .inline-img-container {
         margin: 0;
         grid-column: 2 / -2;
+        overflow-x: hidden;
+    }
+
+    .content .inline-img-container img {
+        min-height: 400px;
     }
 
     .content .inline-img-container + blockquote {
         display: block;
     }
 
-    .content .inline-img-container:has(+ .inline-img-container, + blockquote) ,
+    .content .inline-img-container:has(+ .inline-img-container, + blockquote),
+    .content blockquote:has(+ .inline-img-container) {
+        grid-column: 2 / span 5;
+    }
+
     .content .inline-img-container + .inline-img-container,
     .content .inline-img-container + blockquote {
-        grid-column: span 6;
+        grid-column: span 5 / -2;
     }
+
+
 }
 
 .inline-img-container > img {
