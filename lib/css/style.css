@@ -437,6 +437,10 @@ input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-o
     }
 }
 
+input[type="number"]::-webkit-inner-spin-button:hover, input[type="number"]::-webkit-outer-spin-butto:hover {
+    cursor: pointer;
+}
+
 header {
     --_on-header-color: var(--color-text);
     --_header-background: var(--color-background);
@@ -580,7 +584,7 @@ input[type="search"], input[type="number"], input[type="text"], input[type="emai
     color: var(--_on-input-color);
 }
 
-input[type="search"]:focus {
+input[type="search"]:focus, input[type="number"]:focus, input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, input[type="tel"]:focus, input[type="url"]:focus {
     --_input-color: var(--color-primary);
     outline: none;
 }
@@ -593,13 +597,14 @@ input[type="search"]:focus {
 
 label {
     font-size: var(--font-size-label);
+    word-break: keep-all;
 }
 
 label:has(button) {
     color: var(--_on-button-color);
 }
 
-label:focus-within, label:has(button):hover {
+label:focus-within, label:has(button):hover, label:has(button.active) {
     cursor: pointer;
     --_on-button-color: var(--color-primary);
 }
@@ -717,6 +722,7 @@ header button, header .icon-button {
     background: transparent;
     filter: none;
     margin-right: calc((2.4rem - 24px) / -2);
+    border: none;
 }
 
 header .icon-button:hover, header .icon-button:focus,
@@ -737,6 +743,7 @@ button, .icon-button {
     filter: drop-shadow(var(--elevation-1));
     color: var(--_on-button-color);
     font-size: var(--font-size-label);
+    border: var(--line-thickness) solid var(--_button-background);
 
     display: flex;
     justify-content: center;
@@ -749,7 +756,6 @@ button:not(:disabled):hover, button:focus {
 
 button.active {
     --_on-button-color: var(--color-primary);
-    font-weight: var(--fontweight-headline);
     border: 2px solid var(--color-primary);
 }
 
@@ -778,9 +784,13 @@ button:disabled {
     -webkit-mask-position: center;
     mask-position: center;
 }
+
 .dropdown:hover::after, button:has(.dropdown):hover .dropdown::after {
     transform: translateY(10%) scale(90%);
+}
 
+.dropdown.expanded::after, button:has(.dropdown).expanded .dropdown::after {
+    rotate: 180deg;
 }
 
 .icon-button {
@@ -1002,10 +1012,10 @@ div:has(>.filter-expansion) {
 
 .filter-expansion {
     --_filter-expansion-background: var(--color-container);
+    --_filter-item-width: 5em;
 
     position: absolute;
     top: calc(var(--v-spacing) + var(--unit) * 2);
-    width: 60vw;
     height: fit-content;
     max-height: 70vh;
     overflow-y: auto;
@@ -1015,7 +1025,7 @@ div:has(>.filter-expansion) {
     display: none;
     gap: var(--h-spacing);
 
-    grid-template-columns: repeat(auto-fit, minmax(4rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(var(--_filter-item-width), 1fr));
     justify-items: center;
     align-items: start;
     gap: var(--v-spacing-previews) var(--h-spacing);
@@ -1031,6 +1041,13 @@ div:has(>.filter-expansion) {
     display: none;
 }
 
+@media screen and (min-width: 930px) {
+    .filter-expansion {
+        border: var(--line-thickness) solid var(--_filter-expansion-background);
+    }
+    
+}
+
 @media screen and (max-width: 930px) {
     .filter-expansion {
         --_filter-expansion-background: var(--color-background);
@@ -1044,11 +1061,23 @@ div:has(>.filter-expansion) {
 
         border-top: var(--line-thickness) solid var(--color-text);
         border-radius: 0;
-        padding-block: calc(var(--v-spacing) * 2 + var(--padding));
+        padding-block-start: calc(var(--button-size) + var(--padding) + var(--v-spacing));
+        padding-block-end: calc(var(--v-spacing) + var(--padding));
     }
 }
 
 @media screen and (min-width: 930px) {
+    #course-filter {
+        grid-template-columns: 1fr;
+    }
+    #category-filter {
+        grid-template-columns: repeat(4, var(--_filter-item-width));
+    }
+    .date-filter {
+        --_filter-item-width: 10em;
+        grid-template-columns: repeat(2, var(--_filter-item-width));
+    }
+
     .filter-expansion button, .filter-expansion .icon-button {
         --_button-background: var(--color-background);
     }
@@ -1062,8 +1091,14 @@ div:has(>.filter-expansion) {
     display: grid;
 }
 
-.filter-expansion:has(button:active), .filter-expansion:has(button.active) {
-    border: var(--line-thickness) solid var(--color-primary);
+div:has(button.active) .filter-expansion {
+    border-top: var(--line-thickness) solid var(--color-primary);
+}
+@media screen and (min-width: 930px) {
+    div:has(button.active) .filter-expansion {
+        border: var(--line-thickness) solid var(--color-primary);
+    }
+    
 }
 
 .filter-expansion > label {
@@ -1111,7 +1146,7 @@ div:has(>.filter-expansion) {
 
 label:has(.wheel-select) {
     display: grid;
-    gap: var(--v-spacing);
+    gap: var(--v-spacing-small);
     justify-items: start;
     align-items: start;
 }
