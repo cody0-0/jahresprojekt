@@ -1363,11 +1363,11 @@ a.preview:hover, a.preview:focus {
 
 /* beitragsseite */
 
-body.content-page section:first-of-type {
+body:is(.content-page, .about-page) section:first-of-type {
     margin-block-start: var(--header-height);
 }
 
-body:not(.home-page):not(.content-page) section:first-of-type {
+body:is(.err404-page, .help-page) section:first-of-type {
     margin-block-start: calc(var(--header-height) + var(--v-spacing));
 }
 
