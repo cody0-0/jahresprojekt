@@ -1,17 +1,17 @@
 [
   {
-    "headline": "News-Headline 1",
-    "text": "Hier würde die News-Beschreibung stehen",
-    "href": "#"
+    "headline": "Campusfieber 2024",
+    "text": "am 8. Juni auf dem Campus der HS Harz",
+    "href": "https://www.hs-harz.de/campusfieber"
   },
   {
-    "headline": "News-Headline 2",
-    "text": "Hier würde die News-Beschreibung stehen",
-    "href": "#"
+    "headline": "Prüfungsanmeldung WS23/24",
+    "text": "vom 15.05. bis 29.05.2024",
+    "href": "https://portal.hs-harz.de/qisserver/pages/cm/exa/enrollment/info/start.xhtml?_flowId=studyPlanner-flow&_flowExecutionKey=e1s1"
   },
   {
-    "headline": "News-Headline 3",
-    "text": "Hier würde die News-Beschreibung stehen",
-    "href": "#"
+    "headline": "Bewerbungsfrist WS23/24",
+    "text": "jetzt bis zum 31.08.2024 bewerben",
+    "href": "https://www.hs-harz.de/studium/bewerberinformationen/online-bewerbung"
   }
 ]

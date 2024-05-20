@@ -90,10 +90,10 @@ button {
 
 textarea,
 input:not([type="checkbox"]):not([type="file"]):not([type="image"]):not([type="radio"]):not([type="range"]) {
-  font: inherit;
-  letter-spacing: inherit;
-  word-spacing: inherit;
-  padding: 0 0.2em;
+    font: inherit;
+    letter-spacing: inherit;
+    word-spacing: inherit;
+    padding: 0 0.2em;
 }
 
 input[type="range"] {
@@ -126,7 +126,8 @@ input[type="range"]::-webkit-slider-thumb {
     background: var(--_thumb-background);
     border: var(--_thumb-border);
     box-shadow: var(--_thumb-box-shadow);
-  }
+}
+
 input[type="range"]::-moz-range-thumb {
     appearance: none;
     margin-top: var(--_thumb-transform);
@@ -169,15 +170,15 @@ input[type="range"]::-moz-range-track {
 input[type="range"]::-ms-track {
     width: 100%;
     cursor: pointer;
-  
+
     /* Hides the slider so custom styles can be added */
-    background: var(--_track-background); 
+    background: var(--_track-background);
     border-color: transparent;
     color: transparent;
 }
 
 input[type="range"]:focus {
-    outline: none; 
+    outline: none;
 }
 
 input[type="range"]:focus::-webkit-slider-thumb {
@@ -190,7 +191,7 @@ input[type="number"] {
     width: 100%;
 }
 
-input[type="number"]::-webkit-outer-spin-button, 
+input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }

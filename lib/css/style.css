@@ -582,7 +582,7 @@ header form {
     align-items: end;
 }
 
-input[type="search"], input[type="number"], input[type="text"], input[type="email"], input[type="password"], input[type="tel"], input[type="url"]{
+input[type="search"], input[type="number"], input[type="text"], input[type="email"], input[type="password"], input[type="tel"], input[type="url"] {
     --_input-color: var(--color-text);
     --_on-input-color: var(--color-text);
 
@@ -789,7 +789,7 @@ button:not(:disabled):hover, button:focus {
 
 button.active {
     --_on-button-color: var(--color-primary);
-    border: 2px solid var(--color-primary);
+    border: var(--line-thickness) solid var(--color-primary);
 }
 
 button svg, .icon-button svg {
@@ -1055,11 +1055,10 @@ div:has(>.filter-expansion) {
     height: fit-content;
     max-height: 70vh;
     overflow-y: auto;
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
 
     display: none;
-    gap: var(--h-spacing);
 
     grid-template-columns: repeat(auto-fit, minmax(var(--_filter-item-width), 1fr));
     justify-items: center;
@@ -1073,6 +1072,17 @@ div:has(>.filter-expansion) {
     filter: drop-shadow(var(--elevation-1));
 }
 
+#course-filter {
+    justify-content: center;
+    justify-items: start;
+    grid-template-columns: fit-content(100%);
+    gap: var(--v-spacing);
+}
+
+#course-filter .icon-button svg {
+    transform: translateX(3%);
+}
+
 .filter-expansion::-webkit-scrollbar {
     display: none;
 }
@@ -1081,7 +1091,6 @@ div:has(>.filter-expansion) {
     .filter-expansion {
         border: var(--line-thickness) solid var(--_filter-expansion-background);
     }
-    
 }
 
 @media screen and (max-width: 930px) {
@@ -1100,15 +1109,21 @@ div:has(>.filter-expansion) {
         padding-block-start: calc(var(--button-size) + var(--padding) + var(--v-spacing));
         padding-block-end: calc(var(--v-spacing) + var(--padding));
     }
+
+    #course-filter {
+        padding-block-end: calc(var(--v-spacing-previews) + var(--padding));
+    }
 }
 
 @media screen and (min-width: 930px) {
     #course-filter {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
     }
+
     #category-filter {
         grid-template-columns: repeat(4, var(--_filter-item-width));
     }
+
     .date-filter {
         --_filter-item-width: 10em;
         grid-template-columns: repeat(2, var(--_filter-item-width));
@@ -1130,11 +1145,12 @@ div:has(>.filter-expansion) {
 div:has(button.active) .filter-expansion {
     border-top: var(--line-thickness) solid var(--color-primary);
 }
+
 @media screen and (min-width: 930px) {
     div:has(button.active) .filter-expansion {
         border: var(--line-thickness) solid var(--color-primary);
     }
-    
+
 }
 
 .filter-expansion > label {
@@ -1143,8 +1159,17 @@ div:has(button.active) .filter-expansion {
     justify-items: center;
     align-items: start;
     height: fit-content;
-    width: 100%;
     text-align: center;
+}
+
+#course-filter > label {
+    grid-template-columns: min-content auto;
+    text-align: left;
+    align-items: center;
+}
+
+#date-filter-touch > label, #date-filter-mouse > label {
+    width: 100%;
 }
 
 .filter-expansion > .close-filter {
@@ -1159,6 +1184,7 @@ div:has(button.active) .filter-expansion {
         display: none;
     }
 }
+
 @media (pointer: coarse) {
     #date-filter-mouse {
         display: none;
@@ -1195,8 +1221,8 @@ label:has(.wheel-select) {
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
     isolation: isolate;
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
 }
 
 *:has(>.wheel-select)::before {
