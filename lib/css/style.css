@@ -1174,7 +1174,7 @@ div:has(button.active) .filter-expansion {
     align-items: center;
 }
 
-#date-filter-touch > label {
+#date-filter-touch > label, #date-filter-mouse > label {
     width: 100%;
 }
 
