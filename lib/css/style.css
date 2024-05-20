@@ -1363,11 +1363,11 @@ a.preview:hover, a.preview:focus {
 
 /* beitragsseite */
 
-body:is(.content-page, .about-page) section:first-of-type {
+body:has(*.content-title) section:first-of-type {
     margin-block-start: var(--header-height);
 }
 
-body:is(.err404-page, .help-page) section:first-of-type {
+body:not(:has(*.content-title, *.hero)) section:first-of-type {
     margin-block-start: calc(var(--header-height) + var(--v-spacing));
 }
 
@@ -1414,12 +1414,12 @@ img {
     gap: var(--unit) 0;
 }
 
-#content-section blockquote {
+.content blockquote {
     height: auto;
     display: none;
 }
 
-#content-section blockquote p {
+.content blockquote p {
     font-size: 2em;
     font-weight: 100;
     text-indent: 0;
@@ -1427,18 +1427,18 @@ img {
 }
 
 @media screen and (min-width: 930px) {
-    #content-section .inline-img-container {
+    .content .inline-img-container {
         margin: 0;
         grid-column: 2 / -2;
     }
 
-    #content-section .inline-img-container + blockquote {
+    .content .inline-img-container + blockquote {
         display: block;
     }
 
-    #content-section .inline-img-container:has(+ .inline-img-container, + blockquote) ,
-    #content-section .inline-img-container + .inline-img-container,
-    #content-section .inline-img-container + blockquote {
+    .content .inline-img-container:has(+ .inline-img-container, + blockquote) ,
+    .content .inline-img-container + .inline-img-container,
+    .content .inline-img-container + blockquote {
         grid-column: span 6;
     }
 }
