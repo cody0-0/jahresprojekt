@@ -582,12 +582,6 @@ header form {
     align-items: end;
 }
 
-header form {
-    display: flex;
-    gap: var(--h-spacing);
-    align-items: end;
-}
-
 input[type="search"], input[type="number"], input[type="text"], input[type="email"], input[type="password"], input[type="tel"], input[type="url"]{
     --_input-color: var(--color-text);
     --_on-input-color: var(--color-text);
@@ -798,7 +792,7 @@ button.active {
     border: 2px solid var(--color-primary);
 }
 
-button.active svg {
+button svg, .icon-button svg {
     fill: var(--_on-button-color);
 }
 
@@ -1043,7 +1037,7 @@ section.hero.wrapping-grid > .content-grid {
 .filter-row {
     position: relative;
     display: flex;
-    gap: 16px;
+    gap: calc(var(--unit) * 2);
     justify-content: start;
     align-items: center;
 }
@@ -1244,6 +1238,46 @@ label:has(.wheel-select) {
 
 .wheel-select > *.disabled {
     display: none;
+}
+
+.content-grid > div:has(>#search-indicator) {
+    margin-top: calc((var(--v-spacing) - var(--v-spacing-small)));
+    grid-column: span 4;
+}
+
+#search-indicator {
+    max-width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    width: fit-content;
+    display: none;
+    justify-content: start;
+    padding-right: 0;
+}
+
+#search-indicator .icon-button {
+    padding: 0;
+    aspect-ratio: 1;
+    filter: none;
+    background: none;
+}
+
+#search-indicator.active {
+    display: flex;
+}
+
+#search-indicator:hover * {
+    --_on-button-color: var(--color-primary);
+    cursor: pointer;
+}
+
+
+#search-indicator-text {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 100%;
+    flex-grow: 1;
 }
 
 .previews {
