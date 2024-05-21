@@ -90,8 +90,108 @@ button {
 
 textarea,
 input:not([type="checkbox"]):not([type="file"]):not([type="image"]):not([type="radio"]):not([type="range"]) {
-  font: inherit;
-  letter-spacing: inherit;
-  word-spacing: inherit;
-  padding: 0 0.2em;
+    font: inherit;
+    letter-spacing: inherit;
+    word-spacing: inherit;
+    padding: 0 0.2em;
+}
+
+input[type="range"] {
+    --_track-height: 0.5rem;
+    --_track-border-radius: 0.5rem;
+    --_track-background: currentColor;
+    --_thumb-size: 1rem;
+    --_thumb-border-radius: 50%;
+    --_thumb-background: currentColor;
+    --_thumb-border: 0;
+    --_thumb-box-shadow: none;
+
+    --_thumb-transform: calc(var(--_track-height) / 2 - var(--_thumb-size) / 2);
+
+    -webkit-appearance: none;
+    appearance: none;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    width: 100%;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    margin-top: var(--_thumb-transform);
+    width: var(--_thumb-size);
+    height: var(--_thumb-size);
+    border-radius: var(--_thumb-border-radius);
+    background: var(--_thumb-background);
+    border: var(--_thumb-border);
+    box-shadow: var(--_thumb-box-shadow);
+}
+
+input[type="range"]::-moz-range-thumb {
+    appearance: none;
+    margin-top: var(--_thumb-transform);
+    width: var(--_thumb-size);
+    height: var(--_thumb-size);
+    border-radius: var(--_thumb-border-radius);
+    background: var(--_thumb-background);
+    border: var(--_thumb-border);
+    box-shadow: var(--_thumb-box-shadow);
+}
+
+input[type="range"]::-ms-thumb {
+    appearance: none;
+    margin-top: var(--_thumb-transform);
+    width: var(--_thumb-size);
+    height: var(--_thumb-size);
+    border-radius: var(--_thumb-border-radius);
+    background: var(--_thumb-background);
+    border: var(--_thumb-border);
+    box-shadow: var(--_thumb-box-shadow);
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
+    appearance: none;
+    height: var(--_track-height);
+    border-radius: var(--_track-border-radius);
+    background: var(--_track-background);
+    cursor: pointer;
+}
+
+input[type="range"]::-moz-range-track {
+    appearance: none;
+    height: var(--_track-height);
+    border-radius: var(--_track-border-radius);
+    background: var(--_track-background);
+    cursor: pointer;
+}
+
+input[type="range"]::-ms-track {
+    width: 100%;
+    cursor: pointer;
+
+    /* Hides the slider so custom styles can be added */
+    background: var(--_track-background);
+    border-color: transparent;
+    color: transparent;
+}
+
+input[type="range"]:focus {
+    outline: none;
+}
+
+input[type="range"]:focus::-webkit-slider-thumb {
+    outline-width: 2px;
+    outline-style: solid;
+}
+
+input[type="number"] {
+    position: relative;
+    width: 100%;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
 }

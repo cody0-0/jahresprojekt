@@ -1,0 +1,51 @@
+{{ define "replace" }}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Replace</title>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+            }
+
+            form {
+                display: flex;
+                flex-direction: column;
+                height: calc(100vh - 2em);
+                width: calc(100vw - 2em);
+                gap: 1em;
+                padding: 1em
+            }
+
+            form div {
+                display: flex;
+                gap: 1em;
+            }
+
+            form div label {
+                flex: 1;
+            }
+
+            #replace {
+                flex: auto;
+                font-family: monospace;
+            }
+        </style>
+    </head>
+    <body>
+    <form action="/replace" method="post">
+        <div>
+            <label for="replace">Replacement data:</label>
+            <button type="submit">Replace</button>
+            <button type="button" onclick="window.location.href='/edit';">Abort</button>
+        </div>
+        <textarea id="replace" name="replace" readonly></textarea>
+    </form>
+    <script>
+        document.getElementById('replace').value = JSON.stringify({{ . }}, null, 4);
+    </script>
+    </body>
+    </html>
+{{ end }}
