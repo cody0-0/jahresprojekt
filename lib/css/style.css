@@ -114,15 +114,12 @@
     --unit: 8px;
 
     --edge-padding-s: calc(var(--unit) * 3);
-    --edge-padding-m: calc(var(--unit) * 4);
+    --edge-padding-m: calc(var(--unit) * 5);
     --edge-padding-l: calc(var(--unit) * 6);
     --edge-padding: var(--edge-padding-s);
 
-    --padding-s: 1em;
-    --padding-m: 2em;
-    --padding-l: 3em;
-
-    --padding: clamp(var(--padding-s), 1vw, var(--padding-l));
+    --padding: 1.5em;
+    --padding-half: calc(var(--padding) / 2);
 
     --h-spacing-s: var(--edge-padding-s);
     --h-spacing-m: var(--edge-padding-m);
@@ -138,9 +135,10 @@
     --v-spacing-half: calc(var(--v-spacing) / 2);
 
 
-    --section-spacing: calc(var(--v-spacing) * 1.5);
+    --section-spacing: calc(var(--v-spacing) * 1.8);
 
     --v-spacing-previews: calc(var(--v-spacing) * 1.5);
+    --v-spacing-previews-grid: calc(var(--v-spacing) * 2);
 
     --header-height: calc(var(--unit) * 11);
 
@@ -162,8 +160,9 @@
     :root {
         --edge-padding: var(--edge-padding-m);
         --h-spacing: var(--h-spacing-m);
-
         --v-spacing: var(--v-spacing-l);
+        --v-spacing-previews: var(var(--v-spacing-previews-grid))
+
     }
 }
 
@@ -229,6 +228,7 @@ body {
             1fr
         )
         [full-end];
+
     gap: var(--section-spacing) 0;
 }
 
@@ -242,6 +242,10 @@ body {
 
 .wrapping-grid > .full {
     grid-column: full;
+}
+
+.wrapping-grid:not(main > .wrapping-grid) {
+    gap: var(--v-spacing) 0;
 }
 
 .content-grid {
@@ -404,17 +408,19 @@ h1 {
 }
 
 h2 {
-    margin-block-start: var(--v-spacing);
     font-size: var(--font-size-headline2);
     font-weight: var(--fontweight-headline);
     line-height: var(--line-height-headline);
 }
 
 h3 {
-    margin-block-start: var(--v-spacing-half);
     font-size: var(--font-size-headline3);
     font-weight: var(--fontweight-headline);
     line-height: var(--line-height-headline);
+}
+
+h2, h3 {
+    margin-block-start: var(--padding);
 }
 
 form {
@@ -1389,12 +1395,12 @@ label:has(.wheel-select) {
 .preview {
     display: flex;
     flex-direction: column;
-    gap: var(--padding);
+    gap: var(--padding-half);
     align-content: start;
 }
 
 .preview:has(*.dummy) {
-    opacity: 20%;
+    opacity: 0.4;
 }
 
 a.preview {
@@ -1426,7 +1432,7 @@ a.preview:hover, a.preview:focus {
     bottom: 0;
     width: 2rem;
     height: 2rem;
-    margin: var(--unit);
+    margin: var(--padding-half);
 }
 
 .preview.minf .preview-img-wrapper::after {
@@ -1496,10 +1502,6 @@ main.wrapping-grid {
     gap: var(--v-spacing) 0;
 }
 
-.content-title.wrapping-grid {
-    gap: var(--unit) 0;
-}
-
 .title-img {
     width: 100%;
     height: 60vh;
@@ -1508,7 +1510,6 @@ main.wrapping-grid {
 
 .title-img-container {
     position: relative;
-    margin-block-end: var(--v-spacing);
 }
 
 /* point of interest system */
@@ -1524,6 +1525,12 @@ img {
     grid-column: 1 / -1;
 }
 
+.content-title-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-half);
+}
+
 .caption, .caption * {
     font-size: var(--font-size-label);
     font-weight: var(--fontweight-light);
@@ -1534,7 +1541,7 @@ img {
     margin: 0 var(--padding);
     display: flex;
     flex-direction: column;
-    gap: var(--padding) 0;
+    gap: var(--padding-half) 0;
 }
 
 .content-grid blockquote {
@@ -1543,7 +1550,7 @@ img {
 }
 
 .content-grid blockquote p {
-    font-size: 2em;
+    font-size: var(--font-size-headline2);
     font-weight: 100;
     text-indent: 0;
     transform: translateY(calc((1lh - 1em) * -0.8));
@@ -1564,6 +1571,9 @@ img {
     .content-grid .inline-img-container + blockquote {
         display: block;
     }
+    .content-grid blockquote:has(+ .inline-img-container) {
+        display: block;
+    }
 
     .content-grid .inline-img-container:has(+ .inline-img-container, + blockquote),
     .content-grid blockquote:has(+ .inline-img-container) {
@@ -1578,7 +1588,7 @@ img {
 
 }
 
-.inline-img-container > img {
+.inline-img-container img {
     width: 100%;
     height: auto;
     object-fit: cover;
@@ -1822,7 +1832,7 @@ img {
     justify-self: stretch;
     display: flex;
     flex-direction: column;
-    gap: var(--padding);
+    gap: var(--padding-half);
     align-items: center;
     justify-content: center;
     overflow: hidden;
@@ -1864,7 +1874,7 @@ img {
     position: absolute;
     right: 0;
     bottom: 0;
-    margin: var(--unit);
+    margin: var(--padding-half);
 }
 
 @media screen and (orientation: landscape) {
