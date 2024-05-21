@@ -539,7 +539,6 @@ header.scrolled {
     overflow: hidden;
     max-width: var(--max-site-width, 1920px);
     width: 100%;
-    gap: calc(var(--v-spacing) * 2);
     transition: all 0.3s;
 }
 
@@ -554,8 +553,15 @@ header.scrolled {
 @media screen and (max-width: 945px) {
     .expanded-header:has(.active) {
         height: calc(100dvh - var(--header-height));
+        padding: var(--padding) var(--edge-padding);
         flex-direction: column;
         justify-content: space-between;
+        overflow-y: auto;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+    .expanded-header::-webkit-scrollbar {
+        display: none;
     }
 }
 
@@ -565,6 +571,7 @@ header.scrolled {
     gap: var(--v-spacing);
     width: 100%;
     justify-content: end;
+    max-height: calc(100dvh - var(--header-height));
 }
 
 .expanded-header > *:not(.active) {
@@ -584,11 +591,8 @@ nav, nav ul {
 }
 
 @media screen and (max-width: 945px) {
-    .expanded-header {
-        padding-top: var(--v-spacing);
-    }
     .expanded-header nav, .expanded-header nav ul {
-        --_nav-spacing: calc(var(--v-spacing));
+        --_nav-spacing: var(--v-spacing);
     }
 }
 
@@ -680,6 +684,10 @@ label:focus-within, label:has(button):hover, label:has(button.active) {
 @media screen and (max-width: 945px) {
     .expanded-menu {
         align-items: center;
+        min-height: 34rem; /* ~ height of hamburger menu */
+    }
+    #preview-search {
+        font-size: var(--font-size-body);
     }
 }
 
@@ -709,11 +717,11 @@ label:focus-within, label:has(button):hover, label:has(button.active) {
     align-items: end;
     gap: calc(var(--v-spacing) / 2);
     margin: 0;
+    font-size: var(--font-size-body);
 }
 
 .sub-menu-heading {
-    font-weight: var(--fontweight-light);
-    font-size: var(--font-size-label);
+    color: var(--color-neutral-500);
 }
 
 .expanded-header .social-media-links {
@@ -1071,8 +1079,10 @@ section#welcome-section {
     justify-content: start;
     align-items: center;
     max-width: 100%;
+    flex-wrap: wrap; /* as long as scrolling does not work */
 }
 
+/* Sadly - this still does not work 
 @media screen and (max-width: 600px) {
     .filter-row {
         overflow-x: auto;
@@ -1090,6 +1100,7 @@ section#welcome-section {
     }
     
 }
+*/
 
 div:has(>.filter-expansion) {
     position: relative;
