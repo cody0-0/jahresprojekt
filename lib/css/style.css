@@ -688,9 +688,10 @@ label:focus-within, label:has(button):hover, label:has(button.active) {
 }
 
 @media screen and (max-width: 945px) {
-    .expanded-menu {
+    .expanded-menu.active {
         align-items: center;
         min-height: 34rem; /* ~ height of hamburger menu */
+        gap: 0;
     }
     #preview-search {
         font-size: var(--font-size-body);
