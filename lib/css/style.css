@@ -118,9 +118,9 @@
     --edge-padding-l: calc(var(--unit) * 6);
     --edge-padding: var(--edge-padding-s);
 
-    --padding-s: 1rem;
-    --padding-m: 2rem;
-    --padding-l: 3rem;
+    --padding-s: 1em;
+    --padding-m: 2em;
+    --padding-l: 3em;
 
     --padding: clamp(var(--padding-s), 1vw, var(--padding-l));
 
@@ -1534,7 +1534,7 @@ img {
     margin: 0 var(--padding);
     display: flex;
     flex-direction: column;
-    gap: var(--unit) 0;
+    gap: var(--padding) 0;
 }
 
 .content-grid blockquote {
@@ -1822,7 +1822,7 @@ img {
     justify-self: stretch;
     display: flex;
     flex-direction: column;
-    gap: var(--unit);
+    gap: var(--padding);
     align-items: center;
     justify-content: center;
     overflow: hidden;
