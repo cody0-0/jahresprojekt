@@ -716,8 +716,7 @@ label:focus-within, label:has(button):hover, label:has(button.active) {
 }
 
 .logo-stamp-text {
-    fill: var(--_on-header-color);
-    filter: invert(1);
+    fill: var(--_header-background);
 }
 
 .minf .logo-stamp-text, .musk .logo-stamp-text {
