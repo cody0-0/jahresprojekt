@@ -985,6 +985,12 @@ footer .social-media-links {
     object-fit: cover;
 }
 
+@media screen and (max-width: 600px) {
+    .hero-trailer {
+        height: 65svh;
+    }
+}
+
 .hero-trailer::-webkit-media-controls {
     display: none !important;
     opacity: 0;
