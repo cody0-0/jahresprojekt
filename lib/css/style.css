@@ -287,6 +287,11 @@ body {
     }
 
     .content-grid .span {
+        grid-column: 1 / -1;
+    }
+
+    .content-grid .span:has(+ .span),
+    .content-grid .span + .span {
         grid-column: span 6;
     }
 
@@ -573,6 +578,7 @@ header.scrolled {
         scrollbar-width: none;
         -ms-overflow-style: none;
     }
+
     .expanded-header::-webkit-scrollbar {
         display: none;
     }
@@ -597,7 +603,7 @@ header.scrolled {
         align-items: start;
         padding: var(--padding) var(--edge-padding) var(--padding) var(--padding);
     }
-    
+
 }
 
 .expanded-header > *:not(.active) {
@@ -627,8 +633,9 @@ nav, nav ul {
     .expanded-header nav, .expanded-header nav ul {
         --_nav-spacing: var(--v-spacing);
     }
+
     .preview-search {
-       width: var(--_expanded-header-width);
+        width: var(--_expanded-header-width);
     }
 }
 
@@ -729,6 +736,7 @@ label:focus-within, label:has(button):hover, label:has(button.active) {
         min-height: 25rem; /* ~ height of hamburger menu */
         gap: 0;
     }
+
     #preview-search {
         font-size: var(--font-size-body);
         width: var(--_expanded-header-width);
@@ -1215,10 +1223,7 @@ div:has(>.filter-expansion) {
 
         border-top: var(--line-thickness) solid var(--color-text);
         border-radius: 0;
-        padding:    calc(var(--button-size) + var(--padding) + var(--v-spacing)) 
-                    var(--edge-padding) 
-                    calc(var(--v-spacing) + var(--padding)) 
-                    var(--edge-padding);
+        padding: calc(var(--button-size) + var(--padding) + var(--v-spacing)) var(--edge-padding) calc(var(--v-spacing) + var(--padding)) var(--edge-padding);
     }
 
     #course-filter {
@@ -1253,11 +1258,12 @@ div:has(>.filter-expansion) {
     display: grid;
 }
 
-div:has(button.active)>.filter-expansion {
+div:has(button.active) > .filter-expansion {
     border-top: var(--line-thickness) solid var(--color-primary);
 }
+
 @media screen and (min-width: 945px) {
-    div:has(button.active)>.filter-expansion {
+    div:has(button.active) > .filter-expansion {
         border: var(--line-thickness) solid var(--color-primary);
     }
 
@@ -1614,6 +1620,7 @@ img {
     .content-grid .inline-img-container + blockquote {
         display: block;
     }
+
     .content-grid blockquote:has(+ .inline-img-container) {
         display: block;
     }
