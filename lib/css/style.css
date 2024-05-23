@@ -259,6 +259,12 @@ body {
     gap: var(--v-spacing-half);
 }
 
+.small-spacing {
+    display: flex;
+    flex-direction: column;
+    gap: var(--v-spacing-half) var(--h-spacing-small);
+}
+
 .content-table {
     display: none;
     flex-direction: column;
@@ -344,6 +350,7 @@ body {
 }
 
 /* Style */
+
 html {
     font-family: var(--font-family);
     line-height: var(--line-height);
