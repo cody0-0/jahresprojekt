@@ -56,28 +56,7 @@
     --color-lavender-600: #9c68a2;
     --color-lavender-700: #b58bba;
     --color-lavender-900: #e2d0e4;
-}
 
-.minf {
-    --color-primary: var(--color-minf);
-    --color-secondary: var(--color-minf);
-}
-
-.musk {
-    --color-primary: var(--color-musk);
-    --color-secondary: var(--color-musk);
-}
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --color-background: var(--color-neutral-050);
-        --color-text: var(--color-neutral-900);
-        --color-container: var(--color-neutral-100);
-        --elevation-1: 0px 0px 8px rgba(0, 0, 0, 0.5);
-    }
-}
-
-:root {
     /* Typography */
     --font-family: "Helvetica Neue", "Arial", sans-serif;
     --font-size-mobile: 100%;
@@ -170,6 +149,25 @@
     :root {
         --edge-padding: var(--edge-padding-l);
         --h-spacing: var(--h-spacing-l);
+    }
+}
+
+.minf {
+    --color-primary: var(--color-minf);
+    --color-secondary: var(--color-minf);
+}
+
+.musk {
+    --color-primary: var(--color-musk);
+    --color-secondary: var(--color-musk);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-background: var(--color-neutral-050);
+        --color-text: var(--color-neutral-900);
+        --color-container: var(--color-neutral-100);
+        --elevation-1: 0px 0px 4px rgba(0, 0, 0, 0.5);
     }
 }
 
