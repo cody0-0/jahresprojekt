@@ -851,6 +851,10 @@ section > *:first-child {
     margin-block-start: 0;
 }
 
+section:first-of-type {
+    scroll-margin-block-start: 200px; /* big buffer because it's the top element */
+}
+
 label {
     font-size: var(--font-size-label);
 }
