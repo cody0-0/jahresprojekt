@@ -1382,12 +1382,17 @@ label:has(.wheel-select) {
     display: none;
 }
 
-.content-grid > div:has(>#search-indicator) {
-    margin-top: calc((var(--v-spacing) - var(--v-spacing-small)));
+div:has(>.filter-row):has(#search-chip.active) {
+    display: flex;
+    flex-direction: column;
+    gap: var(--v-spacing-half);
+}
+
+.content-grid > div:has(>#search-chip) {
     grid-column: span 4;
 }
 
-#search-indicator {
+#search-chip {
     max-width: 100%;
     overflow: hidden;
     white-space: nowrap;
@@ -1397,24 +1402,24 @@ label:has(.wheel-select) {
     padding-right: 0;
 }
 
-#search-indicator .icon-button {
+#search-chip .icon-button {
     padding: 0;
     aspect-ratio: 1;
     filter: none;
     background: none;
 }
 
-#search-indicator.active {
+#search-chip.active {
     display: flex;
 }
 
-#search-indicator:hover * {
+#search-chip:hover * {
     --_on-button-color: var(--color-primary);
     cursor: pointer;
 }
 
 
-#search-indicator-text {
+#search-chip-text {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
