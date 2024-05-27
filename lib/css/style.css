@@ -129,7 +129,7 @@
 
     --line-thickness: 2px;
 
-    --button-size: 2.4rem;
+    --button-size: 2.6rem;
     --border-radius-interaction: calc(var(--button-size) / 2);
 
     --elevation-1: 0px 0px 4px rgba(0, 0, 0, 0.1);
@@ -877,6 +877,11 @@ button, .icon-button {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.icon-button {
+    padding: 0;
+    aspect-ratio: 1;
 }
 
 button:not(:disabled):hover, button:focus {
