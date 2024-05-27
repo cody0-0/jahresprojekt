@@ -879,7 +879,7 @@ button, .icon-button {
     align-items: center;
 }
 
-.icon-button {
+.icon-button, button.icon-button {
     padding: 0;
     aspect-ratio: 1;
 }
