@@ -63,7 +63,6 @@
     --font-size-large: 110%;
     --font-size: var(--font-size-mobile);
     --line-height: 1.5;
-    --button-size: 2.4rem;
 
     --font-size-title: 2.8rem;
     --font-size-headline1: 2.4rem;
@@ -129,7 +128,7 @@
 
     --line-thickness: 2px;
 
-    --button-size: 2.4rem;
+    --button-size: 2.6rem;
     --border-radius-interaction: calc(var(--button-size) / 2);
 
     --elevation-1: 0px 0px 4px rgba(0, 0, 0, 0.1);
@@ -865,6 +864,10 @@ section > *:first-child {
     margin-block-start: 0;
 }
 
+section:first-of-type {
+    scroll-margin-block-start: 200px; /* big buffer because it's the top element */
+}
+
 label {
     font-size: var(--font-size-label);
 }
@@ -887,6 +890,12 @@ button, .icon-button {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.icon-button, button.icon-button {
+    width: var(--button-size);
+    height: var(--button-size);
+    padding: 0;
 }
 
 button:not(:disabled):hover, button:focus {
