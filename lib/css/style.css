@@ -1398,17 +1398,17 @@ label:has(.wheel-select) {
     display: none;
 }
 
-div:has(>.filter-row):has(#search-chip.active) {
+div:has(>.filter-row):has(.filter-chip.active) {
     display: flex;
     flex-direction: column;
     gap: var(--v-spacing-half);
 }
 
-.content-grid > div:has(>#search-chip) {
+.content-grid > div:has(>.filter-chip) {
     grid-column: span 4;
 }
 
-#search-chip {
+.filter-chip {
     max-width: 100%;
     overflow: hidden;
     white-space: nowrap;
@@ -1418,24 +1418,24 @@ div:has(>.filter-row):has(#search-chip.active) {
     padding-right: 0;
 }
 
-#search-chip .icon-button {
+.filter-chip .icon-button {
     padding: 0;
     aspect-ratio: 1;
     filter: none;
     background: none;
 }
 
-#search-chip.active {
+.filter-chip.active {
     display: flex;
 }
 
-#search-chip:hover * {
+.filter-chip:hover * {
     --_on-button-color: var(--color-primary);
     cursor: pointer;
 }
 
 
-#search-chip-text {
+.filter-chip label {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
