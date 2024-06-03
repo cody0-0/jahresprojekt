@@ -502,19 +502,19 @@
                     <p>Es konnten leider keine Beiträge gefunden werden (^-^*)</p>
                 </div>
                 <div class="page-nav" id="page-nav">
+                    <button class="icon-button" id="first-page-button" onclick="navigateTo(0);"></button>
                     <button class="icon-button" id="prev-page-button" onclick="navigateTo(-1, true);">
                         <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
                             <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z"/>
                         </svg>
                     </button>
-                    <button class="icon-button" id="first-page-button" onclick="navigateTo(0);"></button>
                     <p id="current-page-indicator">Seite 3</p>
-                    <button class="icon-button" id="last-page-button" onclick="navigateTo(pageCount - 1);"></button>
                     <button class="icon-button" id="next-page-button" onclick="navigateTo(+1, true);">
                         <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
                             <path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z"/>
                         </svg>
                     </button>
+                    <button class="icon-button" id="last-page-button" onclick="navigateTo(pageCount - 1);"></button>
                 </div>
             </section>
         </div>
