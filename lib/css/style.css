@@ -1513,6 +1513,10 @@ a.preview:hover, a.preview:focus {
     content: url("../../resources/imgs/logo_musk_stamp_color.svg");
 }
 
+.preview .preview-img-wrapper::after {
+    content: url("../../resources/imgs/logo_medien_stamp_color.svg");
+}
+
 @media screen and (min-width: 945px) {
     .preview .preview-img {
         max-height: 50svh;
