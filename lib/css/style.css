@@ -1469,9 +1469,9 @@ div:has(>.filter-row):has(#search-chip.active) {
     align-content: start;
 }
 
-.preview:has(*.dummy) {
+/*.preview:has(*.dummy) {
     opacity: 0.4;
-}
+}*/
 
 a.preview {
     --_color-anchor: var(--color-text);
