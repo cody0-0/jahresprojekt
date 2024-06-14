@@ -1500,8 +1500,8 @@ a.preview:hover, a.preview:focus {
     position: absolute;
     right: 0;
     bottom: 0;
-    width: 2rem;
-    height: 2rem;
+    width: 2.4rem;
+    height: 2.4rem;
     margin: var(--padding-half);
 }
 
