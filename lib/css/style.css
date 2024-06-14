@@ -15,6 +15,7 @@
     --color-neutral-000: #000000;
     --color-neutral-050: #191918;
     --color-neutral-100: #2e2d2c;
+    --color-neutral-200: #3f3e3d;
     --color-neutral-300: #6b6967;
     --color-neutral-400: #83817e;
     --color-neutral-500: #91908e;
@@ -165,7 +166,7 @@
     :root {
         --color-background: var(--color-neutral-050);
         --color-text: var(--color-neutral-900);
-        --color-container: var(--color-neutral-100);
+        --color-container: var(--color-neutral-200);
         --elevation-1: 0px 0px 4px rgba(0, 0, 0, 0.5);
     }
 }
