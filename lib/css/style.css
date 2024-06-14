@@ -1469,9 +1469,9 @@ div:has(>.filter-row):has(#search-chip.active) {
     align-content: start;
 }
 
-.preview:has(*.dummy) {
+/*.preview:has(*.dummy) {
     opacity: 0.4;
-}
+}*/
 
 a.preview {
     --_color-anchor: var(--color-text);
@@ -1511,6 +1511,10 @@ a.preview:hover, a.preview:focus {
 
 .preview.musk .preview-img-wrapper::after {
     content: url("../../resources/imgs/logo_musk_stamp_color.svg");
+}
+
+.preview .preview-img-wrapper::after {
+    content: url("../../resources/imgs/logo_medien_stamp_color.svg");
 }
 
 @media screen and (min-width: 945px) {
