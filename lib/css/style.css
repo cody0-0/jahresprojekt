@@ -133,7 +133,7 @@
     --button-size: 2.6rem;
     --border-radius-interaction: calc(var(--button-size) / 2);
 
-    --elevation-1: 0px 0px 6px rgba(0, 0, 0, 0.5);
+    --elevation-1: 0px 0px 4px rgba(0, 0, 0, 0.3);
 }
 
 @media (min-width: 600px) {
@@ -1154,12 +1154,13 @@ section#welcome-section {
     justify-content: start;
     align-items: center;
     max-width: 100%;
-    flex-wrap: wrap; /* as long as scrolling does not work */
+    /*flex-wrap: wrap; /* as long as scrolling does not work */
 }
 
-/* Sadly - this still does not work 
+/* Sadly - this still does not work */
 @media screen and (max-width: 600px) {
     .filter-row {
+        max-width: calc(100vw - var(--edge-padding) * 2);
         overflow-x: auto;
         padding: var(--unit);
         margin: calc(var(--unit) * -1);
@@ -1175,7 +1176,6 @@ section#welcome-section {
     }
     
 }
-*/
 
 div:has(>.filter-expansion) {
     position: relative;
