@@ -21,6 +21,7 @@
     --color-neutral-500: #91908e;
     --color-neutral-600: #a5a4a2;
     --color-neutral-700: #c1c0be;
+    --color-neutral-800: #e0dfdd;
     --color-neutral-900: #f3f3f1;
     --color-neutral-950: #f9f9f8;
     --color-neutral-1000: #ffffff;
@@ -132,7 +133,7 @@
     --button-size: 2.6rem;
     --border-radius-interaction: calc(var(--button-size) / 2);
 
-    --elevation-1: 0px 0px 4px rgba(0, 0, 0, 0.1);
+    --elevation-1: 0px 0px 6px rgba(0, 0, 0, 0.5);
 }
 
 @media (min-width: 600px) {
