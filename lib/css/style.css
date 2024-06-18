@@ -1052,6 +1052,7 @@ footer .social-media-links {
     min-height: 400px;
     height: 75svh;
     object-fit: cover;
+    z-index: 2; /* to be above the fading edge -> "filter-row::before" */
 }
 
 @media screen and (max-width: 600px) {
@@ -1160,12 +1161,11 @@ section#welcome-section {
 /* Sadly - this still does not work */
 @media screen and (max-width: 600px) {
     .filter-row {
-        max-width: calc(100vw - var(--edge-padding) * 2);
+        max-width: 100vw;
         overflow-x: auto;
-        padding: var(--unit);
-        margin: calc(var(--unit) * -1);
+        padding: var(--unit) var(--edge-padding);
+        margin: calc(var(--unit) * -1) calc(var(--edge-padding) * -1);
         position: relative;
-        isolation: isolate;
 
         scrollbar-width: none;
         -ms-overflow-style: none;
@@ -1173,6 +1173,18 @@ section#welcome-section {
 
     .filter-row::-webkit-scrollbar {
         display: none;
+    }
+
+    .filter-row::before { /* gradient to fade out scrolling content at edges */
+        content: '';
+        position: fixed; /* short term simplest solution */
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        background: linear-gradient(to right, var(--color-background) 0%, transparent 5%, transparent 95%, var(--color-background) 100%);
+        z-index: 1;
+        pointer-events: none;
     }
     
 }
