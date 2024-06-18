@@ -1051,7 +1051,6 @@ footer .social-media-links {
     min-height: 400px;
     height: 75svh;
     object-fit: cover;
-    z-index: 2; /* to be above the fading edge -> ".filter-row::before" */
 }
 
 @media screen and (max-width: 600px) {
@@ -1071,6 +1070,7 @@ footer .social-media-links {
 
 section.hero {
     position: relative;
+    z-index: 2; /* to be above the fading edge -> ".filter-row::before" */
 }
 
 section.hero.wrapping-grid > .content-grid {
