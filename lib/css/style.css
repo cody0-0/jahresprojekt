@@ -502,10 +502,7 @@ header {
 
 header.fading-header {
     --_on-header-color: var(--color-neutral-1000);
-    --_header-background: color-mix(
-            in srgb,
-            var(--color-background) 0%
-    ); /* WARNING: CanIUse Compatibility of color-mix() only 88% */
+    --_header-background: transparent;
     --_header-elevation: 0 0 0 transparent;
 }
 
@@ -674,6 +671,23 @@ input[type="search"]:focus, input[type="number"]:focus, input[type="text"]:focus
     outline: none;
 }
 
+textarea {
+    --_input-color: var(--color-text);
+    --_on-input-color: var(--color-text);
+    --_input-background: var(--color-background);
+
+    background: var(--_input-background);
+    border-color: var(--_input-color);
+    border-bottom: var(--line-thickness, 2px) solid var(--_input-color);
+    color: var(--_on-input-color);
+    resize: vertical;
+}
+
+textarea:focus {
+    --_input-color: var(--color-primary);
+    outline: none;
+}
+
 /*
 @media screen and (min-width: 945px) {
     .preview-search.active:not(:has(+ .expanded-menu.active)) {
@@ -808,7 +822,7 @@ label:focus-within, label:has(button):hover, label:has(button.active) {
     fill: var(--_header-background);
 }
 
-.minf .logo-stamp-text, .musk .logo-stamp-text {
+.minf .logo-stamp-text, .musk .logo-stamp-text, header.fading-header:not(.scrolled) .logo-stamp-text {
     fill: #2e2d2c;
     filter: none;
 }

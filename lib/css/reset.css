@@ -93,7 +93,7 @@ input:not([type="checkbox"]):not([type="file"]):not([type="image"]):not([type="r
     font: inherit;
     letter-spacing: inherit;
     word-spacing: inherit;
-    padding: 0 0.2em;
+    padding: 0 0.3em;
 }
 
 input[type="range"] {
