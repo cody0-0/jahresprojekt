@@ -15,6 +15,7 @@
     --color-neutral-000: #000000;
     --color-neutral-050: #191918;
     --color-neutral-100: #2e2d2c;
+    --color-neutral-200: #3f3e3d;
     --color-neutral-300: #6b6967;
     --color-neutral-400: #83817e;
     --color-neutral-500: #91908e;
@@ -122,7 +123,7 @@
 
     --content-wrap: 1120px;
 
-    --max-site-width: 1920px;
+    --max-site-width: 2400px;
 
     /* Styling */
 
@@ -165,7 +166,7 @@
     :root {
         --color-background: var(--color-neutral-050);
         --color-text: var(--color-neutral-900);
-        --color-container: var(--color-neutral-100);
+        --color-container: var(--color-neutral-200);
         --elevation-1: 0px 0px 4px rgba(0, 0, 0, 0.5);
     }
 }
@@ -1083,6 +1084,7 @@ footer .social-media-links {
 
 section.hero {
     position: relative;
+    z-index: 2; /* to be above the fading edge -> ".filter-row::before" */
 }
 
 section.hero.wrapping-grid > .content-grid {
@@ -1166,17 +1168,15 @@ section#welcome-section {
     justify-content: start;
     align-items: center;
     max-width: 100%;
-    flex-wrap: wrap; /* as long as scrolling does not work */
 }
 
-/* Sadly - this still does not work 
 @media screen and (max-width: 600px) {
     .filter-row {
+        max-width: 100vw;
         overflow-x: auto;
-        padding: var(--unit);
-        margin: calc(var(--unit) * -1);
+        padding: var(--unit) var(--edge-padding);
+        margin: calc(var(--unit) * -1) calc(var(--edge-padding) * -1);
         position: relative;
-        isolation: isolate;
 
         scrollbar-width: none;
         -ms-overflow-style: none;
@@ -1185,9 +1185,20 @@ section#welcome-section {
     .filter-row::-webkit-scrollbar {
         display: none;
     }
+
+    .filter-row::before { /* gradient to fade out scrolling content at edges */
+        content: '';
+        position: fixed; /* short term simplest solution */
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        background: linear-gradient(to right, var(--color-background) 0%, transparent 5%, transparent 95%, var(--color-background) 100%);
+        z-index: 1;
+        pointer-events: none;
+    }
     
 }
-*/
 
 div:has(>.filter-expansion) {
     position: relative;
@@ -1483,9 +1494,9 @@ div:has(>.filter-row):has(#search-chip.active) {
     align-content: start;
 }
 
-.preview:has(*.dummy) {
+/*.preview:has(*.dummy) {
     opacity: 0.4;
-}
+}*/
 
 a.preview {
     --_color-anchor: var(--color-text);
@@ -1514,8 +1525,8 @@ a.preview:hover, a.preview:focus {
     position: absolute;
     right: 0;
     bottom: 0;
-    width: 2rem;
-    height: 2rem;
+    width: 2.4rem;
+    height: 2.4rem;
     margin: var(--padding-half);
 }
 
@@ -1525,6 +1536,10 @@ a.preview:hover, a.preview:focus {
 
 .preview.musk .preview-img-wrapper::after {
     content: url("../../resources/imgs/logo_musk_stamp_color.svg");
+}
+
+.preview .preview-img-wrapper::after {
+    content: url("../../resources/imgs/logo_medien_stamp_color.svg");
 }
 
 @media screen and (min-width: 945px) {
@@ -1925,7 +1940,7 @@ img {
 
 #image-overlay-img {
     object-fit: contain;
-    max-width: 100%;
+    width: 100%;
     max-height: calc(
             100vh
             - var(--button-size)
@@ -1967,12 +1982,11 @@ img {
         width: 100%;
         height: 100%;
         grid-template-columns: var(--button-size) auto var(--button-size);
-        grid-template-rows: var(--button-size) auto var(--button-size) var(--button-size);
+        grid-template-rows: var(--button-size) auto var(--button-size);
         grid-template-areas:
             "area4 area0 area1"
-            ". area0 ."
-            ". area0 area2"
-            ". area0 area3";
+            "area2 area0 area3"
+            ". area0 .";
         gap: var(--v-spacing-half) var(--h-spacing-small);
     }
 
@@ -1988,10 +2002,12 @@ img {
 
     #image-overlay-prev {
         grid-area: area2;
+        align-self: center;
     }
 
     #image-overlay-next {
         grid-area: area3;
+        align-self: center;
     }
 
     .image-overlay-container {
