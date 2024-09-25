@@ -822,7 +822,7 @@ label:focus-within, label:has(button):hover, label:has(button.active) {
     fill: var(--_header-background);
 }
 
-.minf .logo-stamp-text, .musk .logo-stamp-text {
+.minf .logo-stamp-text, .musk .logo-stamp-text, header.fading-header:not(.scrolled) .logo-stamp-text {
     fill: #2e2d2c;
     filter: none;
 }
